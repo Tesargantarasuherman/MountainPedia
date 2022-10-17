@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchForm from '../../atoms/SearchForm'
+import { SearchForm } from '../../atoms'
 import './index.scss'
 
 export default function Banner() {

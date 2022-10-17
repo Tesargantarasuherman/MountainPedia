@@ -1,7 +1,9 @@
 import React from 'react'
 import './index.scss'
-export default function Button() {
+export default function Button({title}) {
   return (
-    <div>Button</div>
+    <button>
+        {title}
+    </button>
   )
 }
