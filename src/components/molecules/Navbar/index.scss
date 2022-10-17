@@ -1,0 +1,31 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin:0px 10%;
+    &-left{
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+    &-right{
+        ul{
+            outline: none;
+            li{
+                font-weight: 600;
+                font-size: 1em;
+                display: inline;
+                margin-left:10px;
+                button{
+                    padding: 10px 20px;
+                    outline: none;
+                    border: none;
+                    font-size: 1em;
+                    background-color: #011E3F;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
