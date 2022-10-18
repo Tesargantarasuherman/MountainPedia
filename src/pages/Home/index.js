@@ -1,9 +1,9 @@
 import React from 'react'
-import { Banner, Button, Container, Navbar } from '../../components'
+import { Banner, Button, Card, Container, Navbar } from '../../components'
 
 export default function Home() {
   return (
-    <div style={{marginHorizontal:'15%'}}>
+    <div>
     <Navbar />
     <Banner />
     <Container props={
@@ -13,6 +13,9 @@ export default function Home() {
             <Button title="Guides"/>
         </>
     }/>
+    <Container props={
+      <Card />
+    } />
     </div>
   )
 }
