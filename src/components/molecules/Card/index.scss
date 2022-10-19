@@ -1,19 +1,32 @@
 .card{
-    max-width: 300px;
-    position: relative;
-    img{
-        width: 100%;
+    .card-header{
+        max-width: 300px;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        .title{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        span{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .type{
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+        }
     }
-    .title{
-        position: absolute;
-        top: 5px;
-        left: 5px;
-    }
-    span{
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        font-size: 1.2rem;
-        color: white;
+    .card-body{
+        .title{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
     }
 }
