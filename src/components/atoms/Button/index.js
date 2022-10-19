@@ -1,8 +1,8 @@
 import React from 'react'
 import './index.scss'
-export default function Button({title}) {
+export default function Button({title,type}) {
   return (
-    <button>
+    <button className={`${type ? type : 'normal'}`}>
         {title}
     </button>
   )
