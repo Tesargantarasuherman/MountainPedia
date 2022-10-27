@@ -3,6 +3,7 @@ import { Button } from '../../atoms'
 import './index.scss'
 import ReactStars from 'react-stars'
 import { Location, Ticket } from '../../../assets'
+import { motion } from 'framer-motion'
 
 export default function Card() {
     return (
@@ -24,8 +25,8 @@ export default function Card() {
                         count={5}
                         onChange={null}
                         size={24}
-                        color2={'#ffd700'}value={4.5}
-                         />
+                        color2={'#ffd700'} value={4.5}
+                    />
                     <div className="rating-text">
                         (469 Review)
                     </div>
@@ -60,15 +61,20 @@ export default function Card() {
                     </div>
                 </div>
             </div>
-            <div className="card-footer">
-                <div className="card-footer-title">
-                    Available Today
+            <motion.div className="card-footer">
+                <div className='card-footer-body'>
+                    <div className="card-footer-body-title">
+                        Available Today
+                    </div>
+                    <div className="card-footer-body-ticket">
+                        <img src={Ticket} alt="" />
+                        <p>Book Now</p>
+                    </div>
                 </div>
-                <div className="card-footer-ticket">
-                    <img src={Ticket} alt="" />
-                    <p>Book Now</p>
-                </div>
-            </div>
+                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.5}} className="book-now">
+                    <p>BOOK NOW</p>
+                </motion.div>
+            </motion.div>
         </div>
     )
 }
