@@ -1,3 +1,3 @@
 import Location from './location.svg'
-
-export{Location}
+import Ticket from './tickets.svg'
+export{Location,Ticket}

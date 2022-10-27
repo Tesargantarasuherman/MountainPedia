@@ -2,7 +2,6 @@
     display: flex;
     margin: 5% 10%;
     gap:10px;
-    div{
-        flex: 1;
-    }
+    flex-wrap: wrap;
+
 }

@@ -1,4 +1,11 @@
+@import '../../../utils/styles/color.scss';
 .card{
+    box-shadow: 0px 28px 29px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 28px 29px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 28px 29px -4px rgba(0,0,0,0.75);
+    max-width: 300px !important;
+    border-radius: 5px;
+    overflow: hidden;
     .card-header{
         max-width: 300px;
         position: relative;
@@ -19,14 +26,72 @@
         }
         .type{
             position: absolute;
-            bottom: 5px;
+            display: flex;
+            align-items: center;
+            bottom: 10px;
             left: 5px;
+            right: 5px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            &-text{
+                color: white;
+                font-weight: 600;
+                font-size: 0.8rem;
+            }
         }
     }
     .card-body{
+        margin-top: 10px;
+        min-height: 200px;
+        padding:10px;
         .title{
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: bold;
+        }
+        .rating{
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        .content{
+            .body-content{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin:10px 0;
+                .description{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .card-footer{
+        padding:10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #F5F5F6;
+        font-size: 0.8rem;
+        &-title{
+            color: $main-color;
+            font-weight: bold;
+        }
+        &-ticket{
+            color: $main-color;
+            display: flex;
+            gap:5px;
+            img{
+                width: 14px;
+                height: 14px;   
+            }
+        }
+        &:hover{
+            background-color: $main-color;
+        }
+        .card-footer:hover &-title{
+            color:white !important;
         }
     }
 }

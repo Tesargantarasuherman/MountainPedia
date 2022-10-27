@@ -14,7 +14,10 @@ export default function Home() {
         </>
     }/>
     <Container props={
+      <>
       <Card />
+      <Card />
+      </>
     } />
     </div>
   )
