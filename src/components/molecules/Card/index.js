@@ -6,6 +6,15 @@ import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
 
 export default function Card() {
+    const slashMotion ={
+        rest:{y:200},
+        hover:{
+            y:0
+        },
+        transition:{
+           delay: 0.5
+        }
+    }
     return (
         <div className="card">
             <div className="card-header">
@@ -61,7 +70,7 @@ export default function Card() {
                     </div>
                 </div>
             </div>
-            <motion.div className="card-footer">
+            <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
                 <div className='card-footer-body'>
                     <div className="card-footer-body-title">
                         Available Today
@@ -71,7 +80,7 @@ export default function Card() {
                         <p>Book Now</p>
                     </div>
                 </div>
-                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.5}} className="book-now">
+                <motion.div variants={slashMotion} className="book-now">
                     <p>BOOK NOW</p>
                 </motion.div>
             </motion.div>
