@@ -12,7 +12,7 @@ export default function Navbar() {
                 <li>lorem</li>
                 <li>lorem</li>
                 <li>
-                    <button>Sign In / Register</button>
+                    <button className='btn-login'>Sign In / Register</button>
                 </li>
             </ul>
         </div>
