@@ -35,21 +35,24 @@ export default function Home() {
 
       <Navbar />
       <Banner />
-      <Container props={
+      <Container el={
         <>
           <Button title="Hiking" />
           <Button title="Camping" />
           <Button title="Guides" />
         </>
       } />
-      <Container props={
+      <Container justify='space-between' el={
         <>
+          <Card />
+          <Card />
+          <Card />
           <Card />
           <Card />
         </>
       } />
       <Container 
-      props={
+      el={
         <>
         <Footer />
         </>

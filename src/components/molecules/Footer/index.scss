@@ -1,0 +1,32 @@
+@import '../../../utils/styles/color.scss';
+
+.footer{
+    background-color: $main-color;
+    width: 100%;
+    padding-top: 40px;
+    color:white;
+    .container-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .content{
+            display: flex;
+            flex-direction: column;
+            flex:1;
+            label{
+                font-weight: bold;
+            }
+            select{
+                padding: 10px 0px;
+                font-weight: bold;
+            }
+        }
+        .content:nth-child(1){
+            margin: 0 10px;
+        }
+    }
+    .copyright{
+        margin: 20px 0;
+        padding-left: 10px;
+    }
+}
