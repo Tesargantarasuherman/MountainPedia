@@ -1,8 +1,8 @@
 import React from 'react'
 import './index.scss'
-function Container({el,justify}) {
+function Container({el,justify,marginTop}) {
   return (
-    <div className={`container ${justify ? justify : null}`}>
+    <div className={`container ${justify ? justify : null}`} style={{marginTop:marginTop?marginTop:0}}>
         {el}
     </div>
   )
