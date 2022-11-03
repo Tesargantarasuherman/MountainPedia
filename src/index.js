@@ -7,6 +7,8 @@ import "intro.js/introjs.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "flatpickr/dist/themes/material_green.css";
+import '../src/fonts/GT-Eesti-Display-Regular.otf'
+import '../src/fonts/GT-Eesti-Display-Bold.otf'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
