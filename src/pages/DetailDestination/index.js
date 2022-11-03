@@ -3,6 +3,7 @@ import { Banner, Container, ImageCollage } from '../../components'
 import Slider from 'react-slick'
 import './index.scss'
 import { useState } from 'react'
+
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
     const setting = {

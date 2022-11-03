@@ -1,19 +1,29 @@
 import React from 'react'
 import { Location } from '../../../assets'
 import './index.scss'
+import Flatpickr from "react-flatpickr";
+import { useState } from 'react';
 
-function InputType({ type,label }) {
+function InputType({ type, label }) {
+  const [date, setDate] = useState(new Date())
   switch (type) {
     case "text":
-      return <input type="text" name="" id="" placeholder={`Input a ${label}`}/>
+      return <input type="text" name="" id="" placeholder={`Input a ${label}`} />
     case "date":
-      return <input type="date" name="" id="" />
+      return (
+        <Flatpickr
+          value={date}
+          onChange={([date]) => {
+            setDate(date);
+          }}
+          />
+      )
     case "select-option":
       return (<select name="" id="">
         <option value="">Choose {label}</option>
       </select>)
     default:
-      return <input type="text" name="" id="" placeholder={`Input a ${label}`}/>
+      return <input type="text" name="" id="" placeholder={`Input a ${label}`} />
   }
 }
 function InputForm({ label, icon, gap, type }) {
@@ -25,7 +35,7 @@ function InputForm({ label, icon, gap, type }) {
           <label>
             {label}
           </label>
-          <InputType type={type} label={label}/>
+          <InputType type={type} label={label} />
         </div>
       </div>
       {

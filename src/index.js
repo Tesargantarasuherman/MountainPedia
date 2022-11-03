@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import "intro.js/introjs.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "flatpickr/dist/themes/material_green.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
