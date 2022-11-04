@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, Container, ImageCollage } from '../../components'
+import { Banner, Button, Card, Container, ImageCollage } from '../../components'
 import Slider from 'react-slick'
 import './index.scss'
 import { useState } from 'react'
@@ -70,6 +70,37 @@ function DetailDestination() {
             <Container el={
                 <ImageCollage popup={popup}/>
             } />
+            <Container marginTop={30} justify="space-between" el={
+            <>
+            <div className="detail-description">
+                <div className="detail-description-left">
+                    <p>Enjoy a relaxing night out as you cruise down the Nile River while savoring an open buffet dinner. Watch belly dancers as they perform to classic Arabic songs along with a Tanoura show.</p>
+                </div>
+                <div className="detail-description-right">
+                    <div className="detail-description-right-content">
+                        <p className="detail-description-right-content-title">
+                            Price
+                        </p>
+                        <div className="detail-description-right-content-price-book">
+                            <p className="price">
+                                Rp 492,648
+                            </p>
+                            <Button title={'Book Now'}/>
+                        </div>
+                        <p className="detail-description-right-content-title">
+                            per person
+                        </p>
+                        <div className="detail-description-right-content-pay-info">
+                            <p className="icon">
+                                Rp 492,648
+                            </p>
+                            <Button title={'Book Now'}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </>
+            }/>
         </>
     )
 }

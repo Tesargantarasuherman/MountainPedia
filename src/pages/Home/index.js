@@ -7,12 +7,19 @@ export default function Home() {
   const [hintsEnabled, setHintsEnabled] = useState(true)
   const [steps, setSteps] = useState([
     {
+      element: ".navbar-left>p",
+      intro: "Hello step",
+      position: 'right',
+      tooltipClass: 'myTooltipClass',
+      highlightClass: 'myHighlightClass',
+    },
+    {
       element: ".btn-login",
-      intro: "Hello step"
+      intro: "Login"
     },
     {
       element: ".navbar-right ul",
-      intro: "World step"
+      intro: "Menu"
     }
   ])
   const [hints, setHints] = useState([])

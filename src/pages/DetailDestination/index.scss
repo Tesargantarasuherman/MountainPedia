@@ -25,6 +25,7 @@
 .hide{
     display: none !important;
 }
+// slider
 .container-slider{
 
 }
@@ -55,4 +56,54 @@
     /* margin-left:20px ; */
     /* padding:0px 10px; */
     /* box-sizing: border-box; */
+}
+// detail description
+.detail-description{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    word-spacing: 5px;
+    line-height: 1.2;
+
+    &-left{
+        flex:1;
+    }
+
+    &-right{
+        flex:.5;
+        border: 2px solid #dcdfe4;
+        border-top: 5px solid #0071eb;
+        height: 200px;
+        max-width: 600px;
+        border-radius: 10px;
+
+        &-content{
+            padding: 20px;
+
+            &-title{
+                font-size: 1rem;
+            }
+            &-price-book{
+                display: flex;
+                justify-content: space-between;
+                align-items: center; 
+
+                .price{
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+            }
+
+            &-pay-info{
+                display: flex;
+                justify-content: space-between;
+                align-items: center; 
+
+                .icon{
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
 }
