@@ -3,6 +3,8 @@ import { Banner, Button, Card, Container, ImageCollage } from '../../components'
 import Slider from 'react-slick'
 import './index.scss'
 import { useState } from 'react'
+import { Datetime } from '../../assets'
+import ReactStars from 'react-stars'
 
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
@@ -47,7 +49,7 @@ function DetailDestination() {
     return (
         <>
             <div className={`popup-slider ${togglePopup ? 'show' : 'hide'}`}>
-                    <button onClick={popup}>X</button>
+                <button onClick={popup}>X</button>
                 <div>
                     <div className="container-slider">
                         <Slider {...setting}>
@@ -68,39 +70,68 @@ function DetailDestination() {
                 </div>
             </div>
             <Container el={
-                <ImageCollage popup={popup}/>
-            } />
-            <Container marginTop={30} justify="space-between" el={
-            <>
-            <div className="detail-description">
-                <div className="detail-description-left">
-                    <p>Enjoy a relaxing night out as you cruise down the Nile River while savoring an open buffet dinner. Watch belly dancers as they perform to classic Arabic songs along with a Tanoura show.</p>
-                </div>
-                <div className="detail-description-right">
-                    <div className="detail-description-right-content">
-                        <p className="detail-description-right-content-title">
-                            Price
-                        </p>
-                        <div className="detail-description-right-content-price-book">
-                            <p className="price">
-                                Rp 492,648
-                            </p>
-                            <Button title={'Book Now'}/>
-                        </div>
-                        <p className="detail-description-right-content-title">
-                            per person
-                        </p>
-                        <div className="detail-description-right-content-pay-info">
-                            <p className="icon">
-                                Rp 492,648
-                            </p>
-                            <Button title={'Book Now'}/>
-                        </div>
+                <div className='detail-destination-header'>
+                    <div className="breadcumb">
+                        <p>Egypt <span className="lnr lnr-chevron-right tiny" /></p>
+                        <p>Cairo Region <span className="lnr lnr-chevron-right tiny" /></p>
+                        <p>Things to do in Cairo </p>
+                    </div>
+                    <div className="category-destination">
+                        <p>Hiking</p>
+                    </div>
+                    <h1>
+                        Cairo: Dinner Cruise on the Nile River with Entertainment
+                    </h1>
+                    <div className="rating-destination">
+                        <ReactStars
+                            count={5}
+                            onChange={null}
+                            size={24}
+                            color2={'#ffd700'} value={4.5}
+                        />
+                        <p>4.5 / 5</p>
+                        <p>959 reviews</p>
+                        <p>Activity provider: </p>
+                        <p>Emo Tours Egypt</p>
                     </div>
                 </div>
-            </div>
-            </>
-            }/>
+            } />
+            <Container el={
+                <ImageCollage popup={popup} />
+            } />
+            <Container marginTop={30} justify="space-between" el={
+                <>
+                    <div className="detail-description">
+                        <div className="detail-description-left">
+                            <p>Enjoy a relaxing night out as you cruise down the Nile River while savoring an open buffet dinner. Watch belly dancers as they perform to classic Arabic songs along with a Tanoura show.</p>
+                        </div>
+                        <div className="detail-description-right">
+                            <div className="detail-description-right-content">
+                                <div className="detail-description-right-content-price-book">
+                                    <div>
+                                        <p className="detail-description-right-content-title">
+                                            Price
+                                        </p>
+                                        <p className="price">
+                                            Rp 492,648
+                                        </p>
+                                        <p className="detail-description-right-content-title">
+                                            per person
+                                        </p>
+                                    </div>
+                                    <Button title={'Book Now'} />
+                                </div>
+                                <div className="detail-description-right-content-pay-info">
+                                    <img src={Datetime} alt="" srcset="" className="icon" />
+                                    <p className="description">
+                                        Reserve now & pay later to book your spot and pay nothing today
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            } />
         </>
     )
 }

@@ -1,3 +1,4 @@
+@import "../../utils/styles/color.scss";
 
 .popup-slider{
     position: fixed;
@@ -72,8 +73,8 @@
     &-right{
         flex:.5;
         border: 2px solid #dcdfe4;
-        border-top: 5px solid #0071eb;
-        height: 200px;
+        border-top: 5px solid $main-color;
+        // padding:10px 0;
         max-width: 600px;
         border-radius: 10px;
 
@@ -87,6 +88,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center; 
+                flex-wrap: wrap;
 
                 .price{
                     font-size: 1.8rem;
@@ -97,13 +99,57 @@
             &-pay-info{
                 display: flex;
                 justify-content: space-between;
-                align-items: center; 
+                align-items: center;
+                margin: 20px 0; 
+                gap: 40px;
 
                 .icon{
-                    font-size: 1.8rem;
-                    font-weight: 600;
+                    width: 35px;
+                    height: auto;
+                }
+                .description{
+                    font-size: 1rem;
                 }
             }
+        }
+    }
+}
+// detail destination
+.detail-destination-header{
+    .category-destination{
+        background-color: $main-color;
+        padding: 5px 20px;
+        text-align: center;
+        max-width: fit-content;
+        margin: 20px 0;
+        p{
+            color: white;
+        }
+    }
+    .rating-destination{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin:10px 0;
+        gap:10px;
+        p{
+            padding-top:5px;
+        }
+        p:nth-child(3),p:nth-child(5){
+            color: $main-color;
+        }
+    }
+}
+// breadcumb
+.breadcumb{
+    display: flex;
+    justify-content: flex-start;
+    gap:5px;
+    margin:10px 0;
+    p{
+        .tiny{
+            font-size: 0.5rem !important;
+            font-weight: bold;
         }
     }
 }

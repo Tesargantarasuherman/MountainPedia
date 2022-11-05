@@ -4,15 +4,15 @@ import './index.scss'
 import ReactStars from 'react-stars'
 import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
-
+import { Link } from "react-router-dom";
 export default function Card() {
-    const slashMotion ={
-        rest:{y:200},
-        hover:{
-            y:0
+    const slashMotion = {
+        rest: { y: 200 },
+        hover: {
+            y: 0
         },
-        transition:{
-           delay: 0.5
+        transition: {
+            delay: 0.5
         }
     }
     return (
@@ -80,9 +80,11 @@ export default function Card() {
                         <p>Book Now</p>
                     </div>
                 </div>
-                <motion.div variants={slashMotion} className="book-now">
-                    <p>BOOK NOW</p>
-                </motion.div>
+                <Link to="/detail" className='link'>
+                    <motion.div variants={slashMotion} className="book-now">
+                        <p>BOOK NOW</p>
+                    </motion.div>
+                </Link>
             </motion.div>
         </div>
     )

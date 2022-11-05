@@ -103,9 +103,11 @@
             align-items: center;
             justify-content: center;
             background-color: $main-color;
-            color: white;
+            color: white !important;
             font-weight: bold;
-
+            p{
+                color: white !important;
+            }
         }
         // &:hover .book-now{
         //     top:0;

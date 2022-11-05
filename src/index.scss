@@ -3,10 +3,14 @@
   font-family: "Light";
   src: url("./fonts//GT-Eesti-Display-Regular.otf");
 }
+@import "./utils/styles/color.scss";
+
 *{
   padding:0;
   margin:0;
   font-family: Light;
+  text-decoration: none;
+  color: #1A2B49;
 }
 body {
   margin: 0;

@@ -1,3 +1,5 @@
 import Location from './location.svg'
 import Ticket from './tickets.svg'
-export{Location,Ticket}
+import Datetime from './datetime.svg'
+
+export{Location,Ticket,Datetime}
