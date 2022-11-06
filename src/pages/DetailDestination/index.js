@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, Button, Card, Container, ImageCollage } from '../../components'
+import { Banner, Button, Card, Container, Footer, ImageCollage } from '../../components'
 import Slider from 'react-slick'
 import './index.scss'
 import { useState } from 'react'
@@ -104,6 +104,16 @@ function DetailDestination() {
                     <div className="detail-description">
                         <div className="detail-description-left">
                             <p>Enjoy a relaxing night out as you cruise down the Nile River while savoring an open buffet dinner. Watch belly dancers as they perform to classic Arabic songs along with a Tanoura show.</p>
+                            <p className='title'>
+                                About this activity
+                            </p>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="detail-description-right">
                             <div className="detail-description-right-content">
@@ -131,6 +141,9 @@ function DetailDestination() {
                         </div>
                     </div>
                 </>
+            } />
+            <Container marginTop={20} el={
+                <Footer />
             } />
         </>
     )

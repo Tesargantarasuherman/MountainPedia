@@ -24,7 +24,7 @@ export default function Card() {
                 </p>
                 <span class="lnr lnr-heart"></span>
                 <div className="type">
-                    <img src={Location} alt="" srcset="" />
+                    <img src={Location} alt="" srcset="" loading='lazy'/>
                     <p className="type-text">Mount. Semeru</p>
                 </div>
             </div>

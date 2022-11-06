@@ -68,6 +68,25 @@
 
     &-left{
         flex:1;
+        .title{
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin:20px 0;
+        }
+        .features{
+            display: flex;
+            align-items: center;
+            gap:30px;
+            img{
+                width: 40px;
+                height: 40px;
+            }
+            .description{
+                label{
+                    font-weight: 600;
+                }
+            }
+        }
     }
 
     &-right{
