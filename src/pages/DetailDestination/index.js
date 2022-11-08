@@ -114,6 +114,13 @@ function DetailDestination() {
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="detail-description-right">
                             <div className="detail-description-right-content">
