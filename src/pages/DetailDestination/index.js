@@ -5,9 +5,13 @@ import './index.scss'
 import { useState } from 'react'
 import { Datetime } from '../../assets'
 import ReactStars from 'react-stars'
+import { motion } from 'framer-motion'
 
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
+    const [initialY, setInitialY] = useState(25)
+    const [formActive,setFormActive]=useState(false)
+
     const setting = {
         dots: true,
         infinite: false,
@@ -46,8 +50,38 @@ function DetailDestination() {
     const popup = () => {
         setTogglePopup(!togglePopup)
     }
+    const actionSetFormActive =()=>{
+        if(initialY == 25){
+            setInitialY(-240)
+        }
+        else{
+            setInitialY(25)
+        }
+        setFormActive(!formActive)
+    }
     return (
         <>
+            <motion.div className="sign" >
+                <div className="main-sign">
+                    <div className="signup">
+                        <form>
+                        <label onClick={actionSetFormActive} className={`${formActive ? '':'active'}`}>Register</label>
+                            <input type="text" name="txt" placeholder="User name" required />
+                            <input type="email" name="email" placeholder="Email" required />
+                            <input type="password" name="pswd" placeholder="Password" required />
+                            <button>Sign up</button>
+                        </form>
+                    </div>
+                    <motion.div animate={{ y: initialY  ,transition: {delay: 0.2,  x: { duration: 2 },  default: { ease: "linear" }}}} className="login">
+                        <form>
+                            <label onClick={actionSetFormActive} className={`${formActive ? 'active':''}`}>Login</label>
+                            <input type="email" name="email" placeholder="Email" required />
+                            <input type="password" name="pswd" placeholder="Password" required />
+                            <button>Login</button>
+                        </form>
+                    </motion.div>
+                </div>
+            </motion.div>
             <div className={`popup-slider ${togglePopup ? 'show' : 'hide'}`}>
                 <button onClick={popup}>X</button>
                 <div>
