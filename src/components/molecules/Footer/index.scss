@@ -16,6 +16,10 @@
             label{
                 font-weight: bold;
                 margin-bottom: 10px;
+                color:white;
+            }
+            p{
+                color:white;
             }
             select{
                 padding: 10px 0px;
@@ -29,5 +33,8 @@
     .copyright{
         margin: 20px 0;
         padding-left: 10px;
+        p{
+            color:white;
+        }
     }
 }

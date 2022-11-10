@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, Button, Card, Container, Footer, ImageCollage } from '../../components'
+import { Banner, Button, Card, Container, Footer, ImageCollage, Input, SearchForm } from '../../components'
 import Slider from 'react-slick'
 import './index.scss'
 import { useState } from 'react'
@@ -9,8 +9,9 @@ import { motion } from 'framer-motion'
 
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
-    const [initialY, setInitialY] = useState(25)
-    const [formActive,setFormActive]=useState(false)
+    const [initialY, setInitialY] = useState(-240)
+    const [formActive,setFormActive]=useState(true)
+    const [activeModal,setActiveModal]=useState(true)
 
     const setting = {
         dots: true,
@@ -61,8 +62,11 @@ function DetailDestination() {
     }
     return (
         <>
-            <motion.div className="sign" >
+            <motion.div className={`sign ${activeModal ? 'sign-active':''}`} >
                 <div className="main-sign">
+                    <button className='close' onClick={()=>setActiveModal(!activeModal)}>
+                        X
+                    </button>
                     <div className="signup">
                         <form>
                         <label onClick={actionSetFormActive} className={`${formActive ? '':'active'}`}>Register</label>
@@ -104,7 +108,7 @@ function DetailDestination() {
                 </div>
             </div>
             <Container el={
-                <div className='detail-destination-header'>
+                <div className='detail-destination-header' id="tes">
                     <div className="breadcumb">
                         <p>Egypt <span className="lnr lnr-chevron-right tiny" /></p>
                         <p>Cairo Region <span className="lnr lnr-chevron-right tiny" /></p>
@@ -155,6 +159,43 @@ function DetailDestination() {
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
+                            <div className="features">
+                                <img src={Datetime} alt="" />
+                                <div className="description">
+                                    <label>Free Cancelation</label>
+                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
+                                </div>
+                            </div>
+                            <div className="booking-asistant">
+                                <label>Select participants, date</label>
+                                <div className="form">
+                                    <Input />
+                                    <Input />
+                                    <Input />
+                                    <Button title={'Check Availibility'} backgroundColor={'bg-white'}/>
+                                </div>
+                            </div>
                         </div>
                         <div className="detail-description-right">
                             <div className="detail-description-right-content">
@@ -170,7 +211,8 @@ function DetailDestination() {
                                             per person
                                         </p>
                                     </div>
-                                    <Button title={'Book Now'} />
+                                    <a href="#tes">Link</a>
+                                    {/* <Button title={'Book Now'}  /> */}
                                 </div>
                                 <div className="detail-description-right-content-pay-info">
                                     <img src={Datetime} alt="" srcset="" className="icon" />

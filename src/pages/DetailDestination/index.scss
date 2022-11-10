@@ -1,13 +1,16 @@
 @import "../../utils/styles/color.scss";
 
 // sign up
+
 .login .active{
     font-size: 2.3em;
 }
 .signup .active{
     font-size: 2.3em;
 }
+
 .sign{
+    display: none;
     position: fixed;
     padding: 100px 40%;
     top: 0;
@@ -15,7 +18,7 @@
     left: 0;
     right: 0;
     z-index: 9999;
-    background-color: rgba($color: #FEFEFE, $alpha: 1);
+    background-color: rgba($color: #FEFEFE, $alpha: 0.5);
     .main-sign{
     box-shadow: 5px 20px 50px #000;
     border-radius: 10px;
@@ -23,6 +26,18 @@
     min-height: 400px;
     position: relative;
     overflow: hidden;
+    .close{
+        position: absolute;
+        top:10px;
+        right: 10px;
+        z-index: 99999;
+        padding: 10px 15px;
+        background-color: white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
     .signup{
         padding: 10%;
         box-sizing: border-box;
@@ -88,10 +103,17 @@
         button{
             padding:10px 20px;
             background-color: $main-color;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 5px;
         }
         // display: none;
     }
    }
+}
+.sign-active{
+    display: block !important;
 }
 // 
 .popup-slider{
@@ -173,13 +195,33 @@
             gap:30px;
             margin:20px 0;
             img{
-                width: 40px;
-                height: 40px;
+                width: 25px;
+                height: 25px;
             }
             .description{
                 label{
+                    font-size: 1rem;
                     font-weight: 600;
                 }
+                p{
+                    font-size: .875rem;
+                }
+            }
+        }
+        .booking-asistant{
+            height: 100px;
+            background-color: $main-color;
+            position: relative;
+            padding:20px;
+            label{
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: white; 
+            }
+            .form{
+                display: flex;
+                justify-content: space-between;
+                gap:10px;
             }
         }
     }
@@ -190,6 +232,7 @@
         border-top: 5px solid $main-color;
         // padding:10px 0;
         max-width: 600px;
+        max-height: 200px;
         border-radius: 10px;
 
         &-content{
