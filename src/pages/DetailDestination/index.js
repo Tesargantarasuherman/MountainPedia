@@ -6,12 +6,14 @@ import { useState } from 'react'
 import { Datetime } from '../../assets'
 import ReactStars from 'react-stars'
 import { motion } from 'framer-motion'
+import { BottomSheet } from 'react-spring-bottom-sheet'
 
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
     const [initialY, setInitialY] = useState(-240)
     const [formActive,setFormActive]=useState(true)
     const [activeModal,setActiveModal]=useState(true)
+    const [open, setOpen] = useState(true)
 
     const setting = {
         dots: true,
@@ -108,7 +110,7 @@ function DetailDestination() {
                 </div>
             </div>
             <Container el={
-                <div className='detail-destination-header' id="tes">
+                <div className='detail-destination-header'>
                     <div className="breadcumb">
                         <p>Egypt <span className="lnr lnr-chevron-right tiny" /></p>
                         <p>Cairo Region <span className="lnr lnr-chevron-right tiny" /></p>
@@ -187,7 +189,7 @@ function DetailDestination() {
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
-                            <div className="booking-asistant">
+                            <div className="booking-asistant"  id="book-now">
                                 <label>Select participants, date</label>
                                 <div className="form">
                                     <Input />
@@ -196,6 +198,14 @@ function DetailDestination() {
                                     <Button title={'Check Availibility'} backgroundColor={'bg-white'}/>
                                 </div>
                             </div>
+                                <div className="list-booking">
+                                    <p className="title">Double Sunset 3H Quad Bike, Camel Ride, and Bedouin Village</p>
+                                    <div className="total-price">
+                                        <p className="text">Total Price</p>
+                                        <p className="price">Rp.450,599</p>
+                                        <p className="description">All taxes and included</p>
+                                    </div>
+                                </div>
                         </div>
                         <div className="detail-description-right">
                             <div className="detail-description-right-content">
@@ -211,7 +221,7 @@ function DetailDestination() {
                                             per person
                                         </p>
                                     </div>
-                                    <a href="#tes">Link</a>
+                                    <a href="#book-now">Book Now</a>
                                     {/* <Button title={'Book Now'}  /> */}
                                 </div>
                                 <div className="detail-description-right-content-pay-info">

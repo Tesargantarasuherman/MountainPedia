@@ -219,9 +219,23 @@
                 color: white; 
             }
             .form{
+                margin: 10px 0;
                 display: flex;
                 justify-content: space-between;
-                gap:10px;
+                gap:5px;
+            }
+        }
+        .list-booking{
+            min-height: 200px;
+            background-color: red;
+            display: flex;
+            justify-content: space-between;
+            p{
+                font-size: 1rem;
+                flex: 1;
+            }
+            .total-price{
+                flex:1;
             }
         }
     }
@@ -250,6 +264,15 @@
                 .price{
                     font-size: 1.8rem;
                     font-weight: 600;
+                }
+                a{
+                    outline: none;
+                    border: none;
+                    background-color: #006E5D;
+                    color: white;
+                    padding:10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
                 }
             }
 
