@@ -227,15 +227,73 @@
         }
         .list-booking{
             min-height: 200px;
-            background-color: red;
-            display: flex;
-            justify-content: space-between;
-            p{
-                font-size: 1rem;
-                flex: 1;
+            border: 1px solid $main-color;
+            margin:15px 0;
+            &-content{
+                padding:10px;
+                .heading{
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom:1px solid #EBEEF1;
+                    p{
+                        font-size: 1rem;
+                        flex: 1;
+                    }
+                    .total-price{
+                        p{
+                            font-size: 0.8rem;
+                        }
+                        p:nth-child(2){
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                        }
+                        flex:1;
+                        text-align: end;
+                    }
+                }
+                .booking-price-description{
+                    display: flex;
+                    justify-content: space-between;
+                    padding:10px 0;
+                .starting-price{
+                    flex: 1;
+                }
+                .price-breakdown{
+                    flex: 1;
+                    .text{
+                        border-bottom:1px solid #EBEEF1;
+                    }
+                    .description{
+    
+                            border-bottom:1px solid #EBEEF1;
+                            padding: 5px 0;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                }
             }
-            .total-price{
-                flex:1;
+            &-footer{
+                background-color: #EBEEF1;
+                display: flex;
+                justify-content: space-between;
+                padding:10px;
+                column-gap: 16px;
+                &-content{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap:10px;
+                    flex:1;
+                    img{
+                        width: 25px;
+                        height: 25px;
+                    }
+                    &-description{
+                       font-weight: 600; 
+                       font-size: 0.5 !important;
+                    }
+                }
             }
         }
     }

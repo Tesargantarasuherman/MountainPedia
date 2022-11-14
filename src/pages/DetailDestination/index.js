@@ -11,8 +11,8 @@ import { BottomSheet } from 'react-spring-bottom-sheet'
 function DetailDestination() {
     const [togglePopup, setTogglePopup] = useState(false)
     const [initialY, setInitialY] = useState(-240)
-    const [formActive,setFormActive]=useState(true)
-    const [activeModal,setActiveModal]=useState(true)
+    const [formActive, setFormActive] = useState(true)
+    const [activeModal, setActiveModal] = useState(true)
     const [open, setOpen] = useState(true)
 
     const setting = {
@@ -53,34 +53,34 @@ function DetailDestination() {
     const popup = () => {
         setTogglePopup(!togglePopup)
     }
-    const actionSetFormActive =()=>{
-        if(initialY == 25){
+    const actionSetFormActive = () => {
+        if (initialY == 25) {
             setInitialY(-240)
         }
-        else{
+        else {
             setInitialY(25)
         }
         setFormActive(!formActive)
     }
     return (
         <>
-            <motion.div className={`sign ${activeModal ? 'sign-active':''}`} >
+            <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
                 <div className="main-sign">
-                    <button className='close' onClick={()=>setActiveModal(!activeModal)}>
+                    <button className='close' onClick={() => setActiveModal(!activeModal)}>
                         X
                     </button>
                     <div className="signup">
                         <form>
-                        <label onClick={actionSetFormActive} className={`${formActive ? '':'active'}`}>Register</label>
+                            <label onClick={actionSetFormActive} className={`${formActive ? '' : 'active'}`}>Register</label>
                             <input type="text" name="txt" placeholder="User name" required />
                             <input type="email" name="email" placeholder="Email" required />
                             <input type="password" name="pswd" placeholder="Password" required />
                             <button>Sign up</button>
                         </form>
                     </div>
-                    <motion.div animate={{ y: initialY  ,transition: {delay: 0.2,  x: { duration: 2 },  default: { ease: "linear" }}}} className="login">
+                    <motion.div animate={{ y: initialY, transition: { delay: 0.2, x: { duration: 2 }, default: { ease: "linear" } } }} className="login">
                         <form>
-                            <label onClick={actionSetFormActive} className={`${formActive ? 'active':''}`}>Login</label>
+                            <label onClick={actionSetFormActive} className={`${formActive ? 'active' : ''}`}>Login</label>
                             <input type="email" name="email" placeholder="Email" required />
                             <input type="password" name="pswd" placeholder="Password" required />
                             <button>Login</button>
@@ -189,23 +189,95 @@ function DetailDestination() {
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
-                            <div className="booking-asistant"  id="book-now">
+                            <div className="booking-asistant" id="book-now">
                                 <label>Select participants, date</label>
                                 <div className="form">
                                     <Input />
                                     <Input />
                                     <Input />
-                                    <Button title={'Check Availibility'} backgroundColor={'bg-white'}/>
+                                    <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
                                 </div>
                             </div>
-                                <div className="list-booking">
-                                    <p className="title">Double Sunset 3H Quad Bike, Camel Ride, and Bedouin Village</p>
-                                    <div className="total-price">
-                                        <p className="text">Total Price</p>
-                                        <p className="price">Rp.450,599</p>
-                                        <p className="description">All taxes and included</p>
+                            <div className="list-booking">
+                                <div className="list-booking-content">
+                                    <div className="heading">
+                                        <p className="title">Double Sunset 3H Quad Bike, Camel Ride, and Bedouin Village</p>
+                                        <div className="total-price">
+                                            <p className="text">Total Price</p>
+                                            <p className="price">Rp.450,599</p>
+                                            <p className="description">All taxes and included</p>
+                                        </div>
+                                    </div>
+                                    <div className="booking-price-description">
+                                        <div className="starting-price">
+                                            <p className="text">Starting time</p>
+                                            <p className="time">4:00 PM</p>
+                                        </div>
+                                        <div className="price-breakdown">
+                                            <p className="text">Price Breakdown</p>
+                                            <div className="description">
+                                                <p className="description-text">Adult x Rp 450,599</p>
+                                                <p className="description-price">Rp 450,599</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className="list-booking-footer">
+                                    <div className="list-booking-footer-content">
+                                        <img src={Datetime} />
+                                        <p className="list-booking-footer-content-description">
+                                            Cancel before 4:00 PM on December 4 for a full refund
+                                        </p>
+                                    </div>
+                                    <div className="list-booking-footer-content">
+                                        <img src={Datetime} />
+                                        <p className="list-booking-footer-content-description">
+                                            Cancel before 4:00 PM on December 4 for a full refund
+                                        </p>
+                                    </div>
+                                    <Button title={'Add to cart'}/>
+                                </div>
+                            </div>
+                            <div className="list-booking">
+                                <div className="list-booking-content">
+                                    <div className="heading">
+                                        <p className="title">Double Sunset 3H Quad Bike, Camel Ride, and Bedouin Village</p>
+                                        <div className="total-price">
+                                            <p className="text">Total Price</p>
+                                            <p className="price">Rp.450,599</p>
+                                            <p className="description">All taxes and included</p>
+                                        </div>
+                                    </div>
+                                    <div className="booking-price-description">
+                                        <div className="starting-price">
+                                            <p className="text">Starting time</p>
+                                            <p className="time">4:00 PM</p>
+                                        </div>
+                                        <div className="price-breakdown">
+                                            <p className="text">Price Breakdown</p>
+                                            <div className="description">
+                                                <p className="description-text">Adult x Rp 450,599</p>
+                                                <p className="description-price">Rp 450,599</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="list-booking-footer">
+                                    <div className="list-booking-footer-content">
+                                        <img src={Datetime} />
+                                        <p className="list-booking-footer-content-description">
+                                            Cancel before 4:00 PM on December 4 for a full refund
+                                        </p>
+                                    </div>
+                                    <div className="list-booking-footer-content">
+                                        <img src={Datetime} />
+                                        <p className="list-booking-footer-content-description">
+                                            Cancel before 4:00 PM on December 4 for a full refund
+                                        </p>
+                                    </div>
+                                    <Button title={'Add to cart'}/>
+                                </div>
+                            </div>
                         </div>
                         <div className="detail-description-right">
                             <div className="detail-description-right-content">
