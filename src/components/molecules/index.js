@@ -4,5 +4,6 @@ import Container from "./Container";
 import Navbar from "./Navbar";
 import Footer from './Footer';
 import ImageCollage from "./ImageCollage";
+import ListBooking from "./ListBooking";
 
-export {Banner,Navbar,Container,Card,Footer,ImageCollage}
+export {Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking}

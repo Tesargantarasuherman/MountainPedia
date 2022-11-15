@@ -1,0 +1,95 @@
+@import "../../../utils/styles/color.scss";
+.list-booking {
+    border: 1px solid $main-color;
+    margin: 15px 0;
+    &-content {
+        padding: 10px;
+
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ebeef1;
+            p {
+                font-size: 1rem;
+                flex: 1;
+            }
+            .total-price {
+                flex: 1;
+                text-align: end;
+                display: flex;
+                justify-content: space-between;
+
+                &-text {
+                    flex: 4;
+                    p {
+                        font-size: 0.8rem;
+                    }
+                    p:nth-child(2) {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+                }
+                &-action {
+                    flex: 1;
+                    .icon-price-down {
+                        font-size: 35px;
+                    }
+                    .button {
+                        .lnr {
+                            color: #ebeef1;
+                        }
+                    }
+                }
+            }
+        }
+        .booking-price-description {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            display: none;
+            &.active {
+                display: block;
+            }
+            .starting-price {
+                flex: 1;
+            }
+            .price-breakdown {
+                flex: 1;
+                .text {
+                    border-bottom: 1px solid #ebeef1;
+                }
+                .description {
+                    border-bottom: 1px solid #ebeef1;
+                    padding: 5px 0;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    &-footer {
+        background-color: #ebeef1;
+        justify-content: space-between;
+        padding: 10px;
+        column-gap: 16px;
+        display: none;
+        &.active {
+            display: flex;
+        }
+        &-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            img {
+                width: 25px;
+                height: 25px;
+            }
+            &-description {
+                font-weight: 600;
+                font-size: 0.5 !important;
+            }
+        }
+    }
+}
