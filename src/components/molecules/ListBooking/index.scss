@@ -43,12 +43,11 @@
             }
         }
         .booking-price-description {
-            display: flex;
             justify-content: space-between;
             padding: 10px 0;
             display: none;
             &.active {
-                display: block;
+                display: flex;
             }
             .starting-price {
                 flex: 1;
@@ -73,6 +72,7 @@
         padding: 10px;
         column-gap: 16px;
         display: none;
+
         &.active {
             display: flex;
         }

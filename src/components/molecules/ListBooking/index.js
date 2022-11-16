@@ -6,11 +6,15 @@ import { Button } from '../../atoms'
 import './index.scss'
 
 function ListBooking({ id }) {
-    const [openListBooking, setOpenListBooking] = useState(null)
+    const [openListBooking, setOpenListBooking] = useState(false)
+    const [openActive, setOpenActive] = useState(false)
 
-    const actionSetListBookingActive = (id) => {
-        setOpenListBooking(id)
+    const actionSetListBookingActive = (_id) => {
+        setOpenListBooking(_id)
+
     }
+   
+    
 
 
     return (
@@ -22,20 +26,15 @@ function ListBooking({ id }) {
                         <div className="total-price-text">
                             <p className="text">Total Price</p>
                             <p className="price">Rp.444,599</p>
-                            <p className="description">All taxes and included</p>
+                            <p className="description">All taxes and included {openListBooking}</p>
                         </div>
                         <div className="total-price-action">
-                            {
-                                openListBooking === id ? (
-                                    <span className="lnr icon-price-down lnr-checkmark-circle"></span>
-                                ) : (
-                                    <Button title={<span className="lnr lnr-chevron-down"></span>} onClick={()=>actionSetListBookingActive(id)}/>
-                                )
-                            }
+                            <Button title={<span className={`lnr lnr-chevron-${openListBooking?'up':'down'}`}></span>} onClick={()=>actionSetListBookingActive(!openListBooking)}/>
+
                         </div>
                     </div>
                 </div>
-                <div className={`booking-price-description ${openListBooking === id ? 'active' : ''}`}>
+                <div className={`booking-price-description ${openListBooking ? 'active' : ''}`}>
                     <div className="starting-price">
                         <p className="text">Starting time</p>
                         <p className="time">6:00 PM</p>
@@ -49,7 +48,7 @@ function ListBooking({ id }) {
                     </div>
                 </div>
             </div>
-            <div className={`list-booking-footer ${openListBooking === id ? 'active' : ''}`}>
+            <div className={`list-booking-footer ${openListBooking ? 'active' : ''}`}>
                 <div className={`list-booking-footer-content`}>
                     <img src={Datetime} />
                     <p className="list-booking-footer-content-description">
