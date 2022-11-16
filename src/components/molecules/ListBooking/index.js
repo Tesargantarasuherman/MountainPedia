@@ -1,21 +1,14 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { Datetime } from '../../../assets'
+import { Bottom, Datetime } from '../../../assets'
 import { Button } from '../../atoms'
 import './index.scss'
 
 function ListBooking({ id }) {
     const [openListBooking, setOpenListBooking] = useState(false)
-    const [openActive, setOpenActive] = useState(false)
-
-    const actionSetListBookingActive = (_id) => {
-        setOpenListBooking(_id)
-
-    }
-   
-    
-
+    const [isActive, setIsActive] = useState(false);
 
     return (
         <div className={`list-booking `}>
@@ -29,8 +22,12 @@ function ListBooking({ id }) {
                             <p className="description">All taxes and included {openListBooking}</p>
                         </div>
                         <div className="total-price-action">
-                            <Button title={<span className={`lnr lnr-chevron-${openListBooking?'up':'down'}`}></span>} onClick={()=>actionSetListBookingActive(!openListBooking)}/>
-
+                            <motion.div animate={{
+                                rotate: openListBooking ? 180 : 0
+                            }} onClick={() => setOpenListBooking(!openListBooking)}>
+                                <img src={Bottom} alt="" srcset="" width={20} height={20} />
+                            </motion.div>
+                            {/* <Button title={<span className={`lnr lnr-chevron-${openListBooking?'up':'down'}`}></span>} onClick={()=>setOpenListBooking(!openListBooking)}/> */}
                         </div>
                     </div>
                 </div>

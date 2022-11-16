@@ -31,6 +31,18 @@
                 }
                 &-action {
                     flex: 1;
+                    div{
+                        margin:10px 40px;
+                        img{
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                            background-color: $main-color;
+                            padding: 10px;
+                            cursor: pointer;
+                            border-radius: 50%;
+                        }
+                    }
                     .icon-price-down {
                         font-size: 35px;
                     }
