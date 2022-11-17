@@ -25,7 +25,7 @@ function ListBooking({ id }) {
                             <motion.div animate={{
                                 rotate: openListBooking ? 180 : 0
                             }} onClick={() => setOpenListBooking(!openListBooking)}>
-                                <img src={Bottom} alt="" srcset="" width={20} height={20} />
+                                <img src={Bottom} alt="" srcSet="" width={20} height={20} />
                             </motion.div>
                             {/* <Button title={<span className={`lnr lnr-chevron-${openListBooking?'up':'down'}`}></span>} onClick={()=>setOpenListBooking(!openListBooking)}/> */}
                         </div>
