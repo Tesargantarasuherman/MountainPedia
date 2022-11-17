@@ -1,50 +1,68 @@
 import React from 'react'
 import { useState } from 'react'
 import './index.scss'
-export default function Footer() {
-    const [theme,setTheme] = useState('light');
+import { useTranslation} from "react-i18next";
+import { useEffect } from 'react';
 
-    const renderOptionTheme=()=>{
-        if(theme == 'dark'){
-          return (
-            <label className="switch">
-              <input type="checkbox" onClick={() =>setTheme('light')} checked />
-              <span className="slider round"></span>
-            </label>
-          )
+export default function Footer() {
+    const [theme, setTheme] = useState('light');
+    const [language, setLanguage] = useState('en');
+    const { t,i18n } = useTranslation();
+
+    const renderOptionTheme = () => {
+        if (theme == 'dark') {
+            return (
+                <label className="switch">
+                    <input type="checkbox" onClick={() => setTheme('light')} checked />
+                    <span className="slider round"></span>
+                </label>
+            )
         }
-        else{
-          return(
-            <label className="switch">
-              <input type="checkbox" onClick={() =>setTheme('dark')} />
-              <span className="slider round"></span>
-            </label>
-          )
+        else {
+            return (
+                <label className="switch">
+                    <input type="checkbox" onClick={() => setTheme('dark')} />
+                    <span className="slider round"></span>
+                </label>
+            )
         }
-      }
-      const actionSetTheme =(e)=>{
+    }
+    const actionSetTheme = (e) => {
         console.log(e.target.value)
-        localStorage.setItem('theme',e.target.value)
+        localStorage.setItem('theme', e.target.value)
         _actionSetTheme()
-      }
-      const _actionSetTheme=()=>{
+    }
+    const _actionSetTheme = () => {
         var body = document.body;
         let theme = localStorage.getItem('theme')
-        if(theme =='light'){
-          body.classList.remove("dark");
+        if (theme == 'light') {
+            body.classList.remove("dark");
         }
-        else{
-          body.classList.add("dark");
+        else {
+            body.classList.add("dark");
         }
-      }
+    }
+    useEffect(()=>{
+        initialLanguage();
+    })
+
+    const initialLanguage =()=>{
+        let language = localStorage.getItem('language')
+        i18n.changeLanguage(language);
+    }
+
+    const actionSetLanguage =(e)=>{
+        localStorage.setItem('language', e.target.value)
+        initialLanguage();
+    }
     return (
         <div className='footer'>
             <div className="container-content">
                 <div className="content">
                     <label> Language</label>
-                    <select name="" id="">
-                        <option value="">Indonesia</option>
-                        <option value="">English(United States)</option>
+                    <select name="" id="" onChange={actionSetLanguage}>
+                        <option value="id">Indonesia</option>
+                        <option value="en">English(United States)</option>
                     </select>
                     <label> Theme</label>
                     <select name="" id="" onChange={actionSetTheme}>
@@ -54,7 +72,7 @@ export default function Footer() {
                     {/* {renderOptionTheme()} */}
                 </div>
                 <div className="content">
-                    <label> Company</label>
+                    <label> {t('Navbar.1')}</label>
                     <p>About Me</p>
                     <p>About Me</p>
                     <p>About Me</p>

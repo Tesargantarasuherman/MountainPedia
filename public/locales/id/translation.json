@@ -1,0 +1,47 @@
+{
+    "Navbar":{
+        "1":"Kursus"
+    },
+    "Profile": {
+        "1": "Profile Saya",
+        "2":"Kelas Saya",
+        "3":"Keluar"
+    },
+    "Card": {
+        "1": "Lihat Detail",
+        "2":"Sign Out"
+    },
+    "User": {
+        "1": "Profile Saya",
+        "2":"Kelas Saya"
+    },
+    "Jumbotron": {
+        "1": "Belajar Bahasa Jepang Dengan Kami",
+        "2":"Ayo Mulai Sekarang"
+    },
+    "HomeInfo": {
+        "1": "Kenapa Kamu Harus Belajar Bahasa Jepang ?",
+        "2":"Ayo Mulai Sekarang"
+    },
+    "Login":{
+        "1":"Masuk",
+        "2":"Masuk Untuk Melanjutkan Belajar",
+        "3":"Alamat Email",
+        "4":"Kata Sandi",
+        "5":"Daftar Akun",
+        "6":"Masukkan"
+    }
+    ,
+    "Register":{
+        "1":"Daftar",
+        "2":"Mulai Tingkatkan Keahlianmu",
+        "3":"Alamat Email",
+        "4":"Kata Sandi",
+        "5":"Login",
+        "6":"Masukkan",
+        "7":"Nama",
+        "8":"Konfirmasi Kata Sandi"
+    }
+    
+    
+}
