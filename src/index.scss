@@ -69,3 +69,10 @@ code {
 .slick-dots li{
   margin: unset !important;
 }
+body.dark {
+  background-color: #202124 !important;
+}
+body.dark *{
+
+  color: white !important;
+}

@@ -25,6 +25,17 @@ export default function Footer() {
       const actionSetTheme =(e)=>{
         console.log(e.target.value)
         localStorage.setItem('theme',e.target.value)
+        _actionSetTheme()
+      }
+      const _actionSetTheme=()=>{
+        var body = document.body;
+        let theme = localStorage.getItem('theme')
+        if(theme =='light'){
+          body.classList.remove("dark");
+        }
+        else{
+          body.classList.add("dark");
+        }
       }
     return (
         <div className='footer'>
