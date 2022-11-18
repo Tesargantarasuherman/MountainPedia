@@ -3,8 +3,13 @@ import { useState } from 'react'
 import './index.scss'
 import { useTranslation} from "react-i18next";
 import { useEffect } from 'react';
+import { useContext } from 'react';
+import ConfigContext, { LanguageContext } from '../../../context/ConfigContext';
+
 
 export default function Footer() {
+    const props_language = useContext(LanguageContext)
+    const {LangContext,ThemeContext} = ConfigContext;
     const [theme, setTheme] = useState('light');
     const [language, setLanguage] = useState('en');
     const { t,i18n } = useTranslation();
@@ -28,7 +33,6 @@ export default function Footer() {
         }
     }
     const actionSetTheme = (e) => {
-        console.log(e.target.value)
         localStorage.setItem('theme', e.target.value)
         _actionSetTheme()
     }
@@ -43,8 +47,9 @@ export default function Footer() {
         }
     }
     useEffect(()=>{
-        initialLanguage();
-    })
+        initialLanguage(LangContext.lang);
+        console.log(props_language,'change')
+    },[])
 
     const initialLanguage =()=>{
         let language = localStorage.getItem('language')
@@ -54,13 +59,14 @@ export default function Footer() {
     const actionSetLanguage =(e)=>{
         localStorage.setItem('language', e.target.value)
         initialLanguage();
+
     }
     return (
         <div className='footer'>
             <div className="container-content">
                 <div className="content">
                     <label> Language</label>
-                    <select name="" id="" onChange={actionSetLanguage}>
+                    <select name="" id="" onChange={LangContext.changeLang}>
                         <option value="id">Indonesia</option>
                         <option value="en">English(United States)</option>
                     </select>
