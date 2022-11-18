@@ -1,6 +1,5 @@
 import React, { useState, createContext } from 'react'
 
-export const LanguageContext = createContext()
 
 function ConfigContext() {
     const LangContext = createContext();
@@ -10,7 +9,10 @@ function ConfigContext() {
     const LangProvider = (props) => {
         const [lang, setLang] = useState("en")
 
-        const changeLang = e => setLang(e.target.value)
+        const changeLang = e =>{
+            setLang(e.target.value)
+            console.log(e.target.value)
+        } 
         const langState = { lang, changeLang }
         return (
             <LangContext.Provider value={langState} >

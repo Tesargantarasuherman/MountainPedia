@@ -4,12 +4,13 @@ import './index.scss'
 import { useTranslation} from "react-i18next";
 import { useEffect } from 'react';
 import { useContext } from 'react';
-import ConfigContext, { LanguageContext } from '../../../context/ConfigContext';
+import ConfigContext from '../../../context/ConfigContext';
 
+
+const {LangContext,ThemeContext} = ConfigContext;
 
 export default function Footer() {
-    const props_language = useContext(LanguageContext)
-    const {LangContext,ThemeContext} = ConfigContext;
+    const props_language = useContext(LangContext)
     const [theme, setTheme] = useState('light');
     const [language, setLanguage] = useState('en');
     const { t,i18n } = useTranslation();
@@ -66,7 +67,7 @@ export default function Footer() {
             <div className="container-content">
                 <div className="content">
                     <label> Language</label>
-                    <select name="" id="" onChange={LangContext.changeLang}>
+                    <select name="" id="" onChange={props_language.changeLang}>
                         <option value="id">Indonesia</option>
                         <option value="en">English(United States)</option>
                     </select>
