@@ -1,5 +1,6 @@
 import React, { useState, createContext } from 'react'
-
+import { useEffect } from 'react';
+import { useTranslation} from "react-i18next";
 
 function ConfigContext() {
     const LangContext = createContext();
@@ -7,12 +8,17 @@ function ConfigContext() {
     const ThemeContext = createContext();
 
     const LangProvider = (props) => {
-        const [lang, setLang] = useState("en")
+        const { t,i18n } = useTranslation();
+        const [lang, setLang] = useState(localStorage.getItem('language'));
 
-        const changeLang = e =>{
-            setLang(e.target.value)
-            console.log(e.target.value)
-        } 
+        useEffect(()=>{
+            i18n.changeLanguage(lang);
+        },[])
+
+        const changeLang = e =>{ 
+            localStorage.setItem('language', e.target.value)
+            i18n.changeLanguage(e.target.value);
+        }
         const langState = { lang, changeLang }
         return (
             <LangContext.Provider value={langState} >
@@ -22,11 +28,35 @@ function ConfigContext() {
     }
 
     const ThemeProvider = (props) => {
-        const [theme, setTheme] = useState("light")
+        const [theme, setTheme] = useState(localStorage.getItem('theme'))
+
+        useEffect(()=>{
+            var body = document.body;
+
+            if (theme == 'light') {
+                body.classList.remove("dark");
+            }
+            else {
+                body.classList.add("dark");
+            }
+        },[])
 
         const changeTheme = e => {
-            setTheme(e.target.value)
+            var body = document.body;
+
+            setTheme(e.target.value);
+            localStorage.setItem('theme', e.target.value)
+
+            let theme = e.target.value
+
+            if (theme == 'light') {
+                body.classList.remove("dark");
+            }
+            else {
+                body.classList.add("dark");
+            }
         }
+
         const themeState = {
             theme: theme,
             changeTheme: changeTheme
