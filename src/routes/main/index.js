@@ -1,13 +1,14 @@
 
 import React, { useEffect } from 'react'
-import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { Navbar } from '../../components';
+import Login from '../../pages/Login';
 import routes from "../../routes/index";
 
 // import Sidebar from "../../components/admin/Sidebar";
 
 const Main = (props) => {
-
+    const navigate = useNavigate();
     return (
         <>
             {/* Navbar ----------------------------- */}
@@ -31,7 +32,13 @@ const Main = (props) => {
             {/* Render Page */}
             <Routes>
                 {routes.map((route) => {
-                    return <Route path={route.path} element={route.component} />
+                    return <Route path={route.path} element={
+                        (route.is_login_access == true)
+                            ? (
+                                <Navigate to={'/sign'} />
+                            ) : route.component
+
+                    } />
                 })}
             </Routes>
             {/* </div> */}

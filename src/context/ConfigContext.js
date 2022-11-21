@@ -4,19 +4,33 @@ import { useTranslation} from "react-i18next";
 
 function ConfigContext() {
     const LangContext = createContext();
-
     const ThemeContext = createContext();
+    const AuthContext = createContext();
 
+    const AuthProvider = (props) => {
+        const [auth, setAuth] = useState(false);
+
+        useEffect(()=>{
+        },[])
+
+        const changeLang = e =>{ 
+        }
+        const authState = { auth, changeLang }
+        return (
+            <AuthContext.Provider value={authState} >
+                {props.children}
+            </AuthContext.Provider>
+        )
+    }
     const LangProvider = (props) => {
         const { t,i18n } = useTranslation();
-        const [lang, setLang] = useState(localStorage.getItem('language'));
+        const [lang, setLang] = useState(localStorage.getItem('i18nextLng'));
 
         useEffect(()=>{
             i18n.changeLanguage(lang);
         },[])
 
         const changeLang = e =>{ 
-            localStorage.setItem('language', e.target.value)
             i18n.changeLanguage(e.target.value);
         }
         const langState = { lang, changeLang }

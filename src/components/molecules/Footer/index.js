@@ -13,6 +13,7 @@ export default function Footer() {
     const props_language = useContext(LangContext)
     const props_theme = useContext(ThemeContext)
     const { t } = useTranslation();
+    
     return (
         <div className='footer'>
             <div className="container-content">
