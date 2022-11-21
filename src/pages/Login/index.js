@@ -14,7 +14,7 @@ function Login() {
     useEffect(()=>{
         let token = localStorage.getItem('token');
             if(token && token !=''){
-               navigate('/')
+               navigate(-1)
             }
 
     },[])

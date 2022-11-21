@@ -17,7 +17,7 @@ const home = [
         path: `${root}detail`,
         component: <DetailDestination />,
         navbar: true,
-        is_login_access:false,
+        is_login_access:true,
     },
     {
         path: `${root}sign`,
