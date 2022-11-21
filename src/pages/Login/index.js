@@ -2,10 +2,22 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import './index.scss'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 function Login() {
     const [activeModal, setActiveModal] = useState(true)
     const [initialY, setInitialY] = useState(-240)
     const [formActive, setFormActive] = useState(true)
+    const navigate =useNavigate();
+
+    useEffect(()=>{
+        let token = localStorage.getItem('token');
+            if(token && token !=''){
+               navigate('/')
+            }
+
+    },[])
 
     const actionSetFormActive = () => {
         if (initialY == 25) {
@@ -36,7 +48,7 @@ function Login() {
                         <label onClick={actionSetFormActive} className={`${formActive ? 'active' : ''}`}>Login</label>
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
-                        <button>Login</button>
+                        <button onClick={()=>localStorage.setItem('token','123456')}>Login</button>
                     </form>
                 </motion.div>
             </div>

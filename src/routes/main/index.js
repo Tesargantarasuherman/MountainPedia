@@ -33,11 +33,10 @@ const Main = (props) => {
             <Routes>
                 {routes.map((route) => {
                     return <Route path={route.path} element={
-                        (route.is_login_access == true)
+                        (route.is_login_access == true && localStorage.getItem('token') ==null)
                             ? (
                                 <Navigate to={'/sign'} />
                             ) : route.component
-
                     } />
                 })}
             </Routes>
