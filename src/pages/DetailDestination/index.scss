@@ -79,9 +79,11 @@
             align-items: center;
             gap:30px;
             margin:20px 0;
-            img{
+            &-img{
                 width: 25px;
                 height: 25px;
+                background-image: url('../../assets/icon/datetime.svg');
+                background-repeat: no-repeat;
             }
             .description{
                 label{
@@ -204,4 +206,10 @@
             font-weight: bold;
         }
     }
+}
+body.dark .features-img{
+    width: 25px;
+    height: 25px;
+    background-image: url('../../assets/icon/datetime2.svg') !important;
+    background-repeat: no-repeat;
 }

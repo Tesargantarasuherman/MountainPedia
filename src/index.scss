@@ -72,7 +72,6 @@ code {
 body.dark {
   background-color: #202124 !important;
 }
-body.dark *{
-
-  color: white !important;
+body.dark a,body.dark p,body.dark h1,body.dark h2,body.dark label,body.dark li{
+  color: white;
 }

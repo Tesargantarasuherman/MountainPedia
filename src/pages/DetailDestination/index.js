@@ -113,42 +113,21 @@ function DetailDestination() {
                                 About this activity
                             </p>
                             <div className="features">
-                                <img src={Datetime} alt="" />
+                                <div className="features-img"></div>
                                 <div className="description">
                                     <label>Free Cancelation</label>
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
                             <div className="features">
-                                <img src={Datetime} alt="" />
+                                <div className="features-img"></div>
                                 <div className="description">
                                     <label>Free Cancelation</label>
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
                             <div className="features">
-                                <img src={Datetime} alt="" />
-                                <div className="description">
-                                    <label>Free Cancelation</label>
-                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
-                                </div>
-                            </div>
-                            <div className="features">
-                                <img src={Datetime} alt="" />
-                                <div className="description">
-                                    <label>Free Cancelation</label>
-                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
-                                </div>
-                            </div>
-                            <div className="features">
-                                <img src={Datetime} alt="" />
-                                <div className="description">
-                                    <label>Free Cancelation</label>
-                                    <p>Cancel up to 24 hours in advance to receive a full refund</p>
-                                </div>
-                            </div>
-                            <div className="features">
-                                <img src={Datetime} alt="" />
+                                <div className="features-img"></div>
                                 <div className="description">
                                     <label>Free Cancelation</label>
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
