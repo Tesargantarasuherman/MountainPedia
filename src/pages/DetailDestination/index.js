@@ -165,7 +165,7 @@ function DetailDestination() {
                                     {/* <Button title={'Book Now'}  /> */}
                                 </div>
                                 <div className="detail-description-right-content-pay-info">
-                                    <img src={Datetime} alt="" srcSet="" className="icon" />
+                                    <div className="detail-description-right-content-pay-info-img" />
                                     <p className="description">
                                         Reserve now & pay later to book your spot and pay nothing today
                                     </p>

@@ -47,13 +47,13 @@ function ListBooking({ id }) {
             </div>
             <div className={`list-booking-footer ${openListBooking ? 'active' : ''}`}>
                 <div className={`list-booking-footer-content`}>
-                    <img src={Datetime} />
+                    <div className="list-booking-footer-content-img"/>
                     <p className="list-booking-footer-content-description">
                         Cancel before 4:00 PM on December 4 for a full refund
                     </p>
                 </div>
                 <div className="list-booking-footer-content">
-                    <img src={Datetime} />
+                    <div className="list-booking-footer-content-img"/>
                     <p className="list-booking-footer-content-description">
                         Cancel before 4:00 PM on December 4 for a full refund
                     </p>

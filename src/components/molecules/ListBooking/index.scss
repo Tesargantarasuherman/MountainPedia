@@ -1,4 +1,6 @@
 @import "../../../utils/styles/color.scss";
+@import "../../../utils/styles/function.scss";
+
 .list-booking {
     border: 1px solid $main-color;
     margin: 15px 0;
@@ -94,9 +96,8 @@
             align-items: center;
             gap: 10px;
             flex: 1;
-            img {
-                width: 25px;
-                height: 25px;
+            &-img {
+                @include image();
             }
             &-description {
                 font-weight: 600;
@@ -107,4 +108,8 @@
 }
 body.dark .list-booking-footer{
     background-color: black;
+    .list-booking-footer-content-img{
+        @include image($img:'../../assets/icon/datetime2.svg');
+    }
+
 }

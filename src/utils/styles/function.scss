@@ -1,0 +1,6 @@
+@mixin image($img:'../../assets/icon/datetime.svg') {
+    width: 25px;
+    height: 25px;
+    background-image: url($img);
+    background-repeat: no-repeat;
+}

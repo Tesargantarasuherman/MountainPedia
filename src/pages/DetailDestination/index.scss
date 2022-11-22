@@ -1,5 +1,11 @@
 @import "../../utils/styles/color.scss";
 
+@mixin image($img:'../../assets/icon/datetime.svg') {
+    width: 25px;
+    height: 25px;
+    background-image: url($img);
+    background-repeat: no-repeat;
+}
 
 .popup-slider{
     position: fixed;
@@ -80,10 +86,7 @@
             gap:30px;
             margin:20px 0;
             &-img{
-                width: 25px;
-                height: 25px;
-                background-image: url('../../assets/icon/datetime.svg');
-                background-repeat: no-repeat;
+               @include image()
             }
             .description{
                 label{
@@ -156,6 +159,9 @@
                 align-items: center;
                 margin: 20px 0; 
                 gap: 40px;
+                &-img{
+                    @include image();
+                }
 
                 .icon{
                     width: 35px;
@@ -207,9 +213,8 @@
         }
     }
 }
-body.dark .features-img{
-    width: 25px;
-    height: 25px;
-    background-image: url('../../assets/icon/datetime2.svg') !important;
-    background-repeat: no-repeat;
+body.dark {
+    .detail-description-right-content-pay-info-img ,  .features-img{
+        @include image($img:'../../assets/icon/datetime2.svg');
+    }
 }
