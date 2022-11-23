@@ -1,10 +1,12 @@
 import { Hints, Steps } from 'intro.js-react'
 import React, {useState } from 'react'
+import { useEffect } from 'react'
 import { Banner, Button, Card, Container, Footer, Navbar } from '../../components'
 export default function Home() {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
+ 
   const [steps, setSteps] = useState([
     {
       element: ".navbar-left>p",

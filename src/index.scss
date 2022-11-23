@@ -69,9 +69,25 @@ code {
 .slick-dots li{
   margin: unset !important;
 }
+// intro  js
+.introjs-tooltip{
+  background-color: $main-color !important;
+} 
 body.dark {
   background-color: #202124 !important;
 }
 body.dark a,body.dark p,body.dark h1,body.dark h2,body.dark label,body.dark li{
   color: white;
+}
+.introjs-tooltiptext{
+  color: white !important;
+}
+.introjs-skipbutton{
+  color: white !important;
+
+}
+body.dark .introjs-tooltip{
+  .introjs-tooltiptext{
+    color: white !important;
+  }
 }
