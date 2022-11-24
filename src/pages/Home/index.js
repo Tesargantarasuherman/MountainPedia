@@ -28,6 +28,7 @@ export default function Home() {
 
   const onExit = () => {
     setStepsEnabled(false)
+    localStorage.setItem('intro',true)
   };
 
   return (
