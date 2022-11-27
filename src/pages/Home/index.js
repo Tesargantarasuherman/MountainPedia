@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Banner, Button, Card, Container, Footer, Navbar } from '../../components'
 export default function Home() {
   const [initialStep, setInitialStep] = useState(0)
-  const [stepsEnabled, setStepsEnabled] = useState(true)
+  const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
  
   const [steps, setSteps] = useState([
