@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './index.scss'
+
 export default function Navbar() {
   return (
     <div className='navbar'>
         <div className="navbar-left">
-        <p>MountainPedia</p>
+        <p><Link to='/'>MountainPedia </Link></p>
         </div>
         <div className="navbar-right">
             <ul>
