@@ -10,6 +10,7 @@
     border-radius: 10px;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     box-shadow: 10px 30px 75px -14px rgba(0,0,0,0.7);
     -webkit-box-shadow: 10px 30px 75px -14px rgba(0,0,0,0.7);
@@ -66,5 +67,19 @@
         color: white;
         border-radius: 5px;
         cursor: pointer;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .search-form{
+        padding:10px ;
+        .search-form-input{
+
+        }
+        input{
+            width: 80px;
+        }
+        img{
+            width: 10px;
+        }
     }
 }

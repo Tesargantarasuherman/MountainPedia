@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <div className='navbar'>
         <div className="navbar-left">
-        <p><Link to='/'>MountainPedia </Link></p>
+        <p><Link to='/'>MountainPedia</Link></p>
         </div>
         <div className="navbar-right">
             <ul>

@@ -3,6 +3,7 @@ import { Location } from '../../../assets'
 import './index.scss'
 import Flatpickr from "react-flatpickr";
 import { useState } from 'react';
+import Input from '../Input';
 
 function InputType({ type, label }) {
   const [date, setDate] = useState(new Date())
@@ -48,10 +49,14 @@ function InputForm({ label, icon, gap, type }) {
 export default function SearchForm() {
   return (
     <div className='search-form'>
-      <InputForm type="select-option" label="Type" icon={Location} gap={true} />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      {/* <InputForm type="select-option" label="Type" icon={Location} gap={true} />
       <InputForm type="text" label="Location" icon={Location} gap={true} />
       <InputForm type="date" label="Date" icon={Location} gap={true} />
-      <InputForm type="select-option" label="Person" icon={Location} gap={true} />
+      <InputForm type="select-option" label="Person" icon={Location} gap={true} /> */}
       <button>Search</button>
     </div>
   )

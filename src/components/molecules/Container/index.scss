@@ -7,3 +7,9 @@
 .space-between{
     justify-content: space-between;
 }
+@media only screen and (max-width: 768px) {
+    .container{
+     margin: 0 ;
+     justify-content: center;
+    }
+}
