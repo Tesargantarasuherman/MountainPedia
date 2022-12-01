@@ -1,4 +1,3 @@
-import './App.css';
 import Main from './routes/main';
 import { BrowserRouter } from "react-router-dom";
 import ConfigContext from './context/ConfigContext';
