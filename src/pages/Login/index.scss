@@ -62,6 +62,7 @@
                 border: none;
                 outline: none;
                 border-radius: 5px;
+                color: black;
             }
         }
         .signin{
@@ -91,7 +92,7 @@
                 text-align: center;
                 transform: translateY(-30px);
                 transition: .8s ease-in-out;
-
+                color: $main-color;
             }
         }
         input{
@@ -102,10 +103,10 @@
         button{
             padding:10px 20px;
             background-color: $main-color;
-            color: white;
             border: none;
             outline: none;
             border-radius: 5px;
+            color: white;
         }
         // display: none;
     }
