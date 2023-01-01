@@ -37,6 +37,7 @@ export default function Login() {
     const actionLogin =()=>{
         localStorage.setItem('token','123456')
         navigate(-1)
+        window.location.reload()
     }
     return (
         <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
