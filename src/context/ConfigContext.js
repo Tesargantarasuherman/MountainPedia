@@ -12,6 +12,7 @@ function ConfigContext() {
         const [auth, setAuth] = useState(token && token != '' ? true : false);
 
         useEffect(() => {
+            setAuth(token && token != '' ? true : false)
         }, [])
 
         const authState = { auth }
