@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
 import { useEffect } from 'react';
-import { useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 function ConfigContext() {
     const LangContext = createContext();
@@ -8,14 +8,13 @@ function ConfigContext() {
     const AuthContext = createContext();
 
     const AuthProvider = (props) => {
-        const [auth, setAuth] = useState(false);
+        let token = localStorage.getItem('token');
+        const [auth, setAuth] = useState(token && token != '' ? true : false);
 
-        useEffect(()=>{
-        },[])
+        useEffect(() => {
+        }, [])
 
-        const changeLang = e =>{ 
-        }
-        const authState = { auth, changeLang }
+        const authState = { auth }
         return (
             <AuthContext.Provider value={authState} >
                 {props.children}
@@ -23,14 +22,14 @@ function ConfigContext() {
         )
     }
     const LangProvider = (props) => {
-        const { t,i18n } = useTranslation();
+        const { t, i18n } = useTranslation();
         const [lang, setLang] = useState(localStorage.getItem('i18nextLng'));
 
-        useEffect(()=>{
+        useEffect(() => {
             i18n.changeLanguage(lang);
-        },[])
+        }, [])
 
-        const changeLang = e =>{ 
+        const changeLang = e => {
             i18n.changeLanguage(e.target.value);
         }
         const langState = { lang, changeLang }
@@ -44,7 +43,7 @@ function ConfigContext() {
     const ThemeProvider = (props) => {
         const [theme, setTheme] = useState(localStorage.getItem('theme'))
 
-        useEffect(()=>{
+        useEffect(() => {
             var body = document.body;
 
             if (theme == 'light') {
@@ -53,7 +52,7 @@ function ConfigContext() {
             else {
                 body.classList.add("dark");
             }
-        },[])
+        }, [])
 
         const changeTheme = e => {
             var body = document.body;
@@ -82,7 +81,7 @@ function ConfigContext() {
         )
     }
     return {
-        LangContext, LangProvider,ThemeContext,ThemeProvider
+        AuthContext, AuthProvider, LangContext, LangProvider, ThemeContext, ThemeProvider
     }
 }
 export default ConfigContext();

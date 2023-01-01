@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin:0 15%;
-    padding:10px 0;
+    padding:20px 0;
     align-items: center;
     &-left{
         p{
@@ -18,7 +18,7 @@
                 font-size: 1em;
                 display: inline;
                 margin-left:10px;
-                button{
+                .btn-login{
                     padding: 10px 20px;
                     outline: none;
                     border: none;

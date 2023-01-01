@@ -14,10 +14,11 @@ export default function Navbar() {
                 <li>lorem</li>
                 <li>lorem</li>
                 <li>
-                    <button className='btn-login'>Sign In / Register</button>
+                    <Link className='btn-login' to='/sign'>Sign In / Register</Link>
                 </li>
             </ul>
         </div>
     </div>
   )
 }
+

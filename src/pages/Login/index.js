@@ -4,20 +4,26 @@ import { useState } from 'react'
 import './index.scss'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import ConfigContext from '../../context/ConfigContext'
 
-function Login() {
+const {AuthContext} = ConfigContext
+
+export default function Login() {
     const [activeModal, setActiveModal] = useState(true)
     const [initialY, setInitialY] = useState(-240)
     const [formActive, setFormActive] = useState(true)
+    const props_auth = useContext(AuthContext)
     const navigate =useNavigate();
 
     useEffect(()=>{
-        let token = localStorage.getItem('token');
-            if(token && token !=''){
+        // props_auth.validationToken()
+            if(props_auth.auth == true){
                navigate(-1)
             }
-
     },[])
+
+   
 
     const actionSetFormActive = () => {
         if (initialY == 25) {
@@ -27,6 +33,10 @@ function Login() {
             setInitialY(25)
         }
         setFormActive(!formActive)
+    }
+    const actionLogin =()=>{
+        localStorage.setItem('token','123456')
+        navigate(-1)
     }
     return (
         <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
@@ -48,7 +58,7 @@ function Login() {
                         <label onClick={actionSetFormActive} className={`${formActive ? 'active' : ''}`}>Login</label>
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
-                        <button onClick={()=>localStorage.setItem('token','123456')}>Login</button>
+                        <button type="button" onClick={actionLogin}>Login</button>
                     </form>
                 </motion.div>
             </div>
@@ -56,4 +66,3 @@ function Login() {
     )
 }
 
-export default Login
