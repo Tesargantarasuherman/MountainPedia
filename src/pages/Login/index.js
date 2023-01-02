@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import ConfigContext from '../../context/ConfigContext'
-import { toast } from 'react-hot-toast'
+import { toaster } from '../../utils/toaster'
 
 const {AuthContext} = ConfigContext
 
@@ -35,13 +35,11 @@ export default function Login() {
         }
         setFormActive(!formActive)
     }
-    const toast_=()=>{
-        toast.success('Successfully Login!')           
-    }
+
     const actionLogin =()=>{
         localStorage.setItem('token','123456')
         navigate(-1)
-        toast_()
+        toaster('success','Successfully Login!')         
     }
 
     return (
