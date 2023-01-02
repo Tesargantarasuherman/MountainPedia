@@ -11,11 +11,17 @@ function ConfigContext() {
         let token = localStorage.getItem('token');
         const [auth, setAuth] = useState(token && token != '' ? true : false);
 
-        useEffect(() => {
-            setAuth(token && token != '' ? true : false)
-        }, [])
+        const validationToken =() => {
+            let _token = localStorage.getItem('token');
+            if (_token && _token != '') {
+                setAuth(true)
+            }
+            else{
+                setAuth(false)
+            }
+        }
 
-        const authState = { auth }
+        const authState = { auth,validationToken }
         return (
             <AuthContext.Provider value={authState} >
                 {props.children}

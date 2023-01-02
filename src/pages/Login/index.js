@@ -38,6 +38,7 @@ export default function Login() {
 
     const actionLogin =()=>{
         localStorage.setItem('token','123456')
+        props_auth.validationToken()
         navigate(-1)
         toaster('success','Successfully Login!')         
     }

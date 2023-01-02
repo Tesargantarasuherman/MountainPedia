@@ -1,8 +1,37 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import ConfigContext from '../../../context/ConfigContext'
 import './index.scss'
-
+const {AuthContext} = ConfigContext
 export default function Navbar() {
+  const navigate = useNavigate()
+
+  const props_auth = useContext(AuthContext);
+  
+  useEffect(()=>{
+    props_auth.validationToken()
+    renderButton()
+  },[])
+  
+  const logout =()=>{
+    localStorage.removeItem('token')
+    props_auth.validationToken()
+    renderButton()
+    // window.location.reload()
+
+  }
+  const renderButton =()=>{
+    if (props_auth.auth == true) {
+      return (
+        <button type="button" className='btn-login' onClick={logout}>Logout</button>
+      )
+    }
+    else{
+      return <Link className='btn-login' to='/sign'>Sign In / Register</Link>
+    }
+  }
+
   return (
     <div className='navbar'>
         <div className="navbar-left">
@@ -14,7 +43,8 @@ export default function Navbar() {
                 <li>lorem</li>
                 <li>lorem</li>
                 <li>
-                    <Link className='btn-login' to='/sign'>Sign In / Register</Link>
+                  {renderButton()}
+                    {/* <Link className='btn-login' to='/sign'>Sign In / Register</Link> */}
                 </li>
             </ul>
         </div>
