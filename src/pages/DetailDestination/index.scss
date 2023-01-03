@@ -212,13 +212,127 @@
         }
     }
 }
+.booking-asistant {
+    height: 100px;
+    background-color: $main-color;
+    position: relative;
+    padding: 20px;
+    label {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+    }
+    .form {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+}
 body.dark {
     .detail-description-right-content-pay-info-img,
     .features-img {
         @include image($img: "../../assets/icon/datetime2.svg");
     }
 }
+
 @media only screen and (max-width: 768px) {
+    // detail description
+.detail-description {
+    display: flex;
+    font-size: 0.6em;
+    word-spacing: 2px;
+    line-height: 1;
+    padding:0px 10px;
+    flex-wrap:wrap !important;
+    width:100%;
+    &-left {
+        flex: 1;
+        .title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .features {
+            display: flex;
+            align-items: center;
+            flex-wrap:wrap !important;
+            gap: 30px;
+            margin: 10px 0;
+            &-img {
+                @include image();
+            }
+            .description {
+                label {
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+                p {
+                    font-size: 0.6rem;
+                }
+            }
+        }
+
+    }
+
+    &-right {
+        flex: 1;
+        border: 2px solid #dcdfe4;
+        border-top: 5px solid $main-color;
+        // padding:10px 0;
+        max-width: 600px;
+        max-height: 200px;
+        border-radius: 10px;
+
+        &-content {
+            padding: 20px;
+
+            &-title {
+                font-size: 1rem;
+            }
+            &-price-book {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .price {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+                a {
+                    outline: none;
+                    border: none;
+                    background-color: #006e5d;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            &-pay-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 20px 0;
+                gap: 40px;
+                &-img {
+                    @include image();
+                }
+
+                .icon {
+                    width: 35px;
+                    height: auto;
+                }
+                .description {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
     // breadcumb
     .breadcumb {
         p {

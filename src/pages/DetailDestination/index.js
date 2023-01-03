@@ -133,18 +133,7 @@ function DetailDestination() {
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>
                                 </div>
                             </div>
-                            <div className="booking-asistant" id="book-now">
-                                <label>Select participants, date</label>
-                                <div className="form">
-                                    <Input />
-                                    <Input />
-                                    <Input />
-                                    <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
-                                </div>
-                            </div>
-                        <ListBooking id={1}/>
-                        <ListBooking id={2}/>
-                        <ListBooking id={3}/>
+
                         </div>
                         {/* Right Side */}
                         <div className="detail-description-right">
@@ -174,6 +163,22 @@ function DetailDestination() {
                         </div>
                     </div>
                 </>
+            } />
+            <Container margintTop={20} el={
+                <>
+            <div className="booking-asistant" id="book-now">
+                <label>Select participants, date</label>
+                <div className="form">
+                    <Input />
+                    <Input />
+                    <Input />
+                    <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
+                </div>
+            </div>
+            <ListBooking id={1}/>
+            <ListBooking id={2}/>
+            <ListBooking id={3}/>
+            </>
             } />
             <Container marginTop={20} el={
                 <Footer />
