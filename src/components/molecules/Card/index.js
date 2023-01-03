@@ -70,22 +70,22 @@ export default function Card() {
                     </div>
                 </div>
             </div>
-            <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
-                <div className='card-footer-body'>
-                    <div className="card-footer-body-title">
-                        Available Today
+            <Link to="/detail" className='link'>
+                <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
+                    <div className='card-footer-body'>
+                        <div className="card-footer-body-title">
+                            Available Today
+                        </div>
+                        <div className="card-footer-body-ticket">
+                            <img src={Ticket} alt="" />
+                            <p>Book Now</p>
+                        </div>
                     </div>
-                    <div className="card-footer-body-ticket">
-                        <img src={Ticket} alt="" />
-                        <p>Book Now</p>
-                    </div>
-                </div>
-                <Link to="/detail" className='link'>
-                    <motion.div variants={slashMotion} className="book-now">
-                        <p>BOOK NOW</p>
-                    </motion.div>
-                </Link>
-            </motion.div>
+                        <motion.div variants={slashMotion} className="book-now">
+                            <p>BOOK NOW</p>
+                        </motion.div>
+                </motion.div>
+            </Link>
         </div>
     )
 }
