@@ -166,18 +166,25 @@ function DetailDestination() {
             } />
             <Container margintTop={20} el={
                 <>
-            <div className="booking-asistant" id="book-now">
-                <label>Select participants, date</label>
-                <div className="form">
-                    <Input />
-                    <Input />
-                    <Input />
-                    <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
+                <div className="booking">
+                    <div className="left">
+                        <div className="booking-asistant" id="book-now">
+                            <label>Select participants, date</label>
+                            <div className="form">
+                                <Input />
+                                <Input />
+                                <Input />
+                                <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
+                            </div>
+                        </div>
+                            <ListBooking id={1}/>
+                            <ListBooking id={2}/>
+                            <ListBooking id={3}/>
+                    </div>
+                    <div className="right">
+                        
+                    </div>
                 </div>
-            </div>
-            <ListBooking id={1}/>
-            <ListBooking id={2}/>
-            <ListBooking id={3}/>
             </>
             } />
             <Container marginTop={20} el={

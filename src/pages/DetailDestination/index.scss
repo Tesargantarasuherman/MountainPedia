@@ -212,21 +212,32 @@
         }
     }
 }
-.booking-asistant {
-    height: 100px;
-    background-color: $main-color;
-    position: relative;
-    padding: 20px;
-    label {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: white;
+.booking{
+    display:flex;
+    justify-content:'space-between';
+    width:100%;
+    .left{
+        flex:1;
     }
-    .form {
-        margin: 10px 0;
-        display: flex;
-        justify-content: space-between;
-        gap: 5px;
+    .right{
+        flex:0.5
+    }
+    &-asistant {
+        height: 100px;
+        background-color: $main-color;
+        position: relative;
+        padding: 20px;
+        label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+        }
+        .form {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
     }
 }
 body.dark {
