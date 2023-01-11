@@ -8,6 +8,7 @@ import routes from "../../routes/index";
 // import Sidebar from "../../components/admin/Sidebar";
 
 const Main = (props) => {
+    const navigate = useNavigate();
     return (
         <>
             {/* Navbar ----------------------------- */}

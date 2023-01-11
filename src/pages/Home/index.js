@@ -1,10 +1,8 @@
 import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
-import { useContext } from 'react'
 import { useEffect } from 'react'
 import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, Container, Footer, Navbar } from '../../components'
-import ProductContext from '../../context/ProductContext'
 import { connect } from 'react-redux'
 
 export const Home =(props)=> {
