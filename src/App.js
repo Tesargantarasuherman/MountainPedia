@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 
 const { AuthProvider, AuthContext, LangContext, LangProvider, ThemeContext, ThemeProvider } = ConfigContext;
 const { ProductProvider } = ProductContext
+
 function App() {
   return (
     <BrowserRouter>

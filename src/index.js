@@ -11,11 +11,19 @@ import '../src/fonts/GT-Eesti-Display-Regular.otf'
 import '../src/fonts/GT-Eesti-Display-Bold.otf'
 import 'react-spring-bottom-sheet/dist/style.css'
 import './i18n'
+import { Provider } from 'react-redux';
+import reduxThunk from "redux-thunk";
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducers from './reducers';
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

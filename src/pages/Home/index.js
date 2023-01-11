@@ -2,19 +2,18 @@ import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
+import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, Container, Footer, Navbar } from '../../components'
 import ProductContext from '../../context/ProductContext'
+import { connect } from 'react-redux'
 
-const { ProdContext } = ProductContext;
-
-export default function Home() {
+export const Home =(props)=> {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
-  const props_product = useContext(ProdContext)
 
   useEffect(() => {
-    props_product.getAllProduct()
+    props.getAllProduct();
   }, [])
 
   const [steps, setSteps] = useState([
@@ -40,7 +39,24 @@ export default function Home() {
     setStepsEnabled(false)
     localStorage.setItem('intro', true)
   };
-
+  const renderProducts =()=>{
+    if(props.product.length >=1){
+      return(
+        props.product.map(product => {
+          return (
+            <Card />
+          )
+        })
+      )
+    }
+    else{
+      return(
+        <div className="loading">
+          Loading
+        </div>
+      )
+    }
+  }
   return (
     <div>
       <Steps
@@ -63,11 +79,7 @@ export default function Home() {
       <Container marginTop={50} justify='space-between' el={
         <>
           {
-            props_product.product.map(product => {
-              return (
-                <Card />
-              )
-            })
+           renderProducts()
           }
         </>
       } />
@@ -82,3 +94,13 @@ export default function Home() {
     </div>
   )
 }
+
+const mapStateToProps = (state) => ({
+  product: state?.product.product
+})
+
+const mapDispatchToProps = {
+  getAllProduct
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
+

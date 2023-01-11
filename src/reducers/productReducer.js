@@ -1,11 +1,14 @@
-export const productReducer =(state,action)=> {
+import { GET_ALL_PRODUCT } from "../actions/types";
+
+const INTIAL_STATE = {
+  product: []
+};
+
+export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
-    case 'GET_ALL_PRODUCT':
-      return [...state,{
-        title: action.product.title
-        body: action.product.body
-      }]
+    case GET_ALL_PRODUCT :
+      return { ...state,product:action.payload};
     default:
-      break;
+      return state;
   }
-}
+};

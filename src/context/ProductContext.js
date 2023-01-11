@@ -12,11 +12,16 @@ function ProductContext() {
 
         const getAllProduct =()=>{
             axios.get('https://jsonplaceholder.typicode.com/posts').then(res=>{
-                setProduct(res.data);
+                setProduct(...product,res.data);
+            })
+        }
+        const getProductById =(id)=>{
+            axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res=>{
+                setProduct(...product,res.data);
             })
         }
 
-        const productState = { product,getAllProduct }
+        const productState = { product,getAllProduct ,getProductById}
 
         return (
             <ProdContext.Provider value={productState}>
