@@ -42,7 +42,7 @@ export const Home =(props)=> {
       return(
         props.product.map(product => {
           return (
-            <Card />
+            <Card product={product}/>
           )
         })
       )

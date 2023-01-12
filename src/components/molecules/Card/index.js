@@ -5,7 +5,7 @@ import ReactStars from 'react-stars'
 import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
-export default function Card() {
+export default function Card({product}) {
     const slashMotion = {
         rest: { y: 200 },
         hover: {
@@ -41,7 +41,7 @@ export default function Card() {
                     </div>
                 </div>
                 <p className="title">
-                    Lorem, ipsum.
+                    {product.title}
                 </p>
                 <div className="content">
                     <div className="body-content">
@@ -70,7 +70,7 @@ export default function Card() {
                     </div>
                 </div>
             </div>
-            <Link to="/detail" className='link'>
+            <Link to={`/detail/${product.id}`} className='link'>
                 <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
                     <div className='card-footer-body'>
                         <div className="card-footer-body-title">

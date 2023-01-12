@@ -14,7 +14,7 @@ const home = [
         is_login_access:false,
     },
     {
-        path: `${root}detail`,
+        path: `${root}detail/:id`,
         component: <DetailDestination />,
         navbar: true,
         is_login_access:true,
