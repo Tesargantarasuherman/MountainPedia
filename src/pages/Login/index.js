@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import './index.scss'
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import ConfigContext from '../../context/ConfigContext'
 import { toaster } from '../../utils/toaster'
@@ -46,8 +46,12 @@ export default function Login() {
     return (
         <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
             <div className="main-sign">
-                <button className='close' onClick={() => setActiveModal(!activeModal)}>
-                    X
+                {/* <button className='close' onClick={() => setActiveModal(!activeModal)}> */}
+                <button className='close' onClick={()=>{navigate(-2)}}>
+                {/* <button className='close'> */}
+                    {/* <Link to='/'> */}
+                        X
+                    {/* </Link> */}
                 </button>
                 <div className="signup">
                     <form>
