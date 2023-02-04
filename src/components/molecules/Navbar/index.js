@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ConfigContext from '../../../context/ConfigContext'
+import { toaster } from '../../../utils/toaster'
 import './index.scss'
+
 const {AuthContext} = ConfigContext
 export default function Navbar() {
   const navigate = useNavigate()
@@ -18,7 +20,8 @@ export default function Navbar() {
     localStorage.removeItem('token')
     props_auth.validationToken()
     renderButton()
-    // window.location.reload()
+    navigate('/');
+    toaster('success','Successfully Logout!')         
 
   }
   const renderButton =()=>{
