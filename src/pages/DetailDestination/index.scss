@@ -1,10 +1,11 @@
 @import "../../utils/styles/color.scss";
 
 @mixin image($img: "../../assets/icon/datetime.svg") {
-    width: 25px;
-    height: 25px;
+    width: 3rem;
+    height: 3rem;
     background-image: url($img);
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .popup-slider {
@@ -119,7 +120,6 @@
         flex: 0.5;
         border: 2px solid #dcdfe4;
         border-top: 5px solid $main-color;
-        // padding:10px 0;
         max-width: 600px;
         max-height: 200px;
         border-radius: 10px;
@@ -214,18 +214,18 @@
 }
 .booking{
     display:flex;
-    justify-content:'space-between';
-    width:100%;
+    justify-content: flex-start;
+    width:60%;
     .left{
         flex:1;
+        width: 62%;
     }
     .right{
         flex:0.5
     }
     &-asistant {
-        height: 100px;
+        min-height: 100px;
         background-color: $main-color;
-        position: relative;
         padding: 20px;
         label {
             font-size: 1.5rem;
@@ -256,7 +256,8 @@ body.dark {
     line-height: 1;
     padding:0px 10px;
     flex-wrap:wrap !important;
-    width:100%;
+    text-align: justify;
+    gap:10px;
     &-left {
         flex: 1;
         .title {
@@ -268,12 +269,14 @@ body.dark {
             display: flex;
             align-items: center;
             flex-wrap:wrap !important;
-            gap: 30px;
+            gap: 10px;
             margin: 10px 0;
             &-img {
                 @include image();
+                flex:1;
             }
             .description {
+                flex: 5;
                 label {
                     font-size: 1rem;
                     font-weight: 600;
@@ -291,34 +294,26 @@ body.dark {
         border: 2px solid #dcdfe4;
         border-top: 5px solid $main-color;
         // padding:10px 0;
-        max-width: 600px;
-        max-height: 200px;
+        max-height: 130px;
         border-radius: 10px;
-
+        align-items: center;
         &-content {
-            padding: 20px;
+            padding: 10px;
 
             &-title {
                 font-size: 1rem;
             }
             &-price-book {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-
+                p{
+                    
+                }
                 .price {
-                    font-size: 1.8rem;
+                    font-size: 1rem;
                     font-weight: 600;
                 }
                 a {
-                    outline: none;
-                    border: none;
-                    background-color: #006e5d;
-                    color: white;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
+                    padding: 5px 10px;
+                    border-radius: 2px;
                 }
             }
 
@@ -327,17 +322,14 @@ body.dark {
                 justify-content: space-between;
                 align-items: center;
                 margin: 20px 0;
-                gap: 40px;
+                gap: 20px;
                 &-img {
                     @include image();
-                }
-
-                .icon {
-                    width: 35px;
-                    height: auto;
+                    flex: 1;
                 }
                 .description {
-                    font-size: 1rem;
+                    font-size: 0.6rem;
+                    flex: 5;
                 }
             }
         }
@@ -378,5 +370,30 @@ body.dark {
         }
         gap: 5px !important;
         align-items: unset !important;
+    }
+    .booking{
+        width: 100%;
+        .left{
+            .booking-asistant{
+                padding: 5px;
+                label{
+                    padding: 5px;
+                    font-size: 0.8rem;
+                }
+                .form{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    padding: 10px;
+                    gap: 10px;
+                    input{
+                        width: 120px;
+                    }
+                    img{
+                        width: 10px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -188,9 +188,6 @@ export const DetailDestiation = (props) => {
                     <ListBooking id={2}/>
                     <ListBooking id={3}/>
             </div>
-            <div className="right">
-                
-            </div>
         </div>
     </>
     } />
