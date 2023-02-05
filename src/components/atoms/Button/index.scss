@@ -16,19 +16,16 @@
 .normal{
     padding: 10px 20px;
     font-size: 1em; 
+    @media only screen and (max-width: 768px) {
+        .normal{
+            padding: 5px 10px;
+            font-size: 0.7em; 
+        }
+    }
 }
 .rounded-sm{
     border-radius: 5px;
 }
 .rounded-md{
     border-radius: 40px;
-}
-@media only screen and (max-width: 768px) {
-    .button{
-
-    }
-    .normal{
-        padding: 5px 10px;
-        font-size: 0.7em; 
-    }
 }
