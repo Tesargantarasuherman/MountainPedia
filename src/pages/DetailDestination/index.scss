@@ -98,29 +98,7 @@
                 }
             }
         }
-        .booking-asistant {
-            height: 100px;
-            background-color: $main-color;
-            position: relative;
-            padding: 20px;
-            label {
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: white;
-            }
-            .form {
-                margin: 10px 0;
-                display: flex;
-                justify-content: space-between;
-                gap: 5px;
-                div{
-                    flex:1;
-                }
-                button{
-                    flex:1
-                }
-            }
-        }
+        
     }
 
     &-right {
@@ -218,16 +196,16 @@
         }
     }
 }
+
 .booking{
     display:flex;
     justify-content: flex-start;
-    width:60%;
+    width: 100%;
     .left{
         flex:1;
-        width: 62%;
     }
     .right{
-        flex:0.5
+        flex:1;
     }
     &-asistant {
         min-height: 100px;
@@ -384,7 +362,6 @@ body.dark {
     }
     .booking{
         width: 100%;
-        .left{
             .booking-asistant{
                 padding: 5px;
                 label{
@@ -404,6 +381,5 @@ body.dark {
                     }
                 }
             }
-        }
     }
 }
