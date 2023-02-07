@@ -33,46 +33,103 @@ import {
     Legend
   );
   
-  export const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart',
-      },
-    },
-  };
   
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
-  export const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
 export const DetailDestiation = (props) => {
     const [togglePopup, setTogglePopup] = useState(false)
-    const [initialY, setInitialY] = useState(-240)
-    const [formActive, setFormActive] = useState(true)
     let params = useParams();
+    const d = new Date();
+    const[dated,setDated] = useState(null);
+    const [year,setYear] = useState([2021,2022,2023])
+    const _dateValue = {year:d.getFullYear(),month:d.getMonth() + 1}
+    const [dateValue,setDateValue] = useState(_dateValue)
+
+    const[month,setMonth] = useState([
+        {
+            'id':1,
+            'name':'Januari',
+        },
+        {
+            'id':2,
+            'name':'Februari',
+        },
+        {
+            'id':3,
+            'name':'Maret',
+        },
+        {
+            'id':4,
+            'name':'April',
+        },
+        {
+            'id':5,
+            'name':'Mei',
+        },
+        {
+            'id':6,
+            'name':'Juni',
+        },
+        {
+            'id':7,
+            'name':'Juli',
+        },
+        {
+            'id':8,
+            'name':'Agustus',
+        },
+        {
+            'id':9,
+            'name':'September',
+        },
+        {
+            'id':10,
+            'name':'Oktober',
+        },
+        {
+            'id':11,
+            'name':'November',
+        },
+        {
+            'id':12,
+            'name':'Desember',
+        },
+    ])
+
     useEffect(() => {
+
         props.getDetailProduct(params.id);
+        getDays(dateValue.year,dateValue.month);
+
+      
     }, [])
+    const options = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Statistik Kunjungan',
+          },
+        },
+      };
+      
+      const labels = dated;
+      
+      const data = {
+        labels,
+        datasets: [
+          {
+            label: 'Pengunjung',
+            data: labels?.map(() => faker.datatype.number({ min: 1, max: 1000 })),
+            borderColor: '#006E5D',
+            backgroundColor: '#006E5D',
+          },
+        ],
+      };
+
+   
+
 
     const setting = {
         dots: true,
@@ -111,6 +168,26 @@ export const DetailDestiation = (props) => {
     };
     const popup = () => {
         setTogglePopup(!togglePopup)
+    }
+    const getDays = (year, month) => {
+        let value_date = [];
+        let length_date = new Date(year, month, 0).getDate();
+        for(let i=1;i<=length_date;i++){
+            value_date.push(i);
+        }
+        setDated(value_date)
+    };
+    
+    const handleFilterChange = (e)=>{
+        const{name,value} = e.target
+        // console.log(value['year'])
+       
+        setDateValue({...dateValue,[name]:value})
+
+        setTimeout(() => {
+            getDays(dateValue.year,dateValue.month)
+        }, 100);
+        
     }
 
     return (
@@ -244,6 +321,26 @@ export const DetailDestiation = (props) => {
                             <ListBooking id={3} />
                         </div>
                         <div className="right">
+                            <div className="filter">
+                                <div>
+                                <label htmlFor="">Pilih Bulan</label>
+                                <select name="month" id="" onChange={handleFilterChange}>
+                                    {
+                                        month.map(month=>{
+                                            return <option value={month.id} selected={month.id == dateValue.month ? true :false}>{month.name}</option>
+                                        })
+                                    }
+                                </select>
+                                </div>
+                                <label htmlFor="">Pilih Tahun</label>
+                                <select  name="year" id="" onChange={handleFilterChange}>
+                                    {
+                                        year.map(year=>{
+                                            return <option value={year} selected={year == dateValue.year ? true :false}>{year}</option>
+                                        })
+                                    }
+                                </select>
+                            </div>
                             <Line options={options} data={data} />
                         </div>
                     </div>

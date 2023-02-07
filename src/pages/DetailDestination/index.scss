@@ -73,8 +73,9 @@
     word-spacing: 5px;
     line-height: 1.2;
     height: fit-content;
+    width: 100%;
     &-left {
-        flex: 1;
+        flex: 2;
         .title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -102,7 +103,7 @@
     }
 
     &-right {
-        flex: 0.5;
+        flex: 1;
         border: 2px solid #dcdfe4;
         border-top: 5px solid $main-color;
         height: fit-content;
@@ -202,11 +203,18 @@
     justify-content: flex-start;
     width: 100%;
     flex-wrap:wrap;
+    gap:10px;
     .left{
-        flex:1;
+        flex:2;
     }
     .right{
         flex:1;
+        border: 1px solid $main-color;
+        height: fit-content;
+        .filter{
+            display: flex;
+            justify-content: space-between;
+        }
     }
     &-asistant {
         min-height: 100px;
