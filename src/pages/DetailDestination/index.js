@@ -336,7 +336,7 @@ export const DetailDestiation = (props) => {
                                 <select  name="year" id="" onChange={handleFilterChange}>
                                     {
                                         year.map(year=>{
-                                            return <option value={year} selected={year == dateValue.year ? true :false}>{year}</option>
+                                            return <option value={year} selected={year === dateValue.year ? true :false}>{year}</option>
                                         })
                                     }
                                 </select>
