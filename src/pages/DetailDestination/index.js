@@ -244,7 +244,7 @@ export const DetailDestiation = (props) => {
                             <ListBooking id={3} />
                         </div>
                         <div className="right">
-                        <Line options={options} data={data} />
+                            <Line options={options} data={data} />
                         </div>
                     </div>
                 </>

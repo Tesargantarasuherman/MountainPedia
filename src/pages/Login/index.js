@@ -12,7 +12,7 @@ const {AuthContext} = ConfigContext
 
 export default function Login() {
     const [activeModal, setActiveModal] = useState(true)
-    const [initialY, setInitialY] = useState(-240)
+    const [initialY, setInitialY] = useState(-230)
     const [formActive, setFormActive] = useState(true)
     const props_auth = useContext(AuthContext)
     const navigate =useNavigate();
@@ -28,7 +28,7 @@ export default function Login() {
 
     const actionSetFormActive = () => {
         if (initialY == 25) {
-            setInitialY(-240)
+            setInitialY(-230)
         }
         else {
             setInitialY(25)

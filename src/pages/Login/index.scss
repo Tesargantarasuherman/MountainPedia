@@ -18,6 +18,9 @@
     right: 0;
     z-index: 9999;
     background-color: rgba($color: #FEFEFE, $alpha: 0.5);
+    @media only screen and (max-width: 768px) {
+        padding: 100px 5%;
+    }
     .main-sign{
     box-shadow: 5px 20px 50px #000;
     border-radius: 10px;
@@ -82,7 +85,9 @@
         min-height: 500px;
         background-color: white;
         border-radius: 60% / 10%;
-
+        // @media only screen and (max-width: 768px) {
+        //     top:290px;
+        // }
         form{
             display: flex;
             flex-direction: column;

@@ -201,6 +201,7 @@
     display:flex;
     justify-content: flex-start;
     width: 100%;
+    flex-wrap:wrap;
     .left{
         flex:1;
     }
@@ -221,6 +222,7 @@
             display: flex;
             justify-content: space-between;
             gap: 5px;
+            flex-wrap:wrap;
             div{
                 flex: 1;
             }
@@ -375,6 +377,10 @@ body.dark {
                     padding: 10px;
                     gap: 10px;
                     div{
+                        flex:1;
+                    }
+                    button{
+                        flex:1;
                     }
                     img{
                         width: 10px;
