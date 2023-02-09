@@ -214,6 +214,22 @@
         .filter{
             display: flex;
             justify-content: space-between;
+            padding: 5%;
+            gap:10px;
+            background-color: $main-color;
+            div{
+                display: flex;
+                justify-content: center;
+                gap:10px;
+                flex:1;
+                align-items: center;
+                label{
+                    color:white;
+                }
+                select{
+                    padding:5px 10px;
+                }
+            }
         }
     }
     &-asistant {

@@ -332,6 +332,7 @@ export const DetailDestiation = (props) => {
                                     }
                                 </select>
                                 </div>
+                                <div>
                                 <label htmlFor="">Pilih Tahun</label>
                                 <select  name="year" id="" onChange={handleFilterChange}>
                                     {
@@ -340,6 +341,7 @@ export const DetailDestiation = (props) => {
                                         })
                                     }
                                 </select>
+                                </div>
                             </div>
                             <Line options={options} data={data} />
                         </div>
