@@ -33,7 +33,7 @@ import {
     Legend
   );
   
-  
+
 export const DetailDestiation = (props) => {
     const [togglePopup, setTogglePopup] = useState(false)
     let params = useParams();
@@ -100,7 +100,7 @@ export const DetailDestiation = (props) => {
         getDays(dateValue.year,dateValue.month);
 
       
-    }, [])
+    }, [dateValue])
     const options = {
         responsive: true,
         plugins: {
@@ -180,13 +180,8 @@ export const DetailDestiation = (props) => {
     
     const handleFilterChange = (e)=>{
         const{name,value} = e.target
-        // console.log(value['year'])
        
         setDateValue({...dateValue,[name]:value})
-
-        setTimeout(() => {
-            getDays(dateValue.year,dateValue.month)
-        }, 100);
         
     }
 
