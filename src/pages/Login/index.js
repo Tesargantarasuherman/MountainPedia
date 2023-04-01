@@ -12,7 +12,6 @@ const {AuthContext} = ConfigContext
 
 export default function Login() {
     const [activeModal, setActiveModal] = useState(true)
-    const [initialY, setInitialY] = useState(-230)
     const [formActive, setFormActive] = useState(true)
     const props_auth = useContext(AuthContext)
     const navigate =useNavigate();
@@ -27,12 +26,6 @@ export default function Login() {
    
 
     const actionSetFormActive = () => {
-        if (initialY == 25) {
-            setInitialY(-230)
-        }
-        else {
-            setInitialY(25)
-        }
         setFormActive(!formActive)
     }
 
@@ -62,14 +55,14 @@ export default function Login() {
                         <button>Sign up</button>
                     </form>
                 </div>
-                <motion.div animate={{ y: initialY, transition: { delay: 0.2, x: { duration: 2 }, default: { ease: "linear" } } }} className="login">
+                <div className={`login ${formActive ? 'active' : ''}`}>
                     <form>
                         <label onClick={actionSetFormActive} className={`${formActive ? 'active' : ''}`}>Login</label>
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
                         <button type="button" onClick={actionLogin}>Login</button>
                     </form>
-                </motion.div>
+                </div>
             </div>
         </motion.div>
     )

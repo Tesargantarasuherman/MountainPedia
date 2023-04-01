@@ -11,16 +11,30 @@
 .sign{
     display: none;
     position: fixed;
-    padding: 100px 40%;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 9999;
     background-color: rgba($color: #FEFEFE, $alpha: 0.5);
-    @media only screen and (max-width: 768px) {
-        padding: 100px 5%;
+    @media only screen and (min-width: 200px) {
+        padding: 10% 5%;
     }
+    @media only screen and (min-width: 600px) {
+        padding: 100px 25%;
+        margin-top:100px;
+
+    }
+    @media only screen and (min-width: 992px) {
+        padding: 10% 32%;
+    }
+    @media only screen and (min-width: 993px) {
+        padding: 10% 35%;
+    }
+    @media only screen and (min-width: 1300px) {
+        padding: 50px 40%;
+    }
+
     .main-sign{
     box-shadow: 5px 20px 50px #000;
     border-radius: 10px;
@@ -41,8 +55,20 @@
         border-radius: 5px;
     }
     .signup{
-        padding: 10%;
+        padding:10px 20px;
         box-sizing: border-box;
+        @media only screen and (max-width: 600px) {
+            padding: 35px 10%;
+        }
+        @media only screen and (min-width: 600px) {
+            padding: 35px 10%;
+        }
+        @media only screen and (min-width: 992px) {
+            padding: 35px 10%;
+        }
+        @media only screen and (min-width: 1200px) {
+            padding: 11% 10%;
+        }
         label{
             text-align: center;
             margin-bottom: 20px;
@@ -82,17 +108,38 @@
         position: absolute;
         left: 0;
         right: 0;
+        bottom: -500px;
         min-height: 500px;
         background-color: white;
         border-radius: 60% / 10%;
         // @media only screen and (max-width: 768px) {
         //     top:290px;
         // }
+       &.active{
+            top:0;
+            margin-top: 55px;
+       }
+        @media only screen and (max-width: 600px) {
+            padding: 10% 10% 0 10%;
+            bottom: -480px;
+        }
+        @media only screen and (min-width: 600px) {
+            padding: 10% 10% 0 10%;
+            bottom: -480px;
+        }
+        @media only screen and (min-width: 992px) {
+            padding: 10% 10% 0 10%;
+            bottom: -480px;
+        }
+        @media only screen and (min-width: 1200px) {
+            padding: 10% 10%;
+            bottom: -500px;
+        }
         form{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 40px ;
+            padding: 10px ;
             label{
                 text-align: center;
                 transform: translateY(-30px);
@@ -117,6 +164,7 @@
     }
    }
 }
+
 .sign-active{
     display: block !important;
 }
