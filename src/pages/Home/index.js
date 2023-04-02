@@ -2,17 +2,25 @@ import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { getAllProduct } from '../../actions'
-import { Banner, Button, Card, Container, Footer, Navbar } from '../../components'
+import { Banner, Button, Card, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect } from 'react-redux'
 
-export const Home =(props)=> {
+export const Home =({product,getAllProduct})=> {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(6);
+  const [currentPosts,setCurrentPosts] = useState([]);
 
+
+  
   useEffect(() => {
-    props.getAllProduct();
-  }, [])
+    getAllProduct();
+    setTimeout(()=>{
+      setCurrentPosts(product?.slice(indexOfFirstPost,indexOflastPost))
+    },1000)
+  },[product])
 
   const [steps, setSteps] = useState([
     {
@@ -32,15 +40,24 @@ export const Home =(props)=> {
     }
   ])
   const [hints, setHints] = useState([])
+// Get Current Post
+  const indexOflastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOflastPost - postPerPage;
+
+  // Change Page
+  const paginate =(pageNumber)=>{
+    setCurrentPage(pageNumber)
+  }
+
 
   const onExit = () => {
     setStepsEnabled(false)
     localStorage.setItem('intro', true)
   };
   const renderProducts =()=>{
-    if(props.product.length >=1){
+    if(currentPosts.length >=1){
       return(
-        props.product.map(product => {
+        currentPosts.map(product => {
           return (
             <Card product={product}/>
           )
@@ -81,6 +98,13 @@ export const Home =(props)=> {
           }
         </>
       } />
+      <Container marginTop={50} justify="center" el={
+        <>
+        <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage}/>
+        </>
+      }
+      
+      />
       <Container
         marginTop={50}
         el={
@@ -94,7 +118,7 @@ export const Home =(props)=> {
 }
 
 const mapStateToProps = (state) => ({
-  product: state?.product.product
+  product: state?.product?.product
 })
 
 const mapDispatchToProps = {

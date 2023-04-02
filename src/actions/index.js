@@ -9,7 +9,7 @@ export const getAllProduct = () => (dispatch) => {
     });
 }
 export const getDetailProduct = (id) => (dispatch) => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts/1${id}`).then((res) => {
+    axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) => {
         dispatch({ type: GET_DETAIL_PRODUCT, payload: res.data })
     }).catch((err) => {
 

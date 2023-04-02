@@ -1,0 +1,18 @@
+.pagination{
+     margin: 0 auto;
+   
+    ul{
+        display: flex;
+        justify-content: center;
+        li{
+            list-style: none;
+            button{
+                margin-right: 10px;
+                padding:5px 15px;
+                &.active{
+                    background-color: red;
+                }
+            }
+        }
+    }
+}
