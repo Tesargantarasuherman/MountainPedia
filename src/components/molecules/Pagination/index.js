@@ -5,20 +5,22 @@ function Pagination({ postPerPage, totalPost,paginate,currentPage }) {
     for (let i = 1; i < Math.ceil(totalPost / postPerPage); i++) {
         pageNumbers.push(i);
     }
+    const changePage=(number)=>{
+        window.scrollTo(0, 600);
+        paginate(number)
+    }
     return (
         <nav className='pagination'>
-            <ul>
                 {
                     pageNumbers.map(number => (
-                        <li key={number}>
-                            <button onClick={()=>paginate(number)} className={`${number == currentPage ?'active':''}`}>
+                        <div key={number}>
+                            <button onClick={()=>changePage(number)} className={`${number == currentPage ?'active':''}`}>
                                 {number}
                             </button>
-                        </li>
+                        </div >
                     )
                     )
                 }
-            </ul>
         </nav>
     )
 }

@@ -28,6 +28,7 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-slideshow-image": "^4.2.1",
     "react-spring-bottom-sheet": "^3.4.1",
     "react-stars": "^2.2.5",
     "redux": "^4.2.0",
