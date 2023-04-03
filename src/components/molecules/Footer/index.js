@@ -50,7 +50,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="copyright">
-                <p>&#169; 2022 Made with &hearts; in Bandung</p>
+                <p>&#169; 2023 Made with &hearts; in Bandung</p>
             </div>
         </div>
     )
