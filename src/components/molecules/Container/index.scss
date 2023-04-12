@@ -2,22 +2,29 @@
     display: flex;
     gap:10px;
     flex-wrap: wrap;
-    @media only screen and (min-width: 200px) {
+    &.space-between{
+        justify-content: space-between;
     }
-    @media only screen and (min-width: 600px) {
-        margin: 0 5% ;
+    &.flex-start{
+        justify-content:flex-start
+    }
+    @media only screen and (max-width: 600px) {
+        margin: 0 10px ;
         gap:5px;
+        &.space-between,&.flex-start{
+            justify-content: center;
+        }
     }
     @media only screen and (min-width: 992px) {
     }
     @media only screen and (min-width: 993px) {
         margin: 0 15% ;
+        justify-content: space-between;
     }
     @media only screen and (min-width: 1300px) {
         margin: 0 15% ;
+        justify-content: space-between ;
     }
 
 }
-.space-between{
-    justify-content: space-between;
-}
+
