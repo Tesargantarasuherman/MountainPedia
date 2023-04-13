@@ -36,6 +36,9 @@
             z-index: 99;
         }
     }
+        .mobile{
+            display: none;
+        }
 }
 
 body.dark .content-collage {
@@ -44,7 +47,32 @@ body.dark .content-collage {
 
 @media only screen and (max-width: 768px) {
     .image-collage {
-        display: none;
+        .desktop{
+            display: none;
+        }
+    }
+    .image-collage {
+        z-index: 999999;
+        .mobile{
+            display: block;
+            display: flex;
+            justify-content: space-between;
+        z-index: 999999;
+        height: 200px !important;
+        width: 320px !important;
+        }
+    }
+    .body-img-carousel-mobile{
+        height: 200px;
+        width: 300px; 
+    }
+    .img-carousel-mobile{
+        height: 200px;
+        width: 320px;
+    }
+    .slick-list{
+        height: 200px;
+        width: 320px;
     }
 }
 
