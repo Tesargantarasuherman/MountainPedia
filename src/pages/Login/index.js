@@ -48,11 +48,11 @@ export default function Login() {
                         <input type="password" name="pswd" placeholder="Password" required />
                         <div className='sign-footer'>
                         <button>Sign up</button>
-                        <button className='close'>
                             <Link to='/'>
-                                Batal
+                                <button className='close'>
+                                    Batal
+                                </button>
                             </Link>
-                        </button>
                         </div>
                     </form>
                 </div>
@@ -63,11 +63,11 @@ export default function Login() {
                         <input type="password" name="pswd" placeholder="Password" required />
                         <div className='sign-footer'>
                         <button type="button" onClick={actionLogin}>Login</button>
-                        <button className='close'>
                             <Link to='/'>
-                                Batal
+                                <button className='close'>
+                                        Batal
+                                </button>
                             </Link>
-                        </button>
                         </div>
                     </form>
                 </div>
