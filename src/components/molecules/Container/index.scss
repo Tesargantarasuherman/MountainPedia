@@ -1,9 +1,12 @@
 .container{
     display: flex;
-    gap:10px;
+    gap:1.1rem;
     flex-wrap: wrap;
     &.space-between{
         justify-content: space-between;
+    }
+    &.space-around{
+        justify-content: space-around;
     }
     &.flex-start{
         justify-content:flex-start

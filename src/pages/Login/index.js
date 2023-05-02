@@ -40,19 +40,20 @@ export default function Login() {
         <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
             <div className="main-sign">
                 {/* <button className='close' onClick={() => setActiveModal(!activeModal)}> */}
-                <button className='close' onClick={()=>{navigate(-2)}}>
-                {/* <button className='close'> */}
-                    {/* <Link to='/'> */}
-                        X
-                    {/* </Link> */}
-                </button>
                 <div className="signup">
                     <form>
                         <label onClick={actionSetFormActive} className={`${formActive ? '' : 'active'}`}>Register</label>
                         <input type="text" name="txt" placeholder="User name" required />
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
+                        <div className='sign-footer'>
                         <button>Sign up</button>
+                        <button className='close'>
+                            <Link to='/'>
+                                Batal
+                            </Link>
+                        </button>
+                        </div>
                     </form>
                 </div>
                 <div className={`login ${formActive ? 'active' : ''}`}>
@@ -60,7 +61,14 @@ export default function Login() {
                         <label onClick={actionSetFormActive} className={`${formActive ? 'active' : ''}`}>Login</label>
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
+                        <div className='sign-footer'>
                         <button type="button" onClick={actionLogin}>Login</button>
+                        <button className='close'>
+                            <Link to='/'>
+                                Batal
+                            </Link>
+                        </button>
+                        </div>
                     </form>
                 </div>
             </div>

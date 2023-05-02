@@ -91,13 +91,13 @@ export const Home =({product,getAllProduct})=> {
           <Button title="Guides" />
         </>
       } />
-      <Container marginTop={50} justify='space-between' el={
+      <Container marginTop={50} justify='flex-start' el={
         <>
           {
            renderProducts()
           }
         </>
-      } />
+    } />
       <Container marginTop={50} justify="center" el={
         <>
         <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage}/>
