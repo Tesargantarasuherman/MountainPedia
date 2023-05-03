@@ -9,21 +9,25 @@
 }
 
 .sign{
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background-color: rgba($color: #FEFEFE, $alpha: 0.5);
+    background-image: url('https://images.unsplash.com/photo-1513601747697-f425e3d9b9ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2338&q=80');
+    object-fit: contain;
+    object-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    position: relative;
+    &>.title{
+        position: absolute;
+        left: 5%;
+        top:10%;
+    }
     @media only screen and (min-width: 200px) {
         padding: 10% 5%;
     }
-    @media only screen and (min-width: 600px) {
+    @media only screen and (max-width: 600px) {
         padding: 100px 25%;
-        margin-top:100px;
-
+        background: none;
+        height: 400px;
     }
     @media only screen and (min-width: 992px) {
         padding: 10% 32%;
@@ -36,12 +40,22 @@
     }
 
     .main-sign{
+    
     box-shadow: 5px 20px 50px #000;
     border-radius: 10px;
     background-color: $main-color;
     min-height: 400px;
-    position: relative;
+    position: absolute;
     overflow: hidden;
+    min-width: 350px;
+    bottom:20%;
+    right: 15%;
+    @media only screen and (max-width: 600px) {
+       position: absolute;
+       right: 2%;
+       top:10%;
+       left: 2%;
+    }
     .close{
         padding: 10px 15px;
         background-color: white;
@@ -198,7 +212,9 @@
    }
 }
 
-.sign-active{
-    display: block !important;
+body.dark{
+    .sign{
+        background-color: #202124;
+    }
 }
 // 

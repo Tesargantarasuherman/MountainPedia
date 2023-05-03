@@ -21,7 +21,7 @@ import {
   } from 'chart.js';
   import { Line } from 'react-chartjs-2';
   import { faker } from '@faker-js/faker'
-
+  import { AiOutlineSchedule } from "react-icons/ai";
   
   ChartJS.register(
     CategoryScale,
@@ -247,7 +247,7 @@ export const DetailDestiation = (props) => {
                                 About this activity
                             </p>
                             <div className="features">
-                                <div className="features-img"></div>
+                                <AiOutlineSchedule />
                                 <div className="description">
                                     <label>Free Cancelation</label>
                                     <p>Cancel up to 24 hours in advance to receive a full refund</p>

@@ -8,36 +8,38 @@ import { useContext } from 'react'
 import ConfigContext from '../../context/ConfigContext'
 import { toaster } from '../../utils/toaster'
 
-const {AuthContext} = ConfigContext
+const { AuthContext } = ConfigContext
 
 export default function Login() {
-    const [activeModal, setActiveModal] = useState(true)
     const [formActive, setFormActive] = useState(true)
     const props_auth = useContext(AuthContext)
-    const navigate =useNavigate();
+    const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(() => {
         // props_auth.validationToken()
-            if(props_auth.auth == true){
-               navigate(-1)
-            }
-    },[])
+        if (props_auth.auth == true) {
+            navigate(-1)
+        }
+    }, [])
 
-   
+
 
     const actionSetFormActive = () => {
         setFormActive(!formActive)
     }
 
-    const actionLogin =()=>{
-        localStorage.setItem('token','123456')
+    const actionLogin = () => {
+        localStorage.setItem('token', '123456')
         props_auth.validationToken()
         navigate(-1)
-        toaster('success','Successfully Login!')         
+        toaster('success', 'Successfully Login!')
     }
 
     return (
-        <motion.div className={`sign ${activeModal ? 'sign-active' : ''}`} >
+        <motion.div className='sign' >
+            <div className='title'>
+                <h1>Selamat Login, Untuk Melanjutkan</h1>
+            </div>
             <div className="main-sign">
                 {/* <button className='close' onClick={() => setActiveModal(!activeModal)}> */}
                 <div className="signup">
@@ -47,7 +49,7 @@ export default function Login() {
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
                         <div className='sign-footer'>
-                        <button>Sign up</button>
+                            <button>Sign up</button>
                             <Link to='/'>
                                 <button className='close'>
                                     Batal
@@ -62,10 +64,10 @@ export default function Login() {
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
                         <div className='sign-footer'>
-                        <button type="button" onClick={actionLogin}>Login</button>
+                            <button type="button" onClick={actionLogin}>Login</button>
                             <Link to='/'>
                                 <button className='close'>
-                                        Batal
+                                    Batal
                                 </button>
                             </Link>
                         </div>
