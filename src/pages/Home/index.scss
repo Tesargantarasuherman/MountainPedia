@@ -1,11 +1,39 @@
+.container-list-place{
+    display: flex;
+    justify-content: center;
+}
 .list-place{
     display: grid;
-    grid-template-rows:    repeat(2, 445px);
+    grid-template-rows:    repeat(2, auto);
     grid-template-columns: repeat(4, 1fr);
     margin: 50px 15% 0px 15%;
-    max-height: 95vh;
+   
     @media only screen and (max-width: 600px) {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         max-height: max-content;
-        }
+        margin-top: 50px;
+        gap:5px;
+    }
+    @media only screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: max-content;
+        gap:20px;
+    }
+
+    @media only screen and (min-width: 992px) {
+        grid-template-columns: repeat(4, 1fr);
+        max-height: max-content;
+        margin-top: 50px;
+        gap:10px;
+    }
+    @media only screen and (min-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+        max-height: max-content;
+    }
+    @media only screen and (min-width: 1360px) {
+    }
+
+    @media only screen and (max-width: 320px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

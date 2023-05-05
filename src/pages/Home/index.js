@@ -5,22 +5,22 @@ import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect } from 'react-redux'
 import './index.scss'
-export const Home =({product,getAllProduct})=> {
+export const Home = ({ product, getAllProduct }) => {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(6);
-  const [currentPosts,setCurrentPosts] = useState([]);
+  const [postPerPage, setPostPerPage] = useState(8);
+  const [currentPosts, setCurrentPosts] = useState([]);
 
 
-  
+
   useEffect(() => {
     getAllProduct();
-    setTimeout(()=>{
-      setCurrentPosts(product?.slice(indexOfFirstPost,indexOflastPost))
-    },1000)
-  },[product])
+    setTimeout(() => {
+      setCurrentPosts(product?.slice(indexOfFirstPost, indexOflastPost))
+    }, 1000)
+  }, [product])
 
   const [steps, setSteps] = useState([
     {
@@ -40,38 +40,39 @@ export const Home =({product,getAllProduct})=> {
     }
   ])
   const [hints, setHints] = useState([])
-// Get Current Post
+  // Get Current Post
   const indexOflastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOflastPost - postPerPage;
 
   // Change Page
-  const paginate =(pageNumber)=>{
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
 
   const onExit = () => {
     setStepsEnabled(false)
     localStorage.setItem('intro', true)
   };
-  const renderProducts =()=>{
-    if(currentPosts.length >=1){
-      return(
+
+  const renderProducts = () => {
+    if (currentPosts.length >= 1) {
+      return (
         currentPosts.map(product => {
           return (
-            <Card product={product}/>
+            <Card product={product} />
           )
         })
       )
     }
-    else{
-      return(
+    else {
+      return (
         <div className="loading">
           Loading
         </div>
       )
     }
   }
+
   return (
     <div>
       <Steps
@@ -81,9 +82,9 @@ export const Home =({product,getAllProduct})=> {
         onExit={onExit}
       />
       <Hints enabled={hintsEnabled} hints={hints} />
-      <Container el={
+      <div className='container-banner'>
         <Banner />
-      } />
+      </div>
       <Container marginTop={150} el={
         <>
           <Button title="Hiking" />
@@ -91,17 +92,19 @@ export const Home =({product,getAllProduct})=> {
           <Button title="Guides" />
         </>
       } />
+      <section className='container-list-place'>
         <div className='list-place'>
           {
-           renderProducts()
+            renderProducts()
           }
         </div>
+      </section>
       <Container marginTop={50} justify="center" el={
         <>
-        <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage}/>
+          <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} />
         </>
       }
-      
+
       />
       <Container
         marginTop={50}

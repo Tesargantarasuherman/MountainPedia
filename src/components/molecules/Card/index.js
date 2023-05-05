@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 export default function Card({product}) {
     const slashMotion = {
-        rest: { y: 200 },
+        rest: { y: 80 },
         hover: {
             y: 0
         },
@@ -41,7 +41,7 @@ export default function Card({product}) {
                     </div>
                 </div>
                 <p className="title">
-                    {product.title}
+                    {product.title.substring(0,20)}
                 </p>
                 <div className="content">
                     <div className="body-content">
@@ -70,7 +70,7 @@ export default function Card({product}) {
                     </div>
                 </div>
             </div>
-            <Link to={`/detail/${product.id}`} className='link'>
+            <Link to={`/detail/${product.id}`}>
                 <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
                     <div className='card-footer-body'>
                         <div className="card-footer-body-title">

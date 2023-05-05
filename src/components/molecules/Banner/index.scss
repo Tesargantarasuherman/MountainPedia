@@ -1,11 +1,14 @@
+@import '../../../utils/styles/color.scss','../../../utils/styles/variabel.scss';
+
 .banner{
     display: flex;
     justify-content: space-between;
     position: relative;
-
     &-left{
         flex: 1;
-        background-color: #F5F5F6;
+        background-color: $secondary-color;
+        border-bottom-left-radius: $border-radius-medium;
+        border-top-left-radius: $border-radius-medium;
        div{
         padding:15%;
         // width: 100%;
@@ -28,6 +31,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
+            
         }
     }
     &-img-content{
@@ -55,13 +59,13 @@
     }
 }
 body.dark .banner-left{
-    background-color: black;
+    background-color: $dark-color;
 }
 @media only screen and (max-width: 768px) {
     .banner{
         background-color: #F5F5F6;
         z-index: 9999;
-
+        margin: 0px;
         &-left{
           .content-banner{
             margin:10px;
