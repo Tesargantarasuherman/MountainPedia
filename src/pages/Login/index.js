@@ -38,7 +38,7 @@ export default function Login() {
     return (
         <motion.div className='sign' >
             <div className='title'>
-                <h1>Selamat Login, Untuk Melanjutkan</h1>
+                <h1>Silahkan Masuk, Untuk Melanjutkan</h1>
             </div>
             <div className="main-sign">
                 {/* <button className='close' onClick={() => setActiveModal(!activeModal)}> */}

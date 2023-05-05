@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect } from 'react-redux'
-
+import './index.scss'
 export const Home =({product,getAllProduct})=> {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
@@ -91,13 +91,11 @@ export const Home =({product,getAllProduct})=> {
           <Button title="Guides" />
         </>
       } />
-      <Container marginTop={50} justify='flex-start' el={
-        <>
+        <div className='list-place'>
           {
            renderProducts()
           }
-        </>
-    } />
+        </div>
       <Container marginTop={50} justify="center" el={
         <>
         <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage}/>
