@@ -7,8 +7,6 @@
     &-left{
         flex: 1;
         background-color: $secondary-color;
-        border-bottom-left-radius: $border-radius-medium;
-        border-top-left-radius: $border-radius-medium;
        div{
         padding:15%;
         // width: 100%;
@@ -61,7 +59,7 @@
 body.dark .banner-left{
     background-color: $dark-color;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     .banner{
         background-color: #F5F5F6;
         z-index: 9999;
@@ -87,5 +85,15 @@ body.dark .banner-left{
         &-img-content{
             display: none;
         }
+    }
+}
+@media only screen and (min-width: 700px) {
+    .banner-img-content{
+        display: none;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .banner-img-content{
+        display: flex;
     }
 }

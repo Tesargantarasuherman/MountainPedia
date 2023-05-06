@@ -2,12 +2,17 @@ import React from 'react'
 import { Datetime } from '../../../assets'
 import './index.scss'
 
-function Input() {
+function Input({title,type,icon}) {
   return (
     <>
     <div className="container-input">
-        <img src={Datetime}/>
-        <input className='input' type="text" placeholder='Loremipsum' />
+      <div>
+          {icon}
+      </div>
+        <div>
+          <label htmlFor="">{title}</label>
+          <input className='input' type={type} placeholder='Loremipsum' />
+        </div>
     </div>
     </>
   )

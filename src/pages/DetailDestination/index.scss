@@ -1,4 +1,4 @@
-@import "../../utils/styles/color.scss";
+@import "../../utils/styles/color.scss","../../utils/styles/variabel.scss";
 
 @mixin image($img: "../../assets/icon/datetime.svg") {
     width: 3rem;
@@ -209,6 +209,8 @@
         flex:1;
         border: 1px solid $main-color;
         height: fit-content;
+        border-radius: $border-radius-small;
+        overflow: hidden;
         .filter{
             display: flex;
             justify-content: space-between;
@@ -234,6 +236,7 @@
         min-height: 100px;
         background-color: $main-color;
         padding: 20px;
+        border-radius: $border-radius-small;
         label {
             font-size: 1.5rem;
             font-weight: 600;

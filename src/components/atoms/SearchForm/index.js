@@ -4,6 +4,7 @@ import './index.scss'
 import Flatpickr from "react-flatpickr";
 import { useState } from 'react';
 import Input from '../Input';
+import { AiOutlineCalendar, AiOutlineEnvironment, AiOutlineUser } from 'react-icons/ai'
 
 function InputType({ type, label }) {
   const [date, setDate] = useState(new Date())
@@ -49,10 +50,10 @@ function InputForm({ label, icon, gap, type }) {
 export default function SearchForm() {
   return (
     <div className='search-form'>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
+      <Input title="Place" type="Text" icon={<AiOutlineEnvironment />}/>
+      <Input title="Start Date" type="Date" icon={<AiOutlineCalendar/>}/>
+      <Input title="End Date" type="Date" icon={<AiOutlineCalendar/>}/>
+      <Input title="Person" type="Number" icon={<AiOutlineUser/>}/>
       {/* <InputForm type="select-option" label="Type" icon={Location} gap={true} />
       <InputForm type="text" label="Location" icon={Location} gap={true} />
       <InputForm type="date" label="Date" icon={Location} gap={true} />
