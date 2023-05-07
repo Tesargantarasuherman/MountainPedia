@@ -1,18 +1,22 @@
-@import "../../../utils/styles/color.scss";
+@import "../../../utils/styles/color.scss","../../../utils/styles/variabel.scss";
 
 .footer {
     background-color: $main-color;
     width: 100%;
-    padding-top: 40px;
+    padding: 40px 10px 0px 10px;
     color: white;
+    border-radius: $border-radius-small;
     .container-content {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        gap:50px;
+        flex:1;
         .content {
             display: flex;
             flex-direction: column;
-            flex: 1;
+            justify-content: center;
+            flex-grow: 1;
             label {
                 font-weight: bold;
                 margin: 10px 0px;
@@ -24,10 +28,8 @@
             select {
                 padding: 10px 0px;
                 font-weight: bold;
+                border-radius: $border-radius-small;
             }
-        }
-        .content:nth-child(1) {
-            margin: 0 10px;
         }
     }
     .copyright {
@@ -51,52 +53,26 @@
     height: 0;
 }
 
-// .slider {
-//     position: absolute;
-//     cursor: pointer;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background-color: #ccc;
-//     -webkit-transition: 0.4s;
-//     transition: 0.4s;
-// }
-
-// .slider:before {
-//     position: absolute;
-//     content: "";
-//     height: 20px;
-//     width: 20px;
-//     left: 4px;
-//     bottom: 4px;
-//     background-color: white;
-//     -webkit-transition: 0.4s;
-//     transition: 0.4s;
-// }
-
-// input:checked + .slider {
-//     background-color: #485460;
-// }
-
-// input:focus + .slider {
-//     box-shadow: 0 0 1px #485460;
-// }
-
-// input:checked + .slider:before {
-//     -webkit-transform: translateX(26px);
-//     -ms-transform: translateX(26px);
-//     transform: translateX(26px);
-// }
-
-// /* Rounded sliders */
-// .slider.round {
-//     border-radius: 34px;
-// }
-
-// .slider.round:before {
-//     border-radius: 50%;
-// }
 body.dark .footer{
     background-color: black;
 }   
+@media only screen and (max-width: 600px) {
+    .footer{
+        .container-content{
+            gap:10px;
+            .content{
+                label{
+                    font-size: 0.8rem;
+                }
+                select {
+                    padding: 5px 0px ;
+                    font-weight: bold;
+                    max-width: 100px;
+                }
+                p{
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+}
