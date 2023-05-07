@@ -16,6 +16,14 @@ export default function Banner() {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
+    adaptiveHeight:true,
+    appendDots: dots => (
+      <div
+       id='dots-number-banner'
+      >
+        <ul id="ul-dots-number-banner" style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
     beforeChange: function (currentSlide, nextSlide) {
       console.log("before change", currentSlide, nextSlide);
     },
@@ -31,6 +39,10 @@ export default function Banner() {
             <div className='content-banner-description'>
               <p className='__title'>Plan Your Trip with Travel Hous</p>
               <p className='__description'>Plan Your Trip with Travel Hous</p>
+            </div>
+            <div className='content-banner-description'>
+              <p className='__title'>Find Plan Your Trip with Travel Hous</p>
+              <p className='__description'>Find Plan Your Trip with Travel Hous</p>
             </div>
             <div className='content-banner-description'>
               <p className='__title'>Find Plan Your Trip with Travel Hous</p>
