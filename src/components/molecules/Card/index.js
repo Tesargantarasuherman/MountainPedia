@@ -5,6 +5,7 @@ import ReactStars from 'react-stars'
 import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
+import { AiOutlineEnvironment } from 'react-icons/ai'
 export default function Card({product}) {
     const slashMotion = {
         rest: { y: 80 },
@@ -18,13 +19,14 @@ export default function Card({product}) {
     return (
         <div className="card">
             <div className="card-header">
-                <img src="https://images.unsplash.com/photo-1529989400578-857960dd64f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1633&q=80" alt="" className="card-img" />
+                <img src="https://picsum.photos/280/165" alt="" className="card-img" />
                 <p className="title">
                     <Button title='Hiking' type="small" rounded="rounded-md" />
                 </p>
                 <span class="lnr lnr-heart"></span>
                 <div className="type">
-                    <img src={Location} alt="" srcSet="" loading='lazy'/>
+                    <AiOutlineEnvironment />
+                    {/* <img src={Location} alt="" srcSet="" loading='lazy'/> */}
                     <p className="type-text">Mount. Semeru</p>
                 </div>
             </div>
