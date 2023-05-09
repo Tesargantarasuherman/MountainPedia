@@ -1,24 +1,29 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
-    margin:0 15%;
-    padding:20px 0;
+    margin: 0 15%;
+    padding: 20px 0;
     align-items: center;
-    &-left{
-        p{
+
+    &-left {
+        p {
             font-size: 1rem;
             font-weight: 600;
         }
     }
-    &-right{
-        ul{
+
+    &-right {
+        ul {
             outline: none;
-            li{
+            display: flex;
+            align-items: center;
+
+            li {
                 font-weight: 600;
                 font-size: 1em;
                 display: inline;
-                margin-left:10px;
-                .btn-login{
+                margin-left: 10px;
+                .btn-login {
                     padding: 10px 20px;
                     outline: none;
                     border: none;
@@ -27,17 +32,50 @@
                     color: white;
                     border-radius: 5px;
                 }
+
+                .parent-user {
+                    position: relative;
+
+                   
+
+                    .user {
+                        display: none;
+
+                    }
+                }
+
+                .parent-user:hover {
+                    .user {
+                        display: flex;
+                        position: absolute;
+                        background-color: #006E5D;
+                        left: 0;
+                        right: 0;
+                        flex-direction: column;
+                        z-index: 9999;
+                        min-width: 80px;
+                        padding: 10px;
+                        border-radius: 5px;;
+                        p {
+                            line-height: 1.5rem;
+                            color: white;
+                        }
+                    }
+                }
             }
         }
     }
 }
+
 @media only screen and (max-width: 768px) {
-    .navbar{
-        margin:0 10px;
-        &-right{
-            ul{
+    .navbar {
+        margin: 0 10px;
+
+        &-right {
+            ul {
                 outline: none;
-                li{
+
+                li {
                     font-size: 0.7rem;
                 }
             }
