@@ -6,5 +6,6 @@ import Footer from './Footer';
 import ImageCollage from "./ImageCollage";
 import ListBooking from "./ListBooking";
 import Pagination from "./Pagination";
+import CardImage from "./CardImage";
 
-export {Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
+export {CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}

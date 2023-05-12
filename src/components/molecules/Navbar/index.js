@@ -55,7 +55,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-right">
         <ul>
-          <li>lorem</li>
+          <li>Blog</li>
           <li>lorem</li>
           <li>lorem</li>
           <li>

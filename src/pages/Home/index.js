@@ -2,7 +2,7 @@ import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { getAllProduct } from '../../actions'
-import { Banner, Button, Card, Container, Footer, Navbar, Pagination } from '../../components'
+import { Banner, Button, Card, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect } from 'react-redux'
 import './index.scss'
 export const Home = ({ product, getAllProduct }) => {
@@ -93,10 +93,12 @@ export const Home = ({ product, getAllProduct }) => {
         </>
       } />
       <section className='container-list-place'>
+        <div className="content-list-place">
         <div className='list-place'>
           {
             renderProducts()
           }
+        </div>
         </div>
       </section>
       <Container marginTop={50} justify="center" el={
@@ -106,6 +108,19 @@ export const Home = ({ product, getAllProduct }) => {
       }
 
       />
+      <section className='container-list-place'>
+          <label className='_label'>Most Recommended</label>
+          <div className="content-list-place">
+          <div className='list-place'>
+            <CardImage />
+            <CardImage />
+            <CardImage />
+            <CardImage />
+            <CardImage />
+            <CardImage />
+          </div>
+          </div>
+      </section>
       <Container
         marginTop={50}
         el={

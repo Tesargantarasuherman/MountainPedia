@@ -5,7 +5,7 @@ import ReactStars from 'react-stars'
 import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
-import { AiOutlineEnvironment } from 'react-icons/ai'
+import { AiFillCaretLeft, AiOutlineEnvironment } from 'react-icons/ai'
 export default function Card({product}) {
     const slashMotion = {
         rest: { y: 80 },
@@ -88,6 +88,7 @@ export default function Card({product}) {
                         </motion.div>
                 </motion.div>
             </Link>
+           
         </div>
     )
 }

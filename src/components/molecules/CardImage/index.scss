@@ -1,0 +1,86 @@
+@import '../../../utils/styles/variabel.scss','../../../utils/styles/color.scss';
+
+.card-image {
+    position: relative;
+    width: 285px;
+    max-height: max-content;
+    box-shadow: 10px 30px 75px -14px rgba(0,0,0,0.7);
+
+   .content-image{
+    object-fit: contain;
+    object-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 285px;
+    min-width: 185px;
+    max-height: 285px;
+    min-height: 185px;
+   }
+
+    .__content-detail {
+        display: flex;
+        gap: 5px;
+        justify-content: flex-start;
+        padding:10px 5px;
+        
+    }
+
+    &-popup {
+        display: none;
+        width: 280px;
+        left: 285px;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        padding: 10px;
+        position: relative;
+        border-radius: $border-radius-small;
+
+        svg {
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            bottom: 50%;
+            transform: translateY(50%, 30px);
+            font-size: 30px;
+
+            path {
+                color: white;
+            }
+        }
+    }
+
+    &:hover {
+        .card-image-popup {
+            box-shadow: 10px 30px 75px -14px rgba(0, 0, 0, 0.7);
+            display: block;
+            position: absolute;
+            z-index: 99999;
+
+
+            background-color: white;
+
+            animation-name: overlayAnimate;
+            animation-duration: 2s;
+            transition-timing-function: ease-in;
+            .__content{
+                position: relative;
+                button{
+                    background-color: $main-color;
+                    color: white;
+                    border-radius: 5px;
+                    opacity: 0.8;
+                    padding: 10px 20px;
+                    border: none;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .card-image{
+        width: 185px;
+    }
+}
