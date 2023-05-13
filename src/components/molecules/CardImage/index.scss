@@ -42,7 +42,6 @@
             left: -20px;
             top: 50%;
             bottom: 50%;
-            transform: translateY(50%, 30px);
             font-size: 30px;
 
             path {
@@ -76,6 +75,16 @@
                     margin-top: 20px;
                 }
             }
+        }
+    }
+}
+.card-image:nth-child(4n){
+    .card-image-popup{
+        left:-285px;
+        svg{
+            transform: rotate(0.5turn);
+            left: unset;
+            right: -20px !important;
         }
     }
 }

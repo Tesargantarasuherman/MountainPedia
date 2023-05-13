@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect } from 'react-redux'
+
 import './index.scss'
 export const Home = ({ product, getAllProduct }) => {
   const [initialStep, setInitialStep] = useState(0)

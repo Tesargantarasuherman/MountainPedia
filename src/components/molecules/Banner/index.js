@@ -24,12 +24,6 @@ export default function Banner() {
         <ul id="ul-dots-number-banner" style={{ margin: "0px" }}> {dots} </ul>
       </div>
     ),
-    beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
-    },
-    afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
-    }
   };
   return (
     <div className="banner">
