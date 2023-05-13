@@ -4,10 +4,17 @@
     background-color: #006E5D;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap:5px;
 }
 .bg-white{
     background-color: white !important;
     color: #006E5D;
+}
+.bg-transparent{
+    background-color: rgb(69,82,87);
+    opacity: 0.7;
 }
 .small{
     padding: 5px 10px;

@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.scss'
 import { AiFillCaretLeft, AiOutlineEnvironment } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 function CardImage() {
     return (
         <div className='card-image'>
@@ -15,7 +16,7 @@ function CardImage() {
                 <AiFillCaretLeft />
                 <div className="__content">
                     <p>Nusa Penida adalah sebuah pulau bagian dari negara Republik Indonesia yang terletak di sebelah tenggara Bali yang dipisahkan oleh Selat Badung. Di dekat pulau ini terdapat juga pulau-pulau kecil lainnya yaitu Nusa Ceningan dan Nusa Lembongan</p>
-                    <button>Explore Now</button>
+                    <Link to='/place'><button>Explore Now</button></Link>
                 </div>
             </div>
         </div>

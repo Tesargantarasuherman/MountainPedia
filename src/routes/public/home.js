@@ -1,8 +1,5 @@
-import DetailDestination from "../../pages/DetailDestination";
-import Home from "../../pages/Home";
-import Login from "../../pages/Login";
-// import Login from "../pages/Login";
-// import Register from "../pages/Register";
+import { DetailDestination, DetailPlace, Home, Login } from "../../pages";
+
 const root = "/";
 
 
@@ -24,6 +21,12 @@ const home = [
         component: <Login />,
         navbar: false,
         is_login_access:false,
+    },
+    {
+        path: `${root}place`,
+        component: <DetailPlace/>,
+        navbar: true,
+        is_login_access:true,
     },
 ];
 

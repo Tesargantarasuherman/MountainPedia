@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.scss'
-export default function Button({ title, type, rounded, onClick, backgroundColor }) {
+
+export default function Button({ title, type, rounded, onClick, backgroundColor,icon }) {
   return (
     <button className={`button
       ${type ? type : 'normal'}
@@ -8,6 +9,7 @@ export default function Button({ title, type, rounded, onClick, backgroundColor 
       ${backgroundColor ? backgroundColor : ''}
     `}
       onClick={onClick}>
+      {icon}
       {title}
     </button>
   )
