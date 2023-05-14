@@ -12,3 +12,17 @@
     background-position: center;
     background-size: cover;
 }
+@mixin container(){
+        @media only screen and (max-width: 600px) {
+            margin: 0 10% ;
+        }
+        @media only screen and (min-width: 992px) {
+            margin: 0 10% ;
+        }
+        @media only screen and (min-width: 993px) {
+            margin: 0 10% ;
+        }
+        @media only screen and (min-width: 1300px) {
+            margin: 0 15% ;
+        }    
+}

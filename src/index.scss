@@ -1,7 +1,23 @@
 
 @font-face {
   font-family: "Light";
+  src: url("./fonts//GT-Eesti-Display-Light.otf");
+}
+@font-face {
+  font-family: 'Bold';
+  src: url("./fonts//GT-Eesti-Display-Bold.otf");
+}
+@font-face {
+  font-family: 'Regular';
   src: url("./fonts//GT-Eesti-Display-Regular.otf");
+}
+@font-face {
+  font-family: 'Medium';
+  src: url("./fonts//GT-Eesti-Display-Medium.otf");
+}
+@font-face {
+  font-family: 'Thin';
+  src: url("./fonts//GT-Eesti-Display-Thin.otf");
 }
 @import "./utils/styles/color.scss";
 

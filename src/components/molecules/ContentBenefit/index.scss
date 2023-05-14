@@ -1,0 +1,21 @@
+@import '../../../utils/styles/color.scss';
+.___content{
+    display: flex;
+    gap:40px;
+    .icon{
+        svg{
+            font-size: 1.4rem;
+            fill: $main-color;
+            stroke: $main-color;
+        }
+    }
+    .___description{
+        label{
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .___text{
+            font-family: Thin;
+        }
+    }
+}

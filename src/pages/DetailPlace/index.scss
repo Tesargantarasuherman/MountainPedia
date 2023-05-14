@@ -1,3 +1,43 @@
+@import '../../utils/styles/function.scss','../../utils/styles/color.scss';
 .detail-place{
-    margin: 0 15%;
+    @include container();
+    .overview{
+        margin-top: 40px;
+        .__title{
+            display: flex;
+            gap:20px;
+            span{
+                font-weight: 500;
+                font-size: 1.2rem;
+                &.active{
+                    color: $main-color;
+                    font-family: Bold;
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            div{
+                width: 2px;
+                background-color: #E0DFE2;
+            }
+        }
+        .__description{
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            @media only screen and (max-width: 600px) {
+                grid-template-columns: repeat(1,1fr);
+            }
+            gap:20px;
+        }
+    }
+    .information{
+        margin-top: 30px;
+        font-family: Regular;
+        p{
+            text-indent: 50px;
+            text-align: justify;
+        }
+    }
 }

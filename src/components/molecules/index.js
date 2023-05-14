@@ -7,5 +7,6 @@ import ImageCollage from "./ImageCollage";
 import ListBooking from "./ListBooking";
 import Pagination from "./Pagination";
 import CardImage from "./CardImage";
+import ContentBenefit from "./ContentBenefit";
 
-export {CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
+export {ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
