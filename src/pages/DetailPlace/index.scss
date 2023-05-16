@@ -1,8 +1,11 @@
 @import '../../utils/styles/function.scss', '../../utils/styles/color.scss','../../utils/styles/variabel.scss';
 
+.body-detail-place{
+    display: flex;
+    justify-content: center;
+}
 .detail-place {
     @include container();
-
     .overview {
         margin-top: 40px;
 
@@ -105,12 +108,36 @@
     }
 
     .information {
-        margin-top: 30px;
+        margin: 30px 0;
         font-family: Regular;
+
 
         p {
             text-indent: 50px;
             text-align: justify;
+        }
+        
+    }
+    .another-place{
+        margin: 30px 0;
+        .___label{
+            font-family: Bold;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+        .___content{
+            margin-top: 30px;
+            display: grid;
+            grid-template-rows:    repeat(2, auto);
+            grid-template-columns: repeat(4, 1fr);
+            // gap:20px
+            @media only screen and (max-width: 600px) {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: max-content;
+                margin-top: 50px;
+                gap:5px;
+            }
+
         }
     }
 }

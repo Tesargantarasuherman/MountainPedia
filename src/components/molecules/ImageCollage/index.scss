@@ -55,6 +55,7 @@
 
     .mobile {
         display: none;
+        @include container();
     }
 }
 

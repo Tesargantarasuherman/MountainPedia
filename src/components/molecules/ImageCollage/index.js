@@ -52,7 +52,7 @@ function ImageCollage({ popup }) {
           <img src="https://images.unsplash.com/photo-1586168078017-03cbb0884291?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1065&q=80" alt="" srcSet="" /> */}
         </div>
       </div>
-      <div className='mobile'>
+      <div className='mobile container'>
         <Slider ref={slider} {...settings}>
           <div className='body-img-carousel-mobile'>
             <img src="https://images.unsplash.com/photo-1592364395653-83e648b20cc2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" srcSet="" className='img-carousel-mobile'/>
