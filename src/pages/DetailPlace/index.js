@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { Breadcumb, Container, ContentBenefit, ImageCollage } from '../../components'
 import './index.scss'
-import { IoCalendarOutline } from 'react-icons/io5'
-function DetailPlace() {
+import { IoContrastOutline, IoLocationOutline } from 'react-icons/io5';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { HiLocationMarker } from "react-icons/hi";
+import { MdShareLocation } from "react-icons/md";
+import { BsFillAirplaneFill} from "react-icons/bs";
+
+const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
 
   const actionRenderBenefit = (active) => {
@@ -17,14 +22,72 @@ function DetailPlace() {
           </>
         )
       case 'include':
-        return(
+        return (
           <>
             <ContentBenefit />
             <ContentBenefit />
           </>
         )
       case 'tour_details':
-        return(
+        return (
+          <>
+            <div className='__content'>
+              <div className="activity-itenary">
+                <div className="activity-itenary-timeline">
+                  <div className="__icon">
+                    <HiLocationMarker />
+                  </div>
+                  <div className="___description">
+                    <label className='___title'>Starting Point</label>
+                    <p className='___info'>Ngurah rai international airport</p>
+                  </div>
+                </div>
+                <div className="activity-itenary-timeline">
+                  <div className="__icon">
+                    <MdShareLocation />
+                  </div>
+                  <div className="___description">
+                    <label className='___title'>First Destination</label>
+                    <p className='___info'>Uluwatu Beach</p>
+                  </div>
+                </div>
+                <div className="activity-itenary-timeline">
+                  <div className="__icon">
+                    <MdShareLocation />
+                  </div>
+                  <div className="___description">
+                    <label className='___title'>Last Destination</label>
+                    <p className='___info'>Melasti Beach</p>
+                  </div>
+                </div>
+                <div className="activity-itenary-timeline">
+                  <div className="__icon">
+                    <BsFillAirplaneFill />
+                  </div>
+                  <div className="___description">
+                    <label className='___title'>End Point</label>
+                    <p className='___info'>Ngurah rai international airport</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="map ___description" style={{ width: 'min-cone', height: 400 }}>
+              <MapContainer center={[-8.409518, 115.188919]} zoom={13} scrollWheelZoom={false}>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[-8.409518, 115.188919]}>
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+          </>
+        )
+      default:
+        return (
           <>
             <ContentBenefit />
             <ContentBenefit />
@@ -32,34 +95,25 @@ function DetailPlace() {
             <ContentBenefit />
           </>
         )
-      default:
-        return(
-          <>
-            <ContentBenefit />
-            <ContentBenefit />
-            <ContentBenefit />
-            <ContentBenefit />
-          </>
-        )    
-      }
+    }
   }
-  
+
   return (
     <div className='detail-place'>
       <Breadcumb />
       <ImageCollage />
       <section className='overview'>
         <div className="__title">
-          <span className={`${renderBenefit =='overview' ? 'active' :''}`} onClick={()=>setRenderBenefit('overview')}>Overview</span>
+          <span className={`${renderBenefit == 'overview' ? 'active' : ''}`} onClick={() => setRenderBenefit('overview')}>Overview</span>
           <div></div>
-          <span className={`${renderBenefit =='include' ? 'active' :''}`}  onClick={()=>setRenderBenefit('include')}>What's Included</span>
+          <span className={`${renderBenefit == 'include' ? 'active' : ''}`} onClick={() => setRenderBenefit('include')}>What's Included</span>
           <div></div>
-          <span className={`${renderBenefit =='tour_details' ? 'active' :''}`}  onClick={()=>setRenderBenefit('tour_details')}>Tour Details</span>
+          <span className={`${renderBenefit == 'tour_details' ? 'active' : ''}`} onClick={() => setRenderBenefit('tour_details')}>Tour Details</span>
         </div>
         <div className="__description">
-         {
-          actionRenderBenefit(renderBenefit)
-         }
+          {
+            actionRenderBenefit(renderBenefit)
+          }
         </div>
       </section>
       <div className="information">
@@ -68,5 +122,6 @@ function DetailPlace() {
     </div>
   )
 }
+
 
 export default DetailPlace

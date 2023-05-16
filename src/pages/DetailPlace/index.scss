@@ -1,41 +1,114 @@
-@import '../../utils/styles/function.scss','../../utils/styles/color.scss';
-.detail-place{
+@import '../../utils/styles/function.scss', '../../utils/styles/color.scss','../../utils/styles/variabel.scss';
+
+.detail-place {
     @include container();
-    .overview{
+
+    .overview {
         margin-top: 40px;
-        .__title{
+
+        .__title {
             display: flex;
-            gap:20px;
-            span{
+            gap: 20px;
+
+            span {
                 font-weight: 500;
                 font-size: 1.2rem;
-                &.active{
+
+                &.active {
                     color: $main-color;
                     font-family: Bold;
                 }
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                 }
             }
-            div{
+
+            div {
                 width: 2px;
                 background-color: #E0DFE2;
             }
         }
-        .__description{
+
+        .__description {
             margin-top: 20px;
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
+
             @media only screen and (max-width: 600px) {
-                grid-template-columns: repeat(1,1fr);
+                grid-template-columns: repeat(1, 1fr);
             }
+
             gap:20px;
+
+            .__content {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                position: relative;
+
+                .activity-itenary{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    height: min-content;
+                    gap: 40px;
+                    &-timeline{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 999;
+                        gap:20px;
+                       
+                        .__icon{
+                            padding: 10px;
+                            background-color: $main-color;
+                            border-radius: $border-radius-rounded;
+                            width: 30px;
+                            height: 30px;
+                            svg{
+                                font-size: 2rem;
+                                fill: white;
+                            }
+                        }
+                        .___description{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .___title{
+                                font-family: Bold;
+                            }
+                        }
+                    }
+                    &-timeline:nth-child(even){
+                        .__icon{
+                            background-color: #05c46b;
+                        }
+                    }
+                }
+            }
+
+            .activity-itenary::before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 4px;
+                background: #f2f3f7;
+                top: 20px;
+                bottom: 20px;
+                left: 23px;
+            }
         }
     }
-    .information{
+
+    .information {
         margin-top: 30px;
         font-family: Regular;
-        p{
+
+        p {
             text-indent: 50px;
             text-align: justify;
         }
