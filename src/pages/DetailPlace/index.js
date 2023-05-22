@@ -150,6 +150,7 @@ const DetailPlace = () => {
             <span className={`${renderBenefit == 'include' ? 'active' : ''}`} onClick={() => setRenderBenefit('include')}>What's Included</span>
             <div></div>
             <span className={`${renderBenefit == 'tour_details' ? 'active' : ''}`} onClick={() => setRenderBenefit('tour_details')}>Tour Details</span>
+            <div></div>
             <span className={`${renderBenefit == 'itenary' ? 'active' : ''}`} onClick={() => setRenderBenefit('itenary')}>Itenary</span>
           </div>
           <div className="__description">

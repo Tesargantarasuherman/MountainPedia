@@ -1,0 +1,61 @@
+
+@import '../../utils/styles/function.scss','../../utils/styles/variabel.scss';
+.region{
+    height: 500px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    .dimmer{
+        background-color: #191B20;
+        position:absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top:0;
+        opacity: 0.3;
+    }
+    .body-banner{
+        @include imageURL();
+        flex:1;
+        display: flex;
+        align-items: center;
+        .__banner-content{
+            z-index: 99;
+            @include container();
+            flex: 1;
+            font-weight: 700;
+            .__banner-search{
+                display: flex;
+                min-width: 216px;
+                max-width: 700px;
+                width: 100%;
+                background-color: #191B20;
+                border-radius: $border-radius-large;
+                .input-banner-search{
+                    height: 44px;
+                    padding: 5px;
+                    button{
+                        background-color: #55ADFE;
+                    }
+                }
+            }
+            p{
+                color: #fff;
+            }
+            p:nth-child(1){
+                font-size: 2.25rem;
+                line-height: 2.75rem;
+            }
+            p:nth-child(2){
+                font-size: 5rem;
+                line-height: 5.25rem;
+            }
+            p:nth-child(3){
+                font-size: 1.5rem;
+                font-weight: 700;
+                line-height: 1.875rem;
+            }
+        }
+    }
+
+}
