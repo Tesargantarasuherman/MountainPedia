@@ -1,59 +1,36 @@
 import React, { useRef, useState } from 'react'
-import { Breadcumb, CardImage, Container, ContentBenefit, Footer, ImageCollage } from '../../components'
+import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, MapLeaflet } from '../../components'
 import './index.scss'
-import { IoContrastOutline, IoLocationOutline } from 'react-icons/io5';
-import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from 'react-leaflet';
-import { HiLocationMarker } from "react-icons/hi";
-import { MdShareLocation } from "react-icons/md";
-import { BsFillAirplaneFill } from "react-icons/bs";
-import { iconPerson } from '../../utils/icon';
 
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
   const [center, setCenter] = useState([-8.409518, 115.188919])
-  const [zoom, setZoom] = useState(10);
-  const mapRef = useRef();
-
-  const [location, setLocation] = useState([
-    {
-      lat: -8.719266,
-      lng: 115.168640,
-      title: 'Starting Point',
-      info: 'Kuta',
-    },
-    {
-      lat: -8.409518,
-      lng: 115.188919,
-      title: 'First Destination',
-      info: 'bali',
-    },
-    {
-      lat: -8.27186724586,
-      lng: 115.159254363,
-      title: 'Next Destination',
-      info: 'Pura ulun danu',
-    },
-    {
-      lat: -8.745529,
-      lng: 115.155423,
-      title: 'End Trip',
-      info: 'Ngurah rai international airpot,Bali. Indonesia',
-    }
-  ])
-  const setNewLocation = (loc) => {
-    mapRef.current.flyTo([loc.lat, loc.lng], 15);
-  }
-
-  const setIcon = (index) => {
-    if (index % 2 == 0) {
-      return <HiLocationMarker />
-    }
-    else {
-      return <MdShareLocation />
-    }
-
-  }
-
+    const [location, setLocation] = useState([
+        {
+            lat: -8.719266,
+            lng: 115.168640,
+            title: 'Starting Point',
+            info: 'Kuta',
+        },
+        {
+            lat: -8.409518,
+            lng: 115.188919,
+            title: 'First Destination',
+            info: 'bali',
+        },
+        {
+            lat: -8.27186724586,
+            lng: 115.159254363,
+            title: 'Next Destination',
+            info: 'Pura ulun danu',
+        },
+        {
+            lat: -8.745529,
+            lng: 115.155423,
+            title: 'End Trip',
+            info: 'Ngurah rai international airpot,Bali. Indonesia',
+        }
+    ])
   const actionRenderBenefit = (active) => {
     switch (active) {
       case 'benefit':
@@ -81,50 +58,7 @@ const DetailPlace = () => {
       )
       case 'itenary':
         return (
-          <>
-            <div className='__content'>
-              <div className="activity-itenary">
-                {
-                  location.map((loc, index) => {
-                    return (
-                      <div className="activity-itenary-timeline" onClick={() => setNewLocation(loc)}>
-                        <div className="__icon">
-                          {
-                            setIcon(index)
-                          }
-                        </div>
-                        <div className="___description">
-                          <label className='___title'>{loc.title}</label>
-                          <p className='___info'>{loc.info}</p>
-                        </div>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-            </div>
-            <div className="map ___description" style={{ width: 'min-cone', height: 400, borderRadius: 10, overflow: 'hidden' }}>
-              <MapContainer ref={mapRef} center={center} zoom={zoom} scrollWheelZoom={false}>
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {
-                  location.map(loc => {
-                    return (
-                      <Marker position={[loc.lat, loc.lng]} icon={iconPerson}>
-                        <Popup>
-                          {loc.title} <br /> {loc.info}
-                        </Popup>
-                      </Marker>
-                    )
-
-                  })
-                }
-
-              </MapContainer>
-            </div>
-          </>
+          <MapLeaflet location={location} center={center}/>
         )
       default:
         return (

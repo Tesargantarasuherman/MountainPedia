@@ -8,5 +8,6 @@ import ListBooking from "./ListBooking";
 import Pagination from "./Pagination";
 import CardImage from "./CardImage";
 import ContentBenefit from "./ContentBenefit";
+import MapLeaflet from "./MapLeaflet";
 
-export {ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
+export {MapLeaflet,ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}

@@ -1,0 +1,53 @@
+@import '../../../utils/styles/color.scss','../../../utils/styles/function.scss','../../../utils/styles/variabel.scss';
+
+    .__content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+    
+        .activity-itenary{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: min-content;
+            gap: 40px;
+            &-timeline{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 999;
+                gap:20px;
+               
+                .__icon{
+                    padding: 10px;
+                    background-color: $main-color;
+                    border-radius: $border-radius-rounded;
+                    width: 30px;
+                    height: 30px;
+                    svg{
+                        font-size: 2rem;
+                        fill: white;
+                    }
+                }
+                .___description{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .___title{
+                        font-family: Bold;
+                    }
+                }
+            }
+            &-timeline:nth-child(even){
+                .__icon{
+                    background-color: #05c46b;
+                }
+            }
+        }
+    }

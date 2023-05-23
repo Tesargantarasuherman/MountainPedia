@@ -1,61 +1,139 @@
+@import '../../utils/styles/function.scss', '../../utils/styles/variabel.scss','../../utils/styles/color.scss';
 
-@import '../../utils/styles/function.scss','../../utils/styles/variabel.scss';
-.region{
-    height: 500px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    .dimmer{
-        background-color: #191B20;
-        position:absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top:0;
-        opacity: 0.3;
-    }
-    .body-banner{
-        @include imageURL();
-        flex:1;
+.region {
+    .banner-region {
+        height: 500px;
+        width: 100%;
+        position: relative;
         display: flex;
-        align-items: center;
-        .__banner-content{
-            z-index: 99;
-            @include container();
+
+        .dimmer {
+            background-color: #191B20;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            opacity: 0.5;
+        }
+
+        .body-banner {
+            @include imageURL();
             flex: 1;
-            font-weight: 700;
-            .__banner-search{
-                display: flex;
-                min-width: 216px;
-                max-width: 700px;
-                width: 100%;
-                background-color: #191B20;
-                border-radius: $border-radius-large;
-                .input-banner-search{
-                    height: 44px;
-                    padding: 5px;
-                    button{
-                        background-color: #55ADFE;
+            display: flex;
+            align-items: center;
+
+            .__banner-content {
+                z-index: 99;
+                @include container();
+                flex: 1;
+                font-weight: 700;
+
+                .__banner-search {
+                    display: flex;
+                    min-width: 216px;
+                    max-width: 700px;
+                    width: 100%;
+                    background-color: #191B20;
+                    border-radius: $border-radius-large;
+                    position: absolute;
+                    border: solid 2px #494D58;
+                    top: 40px;
+
+                    .input-banner-search {
+                        height: 44px;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        align-content: center;
+                        width: 100%;
+
+                        svg {
+                            fill: #fff;
+                            flex: 1;
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                        input {
+                            // height: 35px;
+                            flex: 10;
+                            background: transparent;
+                            border: none;
+                            outline: none;
+                            color: #fff;
+                            font-size: 1.5rem;
+                        }
+                        .clear-all{
+                            color: #fff;
+                            margin: 0px 10px;
+                            visibility: hidden;
+                            svg{
+                                fill: #fff;
+                            }
+                        }
+                        .clear-all.active{
+                            visibility: visible;
+                        }
+
+                        button {
+                            flex: 2;
+                            background-color: #55ADFE;
+                            padding: 12px 5px;
+                            border-radius: $border-radius-medium;
+                            outline: none;
+                            border: none;
+                            font-family: Regular;
+                            font-size: 1rem;
+                        }
                     }
                 }
+
+                p {
+                    color: #fff;
+                }
+
+                .__banner_title {
+                    font-size: 2.25rem;
+                    line-height: 2.75rem;
+                }
+
+                .__banner_location {
+                    font-size: 5rem;
+                    line-height: 5.25rem;
+                }
+
+                .__banner_description {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    line-height: 1.875rem;
+                }
             }
-            p{
-                color: #fff;
+        }
+
+    }
+    .content-region{
+        @include container();
+        .category-trip{
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            button{
+                @include button($secondary-color,$main-color);
+                padding: 5px 10px;
+                font-size: 1rem;
+                border-radius: $border-radius-medium;
             }
-            p:nth-child(1){
-                font-size: 2.25rem;
-                line-height: 2.75rem;
+            button.active{
+                @include button($main-color,white);
             }
-            p:nth-child(2){
-                font-size: 5rem;
-                line-height: 5.25rem;
-            }
-            p:nth-child(3){
-                font-size: 1.5rem;
-                font-weight: 700;
-                line-height: 1.875rem;
+        }
+        .info-region{
+            .__map{
+                margin:20px 0px;
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
             }
         }
     }
-
 }
