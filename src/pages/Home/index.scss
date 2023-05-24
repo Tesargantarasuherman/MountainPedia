@@ -1,17 +1,11 @@
-
+@import '../../utils/styles/function.scss';
 .container-list-place{
-    // display: flex;
-    margin: 20px 10% 0px 10%;
-
+    // margin: 20px 10% 0px 10%;
+    @include container();
    ._label{
     margin-left: 80px;
     font-size: 1.2rem;
     font-weight: bold;
-    }
-    // justify-content: center;
-    .content-list-place{
-        display: flex;
-        justify-content: center;
     }
     .list-place{
         display: grid;

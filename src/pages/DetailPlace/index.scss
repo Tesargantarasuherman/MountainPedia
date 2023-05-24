@@ -1,11 +1,11 @@
 @import '../../utils/styles/function.scss', '../../utils/styles/color.scss','../../utils/styles/variabel.scss';
 
 .body-detail-place{
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
+    @include container();
 }
 .detail-place {
-    @include container();
     .overview {
         margin-top: 40px;
 
@@ -71,7 +71,7 @@
         
     }
     .another-place{
-        margin: 30px 0;
+
         .___label{
             font-family: Bold;
             margin-bottom: 40px;

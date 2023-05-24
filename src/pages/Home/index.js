@@ -111,7 +111,6 @@ export const Home = ({ product, getAllProduct }) => {
       />
       <section className='container-list-place'>
           <label className='_label'>Most Recommended</label>
-          <div className="content-list-place">
           <div className='list-place'>
             <CardImage />
             <CardImage />
@@ -120,17 +119,9 @@ export const Home = ({ product, getAllProduct }) => {
             <CardImage />
             <CardImage />
           </div>
-          </div>
       </section>
-      <Container
-        marginTop={50}
-        el={
-          <>
             <Footer />
-          </>
-        }
-      />
-    </div>
+      </div>
   )
 }
 

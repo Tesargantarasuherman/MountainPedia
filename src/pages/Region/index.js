@@ -6,33 +6,6 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { iconPerson } from '../../utils/icon';
 export default function Region() {
     const [inputForm, setInputForm] = useState('');
-    const [center, setCenter] = useState([-8.0119206, 112.8794226])
-    const [location, setLocation] = useState([
-        {
-            lat: -8.0119206,
-            lng: 112.8794226,
-            title: 'Basecamp',
-            info: 'Ranu Pani (1200 MDPL)',
-        },
-        {
-            lat: -8.409518,
-            lng: 115.188919,
-            title: 'First Destination',
-            info: 'bali',
-        },
-        {
-            lat: -8.27186724586,
-            lng: 115.159254363,
-            title: 'Next Destination',
-            info: 'Pura ulun danu',
-        },
-        {
-            lat: -8.745529,
-            lng: 115.155423,
-            title: 'End Trip',
-            info: 'Ngurah rai international airpot,Bali. Indonesia',
-        }
-    ])
     return (
 
         <section className='region' >
@@ -56,16 +29,13 @@ export default function Region() {
             </div>
             <div className="content-region">
                 <div className="category-trip">
-                    <button className='active'>Info</button>
-                    <button>Guide</button>
-                    <button>Booking</button>
+                    <button className='active'>Guide</button>
+                    <button>Ticket</button>
+                    <button>Open Trip</button>
                     <button>Rent</button>
                 </div>
                 <div className="info-region">
-                    <ImageCollage />
-                    <div className="__map">
-                        <MapLeaflet location={location} center={center}/>
-                    </div>
+        
                 </div>
             </div>
                 <Footer />

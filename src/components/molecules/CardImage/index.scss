@@ -2,7 +2,7 @@
 
 .card-image {
     position: relative;
-    width: 280px;
+    max-width: 280px;
     max-height: max-content;
     box-shadow: 10px 30px 75px -14px rgba(0,0,0,0.7);
     border-radius: $border-radius-small;
