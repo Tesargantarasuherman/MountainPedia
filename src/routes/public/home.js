@@ -1,4 +1,4 @@
-import { DetailDestination, DetailPlace, Home, Login, Region } from "../../pages";
+import { DetailDestination, DetailPlace, Home, Login, NotFound, Region } from "../../pages";
 
 const root = "/";
 
@@ -31,6 +31,12 @@ const home = [
     {
         path: `${root}region`,
         component: <Region/>,
+        navbar: true,
+        is_login_access:true,
+    },
+    {
+        path: `*`,
+        component: <NotFound/>,
         navbar: true,
         is_login_access:true,
     },

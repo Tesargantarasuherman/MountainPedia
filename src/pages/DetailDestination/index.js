@@ -343,9 +343,7 @@ export const DetailDestiation = (props) => {
                     </div>
                 </>
             } />
-            <Container marginTop={20} el={
                 <Footer />
-            } />
         </>
     )
 }
