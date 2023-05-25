@@ -98,12 +98,14 @@ const DetailPlace = () => {
             <p>Beberapa bagian di Nusa Penida telah mengalami perubahan akibat peningkatan jumlah wisatawan. Anak tangga beton menggantikan jalan kecil yang sebelumnya kadang-kadang memiliki risiko. Masyarakat setempat juga membangun tempat parkir mobil dan warung-warung kecil. Namun, keindahan alam dan pemandangan yang menakjubkan masih dapat membuat Anda terpukau. Dan karena pariwisata baru akan mulai beroperasi kembali secara bertahap setelah masa krisis COVID-19, nda tidak akan bertemu dengan banyak turis selama beberapa bulan. Jika anda berkunjung ke Nusa Penida, Anda akan melihat pulau ini seperti yang saya temukan pada tahun 2015! Saya akan memulainya dengan tempat yang paling ikonik di Nusa Penida. Dan saya akan menyimpulkannya dengan tempat yang asri dan autentik, yang paling saya sukai.</p>
           </div>
           <div className="another-place">
-            <label className='___label' htmlFor="">More Destination Near Ulun danu temple</label>
-            <div className="___content">
-              <CardImage />
-              <CardImage />
-              <CardImage />
-              <CardImage />
+            <div className="body-another-place">
+              <label className='___label' htmlFor="">More Destination Near Ulun danu temple</label>
+              <div className="___content">
+                <CardImage />
+                <CardImage />
+                <CardImage />
+                <CardImage />
+              </div>
             </div>
           </div>
         </div>

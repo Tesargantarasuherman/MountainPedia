@@ -93,15 +93,17 @@ export const Home = ({ product, getAllProduct }) => {
           <Button title="Guides" />
         </>
       } />
-      <section className='container-list-place'>
-        <div className="content-list-place">
-        <div className='list-place'>
-          {
-            renderProducts()
-          }
-        </div>
-        </div>
-      </section>
+      <div className="body-list-place">
+        <section className='container-list-place'>
+          <div className="content-list-place">
+            <div className='list-place'>
+              {
+                renderProducts()
+              }
+            </div>
+          </div>
+        </section>
+      </div>
       <Container marginTop={50} justify="center" el={
         <>
           <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} />
@@ -109,7 +111,8 @@ export const Home = ({ product, getAllProduct }) => {
       }
 
       />
-      <section className='container-list-place'>
+      <div className="body-list-place">
+        <section className='container-list-place'>
           <label className='_label'>Most Recommended</label>
           <div className='list-place'>
             <CardImage />
@@ -119,9 +122,10 @@ export const Home = ({ product, getAllProduct }) => {
             <CardImage />
             <CardImage />
           </div>
-      </section>
-            <Footer />
+        </section>
       </div>
+      <Footer />
+    </div>
   )
 }
 

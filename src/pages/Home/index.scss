@@ -1,45 +1,46 @@
 @import '../../utils/styles/function.scss';
-.container-list-place{
-    // margin: 20px 10% 0px 10%;
+.body-list-place{
     @include container();
-   ._label{
-    margin-left: 80px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    }
-    .list-place{
-        display: grid;
-        grid-template-rows:    repeat(2, auto);
-        grid-template-columns: repeat(4, 1fr);
-        // margin: 50px 15% 0px 15%;
-       
-        @media only screen and (max-width: 600px) {
-            grid-template-columns: repeat(2, 1fr);
-            max-height: max-content;
-            margin-top: 50px;
-            gap:5px;
+    .container-list-place{
+       ._label{
+        margin-left: 80px;
+        font-size: 1.2rem;
+        font-weight: bold;
         }
-        @media only screen and (min-width: 700px) {
-            grid-template-columns: repeat(2, 1fr);
-            max-height: max-content;
-            gap:20px;
-        }
-    
-        @media only screen and (min-width: 992px) {
-            grid-template-columns: repeat(2, 1fr);
-            max-height: max-content;
-            margin-top: 50px;
-            gap:10px;
-        }
-        @media only screen and (min-width: 1100px) {
+        .list-place{
+            display: grid;
+            grid-template-rows:    repeat(2, auto);
             grid-template-columns: repeat(4, 1fr);
-            max-height: max-content;
-        }
-        @media only screen and (min-width: 1360px) {
-        }
-    
-        @media only screen and (max-width: 320px) {
-            grid-template-columns: repeat(1, 1fr);
+            // margin: 50px 15% 0px 15%;
+           
+            @media only screen and (max-width: 600px) {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: max-content;
+                margin-top: 50px;
+                gap:5px;
+            }
+            @media only screen and (min-width: 700px) {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: max-content;
+                gap:20px;
+            }
+        
+            @media only screen and (min-width: 992px) {
+                grid-template-columns: repeat(2, 1fr);
+                max-height: max-content;
+                margin-top: 50px;
+                gap:10px;
+            }
+            @media only screen and (min-width: 1100px) {
+                grid-template-columns: repeat(4, 1fr);
+                max-height: max-content;
+            }
+            @media only screen and (min-width: 1360px) {
+            }
+        
+            @media only screen and (max-width: 320px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     }
 }

@@ -71,7 +71,6 @@
         
     }
     .another-place{
-
         .___label{
             font-family: Bold;
             margin-bottom: 40px;
@@ -79,17 +78,7 @@
         }
         .___content{
             margin-top: 30px;
-            display: grid;
-            grid-template-rows:    repeat(2, auto);
-            grid-template-columns: repeat(4, 1fr);
-            // gap:20px
-            @media only screen and (max-width: 600px) {
-                grid-template-columns: repeat(2, 1fr);
-                max-height: max-content;
-                margin-top: 50px;
-                gap:5px;
-            }
-
+           @include grid();
         }
     }
 }
