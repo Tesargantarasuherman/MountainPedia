@@ -9,5 +9,6 @@ import Pagination from "./Pagination";
 import CardImage from "./CardImage";
 import ContentBenefit from "./ContentBenefit";
 import MapLeaflet from "./MapLeaflet";
+import CardGuide from "./CardGuide";
 
-export {MapLeaflet,ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
+export {CardGuide,MapLeaflet,ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}

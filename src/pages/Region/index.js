@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import './index.scss'
 import { AiOutlineClose, AiOutlineEnvironment, AiOutlineSearch } from 'react-icons/ai'
-import { Footer, ImageCollage, MapLeaflet } from '../../components'
+import { CardGuide, Footer, ImageCollage, MapLeaflet } from '../../components'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { iconPerson } from '../../utils/icon';
 export default function Region() {
@@ -35,7 +35,7 @@ export default function Region() {
                     <button>Rent</button>
                 </div>
                 <div className="info-region">
-        
+                    <CardGuide />
                 </div>
             </div>
                 <Footer />
