@@ -36,6 +36,9 @@ export default function Region() {
                 </div>
                 <div className="info-region">
                     <CardGuide />
+                    <CardGuide />
+                    <CardGuide />
+                    <CardGuide />
                 </div>
             </div>
                 <Footer />

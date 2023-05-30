@@ -1,8 +1,37 @@
-@import '../../../utils/styles/function.scss';
+@import '../../../utils/styles/function.scss','../../../utils/styles/variabel.scss';
 
 .card-guide{
-    @include imageURL();
-    min-width: 200px;
-    max-width: 300px;
-    min-height: 300px;
+    .img-card-guide{
+        @include imageURL();
+        min-width: 180px;
+        max-width: 300px;
+        min-height: 300px;
+        border-radius: $border-radius-medium;
+        position: relative;
+        .img-promotor{
+            @include imageURL();
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            border: red solid 2px;
+        }
+    }
+    &-description{
+        font-style: Bold;
+        p{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            .dot{
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                display: inline-block;
+                background-color: #bbb;
+            }
+        }
+    }
 }

@@ -118,6 +118,8 @@
             display: flex;
             gap: 10px;
             margin: 10px 0;
+            justify-content: flex-start;
+
             button{
                 @include button($secondary-color,$main-color);
                 padding: 5px 10px;
@@ -129,11 +131,7 @@
             }
         }
         .info-region{
-            .__map{
-                margin:20px 0px;
-                display: grid;
-                grid-template-columns: repeat(2,1fr);
-            }
+            @include grid();            
         }
     }
 }

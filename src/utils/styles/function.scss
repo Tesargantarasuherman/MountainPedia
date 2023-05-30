@@ -22,8 +22,6 @@
 @mixin container(){
         @media only screen and (max-width: 600px) {
             margin: 0 0% ;
-            display: flex;
-            justify-content: center;
         }
         @media only screen and (min-width: 600px) {
             margin: 0 20% ;
@@ -67,4 +65,9 @@
     @media only screen and (max-width: 320px) {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+@mixin font($style ){
+    // if($style == ''){
+
+    // }
 }
