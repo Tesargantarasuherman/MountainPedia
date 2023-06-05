@@ -9,7 +9,7 @@
         border-radius: $border-radius-medium;
         position: relative;
 
-        .book-promotor{
+        .book-promotor {
             background-color: #EBEBEB;
             padding: 15px;
             border-radius: 2px 10px 10px 2px;
@@ -40,11 +40,7 @@
                 border-radius: 50%;
             }
 
-            &:hover {
-                z-index: 9999;
-                animation: bookOpen 0.5s forwards;
-
-            }
+           
 
             @keyframes bookOpen {
                 50% {
@@ -54,12 +50,15 @@
                 100% {
                     transform: rotateY(40deg);
                     z-index: 999;
-                    bottom: 20px;
+                    bottom: 30px;
+                    box-shadow: 2px -1px 7px 0px rgba(0, 0, 0, 0.75);
+                    -webkit-box-shadow: 2px -1px 7px 0px rgba(0, 0, 0, 0.75);
+                    -moz-box-shadow: 2px -1px 7px 0px rgba(0, 0, 0, 0.75);
                 }
             }
         }
 
-        .book-promotor1{
+        .book-promotor1 {
             background-color: black;
             padding: 15px;
             border-radius: 2px 10px 10px 2px;
@@ -69,9 +68,9 @@
             z-index: 9;
             width: 50px;
             height: 50px;
-            
+
         }
-        
+
 
     }
 
@@ -92,11 +91,18 @@
             }
         }
     }
+    &:hover .book-promotor {
+        z-index: 9999;
+        animation: bookOpen 0.5s forwards;
+
+    }
+    &:hover .book-promotor1 {
+        animation: bookOpenB 0.5s forwards;
+        background-color: white;
+    }
 }
-.book-promotor:hover ~ .book-promotor1{
-    animation: bookOpenB 0.5s forwards;
-    background-color: white;
-}
+
+
 
 @keyframes bookOpenB {
     50% {
@@ -104,9 +110,11 @@
     }
 
     100% {
-        transform: rotateY(20deg) ;
-        left: 18px;
+        transform: rotateY(20deg);
+        left: 0px;
+        margin-left: 15px;
+        width: 45px;
         z-index: 9;
-        bottom: 20px;
+        bottom: 30px;
     }
 }

@@ -1,4 +1,4 @@
-@import '../../utils/styles/function.scss', '../../utils/styles/variabel.scss','../../utils/styles/color.scss';
+@import '../../utils/styles/function.scss', '../../utils/styles/variabel.scss', '../../utils/styles/color.scss';
 
 .region {
     .banner-region {
@@ -64,15 +64,18 @@
                             color: #fff;
                             font-size: 1.5rem;
                         }
-                        .clear-all{
+
+                        .clear-all {
                             color: #fff;
                             margin: 0px 10px;
                             visibility: hidden;
-                            svg{
+
+                            svg {
                                 fill: #fff;
                             }
                         }
-                        .clear-all.active{
+
+                        .clear-all.active {
                             visibility: visible;
                         }
 
@@ -112,26 +115,116 @@
         }
 
     }
-    .content-region{
+
+    .content-region {
         @include container();
-        .category-trip{
+
+        .category-trip {
             display: flex;
             gap: 10px;
             margin: 10px 0;
             justify-content: flex-start;
 
-            button{
-                @include button($secondary-color,$main-color);
+            button {
+                @include button($secondary-color, $main-color);
                 padding: 5px 10px;
                 font-size: 1rem;
                 border-radius: $border-radius-medium;
             }
-            button.active{
-                @include button($main-color,white);
+
+            button.active {
+                @include button($main-color, white);
             }
         }
-        .info-region{
-            @include grid();            
+
+        .info-region {
+            @include grid();
+        }
+    }
+
+    .modal-guide {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 90vh;
+        background-color: rgba(122, 122, 122, .3);
+        padding-top: 100px;
+
+        &-content {
+            opacity: 1;
+            background-color: rgb(240, 239, 233);
+            height: 80vh;
+            min-width: 400px;
+            border-radius: $border-radius-medium;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+
+            .__icon {
+                display: block;
+                width: 100%;
+                margin: 20px 0px 20px 40px;
+            }
+
+            .info-guide {
+                background-color: #fff;
+                box-shadow: 0px 1px 9px -2px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 0px 1px 9px -2px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 1px 9px -2px rgba(0,0,0,0.75);
+                width: 350px;
+                height: 200px;
+                border-radius: $border-radius-medium;
+                display: flex;
+                justify-content:space-around;
+                align-items: center;
+                .detail-name{
+                    .__img-guide{
+                        @include imageURL();
+                        width: 100px;
+                        height: 100px;
+                        position: relative;
+                        border-radius: $border-radius-rounded;
+                        svg{
+                            font-size: 2rem;
+                            fill:$main-color;
+                            position: absolute;
+                            right: -5px;
+                            bottom: 0;
+                        }
+                    }
+                    .guide-name{
+                        p:nth-child(1){
+                            font-size: 1.6rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .rating-guide{
+                    hr{
+                        opacity: 0.5;
+                        margin: 5px 0;
+                    }
+                    .content-rating{
+                        p:nth-child(1){
+                            font-size: 1.4rem;
+                            font-weight: bold;
+                        }
+                        p:nth-child(2){
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }
