@@ -10,15 +10,16 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 90vh;
-    background-color: rgba(122, 122, 122, .3);
+    height: 100%;
+    background-color: rgba(122, 122, 122, 0.8);
     padding-top: 100px;
     display: none;
     &-content {
         opacity: 1;
         background-color: rgb(240, 239, 233);
-        height: 80vh;
-        min-width: 400px;
+        height: min-content;
+        max-width: 400px;
+        max-height: 700px;
         border-radius: $border-radius-medium;
         display: flex;
         flex-direction: column;
@@ -27,11 +28,19 @@
         box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
         -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
-        z-index: 1000;
+        z-index: 10000;
+        overflow: scroll;
         .__icon {
             display: block;
             width: 100%;
-            margin: 20px 0px 20px 40px;
+            // margin: 20px 0px 20px 40px;
+            position: sticky;
+            top:0;
+            background-color: rgb(240, 239, 233);
+            padding: 10px 20px;
+            box-sizing: border-box;
+            z-index: 1001;
+            cursor: pointer;;
         }
 
         .info-guide {
@@ -40,12 +49,21 @@
             -webkit-box-shadow: 0px 1px 9px -2px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 1px 9px -2px rgba(0,0,0,0.75);
             width: 350px;
-            height: 200px;
+            min-height: 200px;
             border-radius: $border-radius-medium;
             display: flex;
             justify-content:space-around;
+            padding: 0px 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
             align-items: center;
+            gap: 20px;
             .detail-name{
+                flex: 2;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                align-content: center;
                 .__img-guide{
                     @include imageURL();
                     width: 100px;
@@ -64,10 +82,17 @@
                     p:nth-child(1){
                         font-size: 1.6rem;
                         font-weight: bold;
+                        text-align: center;
+                    }
+                    p:nth-child(2){
+                        font-size: 1rem;
+                        font-weight: bold;
+                        text-align: center;
                     }
                 }
             }
             .rating-guide{
+                flex: 1;
                 hr{
                     opacity: 0.5;
                     margin: 5px 0;
@@ -76,12 +101,101 @@
                     p:nth-child(1){
                         font-size: 1.4rem;
                         font-weight: bold;
+                        align-items: center;
                     }
                     p:nth-child(2){
                         font-size: 0.8rem;
                     }
                 }
             }
+        }
+        .description-guide{
+            width: 100%;
+            padding: 20px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .item-description-guide {
+                display: flex;
+                justify-content:space-around;
+                width: 100%;
+                gap:10px;
+                align-items: center;
+                .___icon{
+                    flex: 1;
+                    svg{
+                        font-size: 1.6rem;
+                        fill:$main-color;
+                    }
+                }
+                .text-item-description{
+                    flex: 100;
+                }
+            }
+            .text-description-guide{
+                width: 350px;
+                margin-top: 10px;
+                p{
+                    text-align: justify;
+                    text-indent: 2rem;
+                }
+            }
+            .review-guide{
+                margin-top: 20px;
+                &-title{
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                }
+                .review-guide-content{
+                    margin-top: 20px;
+                    box-sizing: border-box;
+                    .navigate{
+                        display: flex;
+                        gap:5px;
+                        justify-content: flex-end;
+                        margin-bottom: 10px;
+                        .btn-next,.btn-prev{
+                            padding:10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: $border-radius-rounded;
+                            border: none;
+                            outline: none;
+                            background-color: #fff;
+                        }
+                    }
+                    .content-review{
+                        box-sizing: border-box;
+                        width: 100%;
+                        border: solid #ddd 2px;
+                        padding: 10px;
+                        border-radius: $border-radius-medium;
+                        .profile-content-review{
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            gap: 10px;
+                            margin-top: 10px;
+                            .__name-profile{
+                                p:nth-child(1){
+                                    font-weight: bold;
+                                    font-size: 1rem;
+                                }
+                            }
+                            .__img-profile{
+                                @include imageURL();
+                                width: 50px;
+                                height: 50px;
+                                border-radius: $border-radius-rounded;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            
         }
     }
     &.active{
