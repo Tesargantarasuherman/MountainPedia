@@ -80,7 +80,7 @@ function ModalGuide({ active, setActive }) {
                         </div>
                         <hr />
                         <div className='content-rating'>
-                            <p>171<AiFillStar/></p>
+                            <p>4.6<AiFillStar/></p>
                             <p>Nilai</p>
                         </div>
                         <hr />
@@ -131,7 +131,7 @@ function ModalGuide({ active, setActive }) {
                                 <GrNext />
                             </button>
                             </div>
-                            <Slider ref={slider} {...setting}>
+                            <Slider ref={slider} {...setting} className='slider-review'>
                                 <div className="content-review">
                                     <div className='comment-review'>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem unde iste accusamus quo quia nam rem vitae cumque necessitatibus placeat, adipisci, natus aliquid et facilis. Id nesciunt amet nisi porro.</p>

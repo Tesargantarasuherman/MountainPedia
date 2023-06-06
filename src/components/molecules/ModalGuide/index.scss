@@ -166,32 +166,38 @@
                             background-color: #fff;
                         }
                     }
-                    .content-review{
-                        box-sizing: border-box;
-                        width: 100%;
-                        border: solid #ddd 2px;
-                        padding: 10px;
-                        border-radius: $border-radius-medium;
-                        .profile-content-review{
+                    .slider-review{
+                        div{
                             display: flex;
-                            justify-content: flex-start;
-                            align-items: center;
                             gap: 10px;
-                            margin-top: 10px;
-                            .__name-profile{
-                                p:nth-child(1){
-                                    font-weight: bold;
-                                    font-size: 1rem;
+                        }
+                        .content-review{
+                            box-sizing: border-box;
+                            border: solid #ddd 2px;
+                            width: 100%;
+                            padding: 10px;
+                            border-radius: $border-radius-medium;
+                            .profile-content-review{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 10px;
+                                margin-top: 10px;
+                                .__name-profile{
+                                    p:nth-child(1){
+                                        font-weight: bold;
+                                        font-size: 1rem;
+                                    }
+                                }
+                                .__img-profile{
+                                    @include imageURL();
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: $border-radius-rounded;
                                 }
                             }
-                            .__img-profile{
-                                @include imageURL();
-                                width: 50px;
-                                height: 50px;
-                                border-radius: $border-radius-rounded;
-                            }
+                            
                         }
-                        
                     }
                 }
             }
