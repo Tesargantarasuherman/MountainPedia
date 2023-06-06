@@ -9,9 +9,10 @@ import {IoLocationSharp} from "react-icons/io5";
 
 export default function Region() {
     const [inputForm, setInputForm] = useState('');
+
     return (
 
-        <section className='region' onClick={() => console.log('run')}>
+        <section className='region'>
             <div className="banner-region">
                 <div className="dimmer" />
                 <div className="body-banner" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2342&q=80)` }}>
@@ -45,40 +46,7 @@ export default function Region() {
                 </div>
             </div>
             <Footer />
-            <div className="modal-guide">
-                <div className="modal-guide-content">
-                    <div className="__icon">
-                        <AiOutlineClose />
-                    </div>
-                    <div className="info-guide">
-                        <div className="detail-name">
-                            <div className="__img-guide" style={{ backgroundImage: `url(https://a0.muscache.com/im/pictures/user/08586a25-5872-4b47-97b4-5d74678b9877.jpg?im_w=240)` }}>
-                                <MdVerified />
-                            </div>
-                            <div className="guide-name">
-                                <p>Gantara</p>
-                                <p><IoLocationSharp/> Indonesia</p>
-                            </div>
-                        </div>
-                        <div className="rating-guide">
-                            <div className='content-rating'>
-                                <p>171</p>
-                                <p>ulasan</p>
-                            </div>
-                            <hr />
-                            <div className='content-rating'>
-                                <p>171</p>
-                                <p>ulasan</p>
-                            </div>
-                            <hr />
-                            <div className='content-rating'>
-                                <p>171</p>
-                                <p>ulasan</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </section>
     )
 }
