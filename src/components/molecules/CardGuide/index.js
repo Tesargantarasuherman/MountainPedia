@@ -8,6 +8,12 @@ function CardGuide() {
   },)
   const actionSetactive =()=>{
     setActive(!active)
+    if(active){
+      document.body.style.overflow = "scroll";
+    }
+    else{
+      document.body.style.overflow ="hidden";
+    }
   }
   return (
     <>
