@@ -16,7 +16,7 @@ function CardImage() {
                 <AiFillCaretLeft />
                 <div className="__content">
                     <p>Nusa Penida adalah sebuah pulau bagian dari negara Republik Indonesia yang terletak di sebelah tenggara Bali yang dipisahkan oleh Selat Badung. Di dekat pulau ini terdapat juga pulau-pulau kecil lainnya yaitu Nusa Ceningan dan Nusa Lembongan</p>
-                    <Link to='/place'><button>Explore Now</button></Link>
+                    <Link to='/region'><button>Explore Now</button></Link>
                 </div>
             </div>
         </div>

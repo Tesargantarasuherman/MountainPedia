@@ -1,17 +1,12 @@
 import React, { useRef, useState } from 'react'
 import './index.scss'
-import { AiOutlineClose, AiOutlineEnvironment, AiOutlineSearch } from 'react-icons/ai'
-import { CardGuide, Footer, ImageCollage, MapLeaflet } from '../../components'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { iconPerson } from '../../utils/icon';
-import { MdVerified } from 'react-icons/md';
-import {IoLocationSharp} from "react-icons/io5";
+import { AiOutlineClose, AiOutlineEnvironment } from 'react-icons/ai'
+import { CardGuide, Footer} from '../../components'
 
 export default function Region() {
     const [inputForm, setInputForm] = useState('');
 
     return (
-
         <section className='region'>
             <div className="banner-region">
                 <div className="dimmer" />

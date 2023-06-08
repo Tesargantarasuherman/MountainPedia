@@ -1,12 +1,18 @@
 
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { Navbar } from '../../components';
 import routes from "../../routes/index";
+import { useLocation } from "react-router-dom";
+
 
 // import Sidebar from "../../components/admin/Sidebar";
 
 const Main = (props) => {
+    const { pathname } = useLocation();
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+    },[pathname])
     const navigate = useNavigate();
     return (
         <>

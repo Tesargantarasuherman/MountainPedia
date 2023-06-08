@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
 import ModalGuide from '../ModalGuide'
+import { Link } from 'react-router-dom'
 
 function CardGuide() {
   const [active, setActive] = useState(false)
@@ -27,10 +28,12 @@ function CardGuide() {
           <div className="book-promotor1">
           </div>
         </div>
+        <Link to='/place'>
         <div className="card-guide-description">
           <label htmlFor="">Valencia, Spanyol</label>
           <p>5 malam <span class="dot"></span>5 juni - 10 juni</p>
         </div>
+        </Link>
       </div>
     </>
   )

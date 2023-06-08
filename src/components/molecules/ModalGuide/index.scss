@@ -40,7 +40,18 @@
             padding: 10px 20px;
             box-sizing: border-box;
             z-index: 1001;
-            cursor: pointer;;
+            cursor: pointer;
+            svg{
+                padding: 2px;
+            }
+            &:hover{
+                svg{
+                    background-color: white;
+                    padding: 2px;
+                    border-radius: $border-radius-rounded;
+                    fill: $main-color;
+                }
+            }
         }
 
         .info-guide {

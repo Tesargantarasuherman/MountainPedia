@@ -15,7 +15,7 @@ function MapLeaflet({location,center}) {
     }
   
     const setIcon = (index) => {
-      if (index % 2 == 0) {
+      if (index == 0) {
         return <HiLocationMarker />
       }
       else {

@@ -29,6 +29,30 @@ const DetailPlace = () => {
       lng: 115.155423,
       title: 'End Trip',
       info: 'Ngurah rai international airpot,Bali. Indonesia',
+    },
+    {
+      lat: -8.719266,
+      lng: 115.168640,
+      title: 'Starting Point',
+      info: 'Kuta',
+    },
+    {
+      lat: -8.409518,
+      lng: 115.188919,
+      title: 'First Destination',
+      info: 'bali',
+    },
+    {
+      lat: -8.27186724586,
+      lng: 115.159254363,
+      title: 'Next Destination',
+      info: 'Pura ulun danu',
+    },
+    {
+      lat: -8.745529,
+      lng: 115.155423,
+      title: 'End Trip',
+      info: 'Ngurah rai international airpot,Bali. Indonesia',
     }
   ])
   const actionRenderBenefit = (active) => {
