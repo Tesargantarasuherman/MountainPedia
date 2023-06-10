@@ -1,10 +1,50 @@
 import React, { useRef, useState } from 'react'
 import './index.scss'
-import { AiOutlineClose, AiOutlineEnvironment } from 'react-icons/ai'
-import { CardGuide, Footer} from '../../components'
-
+import { AiOutlineCalendar, AiOutlineClose, AiOutlineEnvironment } from 'react-icons/ai'
+import { CardGuide, Footer, Input } from '../../components'
+import {RiArrowLeftRightFill} from 'react-icons/ri'
+import {BiSearch} from 'react-icons/bi'
 export default function Region() {
     const [inputForm, setInputForm] = useState('');
+    const [type, setType] = useState('guide');
+
+    const renderType = (active) => {
+        switch (active) {
+            case 'guide':
+                return (
+                    <div className="guide">
+                        <CardGuide />
+                        <CardGuide />
+                        <CardGuide />
+                        <CardGuide />
+                    </div>
+                )
+            case 'pickup':
+                return (
+                    <div className="pickup">
+                        <div className="form-input-pickup">
+                            <Input icon={<AiOutlineEnvironment />} title={'Berangkat Dari'} type={'select-option'}/>
+                            <button className='btn-reverse'>
+                                <RiArrowLeftRightFill />
+                            </button>
+                            <Input icon={<AiOutlineEnvironment />} title={'Tujuan'} type={'select-option'} onChange={(e)=>console.log(e.target.value)}/>
+                            <Input title="Tanggal Berangkat" type="Date" icon={<AiOutlineCalendar/>}/>
+                            <button className='__btn-search'>
+                                <BiSearch/>
+                            </button>
+                        </div>
+                    </div>
+                )
+            default:
+                return (
+                    <div className="guide">
+                        <p>Belum ada</p>
+                    </div>
+                )
+        }
+    }
+   
+
 
     return (
         <section className='region'>
@@ -28,20 +68,18 @@ export default function Region() {
             </div>
             <div className="content-region">
                 <div className="category-trip">
-                    <button className='active'>Guide</button>
-                    <button>Ticket</button>
-                    <button>Open Trip</button>
-                    <button>Rent</button>
+                    <button className={`${type =='guide'? 'active' :''}`} onClick={()=>setType('guide')}>Guide</button>
+                    <button className={`${type =='pickup'? 'active' :''}`} onClick={()=>setType('pickup')}>Pickup</button>
+                    <button className={`${type =='trip'? 'active' :''}`} onClick={()=>setType('trip')}>Open Trip</button>
+                    <button className={`${type =='rent'? 'active' :''}`} onClick={()=>setType('rent')}>Rent</button>
                 </div>
-                <div className="info-region">
-                    <CardGuide />
-                    <CardGuide />
-                    <CardGuide />
-                    <CardGuide />
-                </div>
+                {
+                    renderType(type)
+                }
+
             </div>
             <Footer />
-            
+
         </section>
     )
 }

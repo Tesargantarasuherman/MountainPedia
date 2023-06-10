@@ -137,8 +137,41 @@
             }
         }
 
-        .info-region {
+        .guide {
             @include grid();
+        }
+        .pickup{
+            .form-input-pickup{
+                display: flex;
+                justify-content: flex-start;
+                gap:20px;
+                flex-wrap: wrap;
+                button{
+                    svg{
+                        fill: white;
+                        font-size: 1.2rem;
+                        circle{
+                            fill: white;
+                        }
+                        line{
+                            fill: $main-color;
+                        }
+                    }
+                }
+                .btn-reverse{
+                    @include button();
+                    padding: 10px 15px;
+                    border-radius: $border-radius-rounded;
+                    background-color: $main-color;
+                }
+                .__btn-search{
+                    @include button();
+                    padding: 15px 30px; 
+                    border-radius: $border-radius-small;
+                    background-color: $main-color;
+             
+                }
+            }
         }
     }
 
