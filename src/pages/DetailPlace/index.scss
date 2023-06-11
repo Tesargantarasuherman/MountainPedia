@@ -1,10 +1,11 @@
-@import '../../utils/styles/function.scss', '../../utils/styles/color.scss','../../utils/styles/variabel.scss';
+@import '../../utils/styles/function.scss', '../../utils/styles/color.scss', '../../utils/styles/variabel.scss';
 
-.body-detail-place{
+.body-detail-place {
     // display: flex;
     // justify-content: center;
     @include container();
 }
+
 .detail-place {
     .overview {
         margin-top: 40px;
@@ -44,7 +45,7 @@
 
             gap:20px;
 
-           
+
 
         }
     }
@@ -52,23 +53,87 @@
     .information {
         margin: 30px 0;
         font-family: Regular;
+        display: flex;
+        gap: 50px;
 
+        .___description {
+            flex: 3;
 
-        p {
-            text-indent: 50px;
-            text-align: justify;
+            p {
+                text-indent: 50px;
+                text-align: justify;
+            }
         }
-        
+        .__booked{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+            border-radius: $border-radius-small;
+            padding: 20px;
+            gap: 20px;
+
+            .___price {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                .__total_price{
+                    p{
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                    }
+                }
+                .___review{
+                    display: flex;
+                    align-items: center;
+                    gap:5px;
+                    p:nth-child(1){
+                        font-weight: bold;
+                    }
+                    p:nth-child(4){
+                        color:#9B9B9B;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+                    .__dot{
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        background-color: #bbb;
+                    }
+                }
+            }
+            .__date{
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+            .btn-booked{
+                button{
+                    width: 100%;
+                    padding: 10px 0;
+                    background-color: $main-color;
+                    color: white;
+                    @include button();
+                }
+            }
+        }
+
     }
-    .another-place{
-        .___label{
+
+    .another-place {
+        .___label {
             font-family: Bold;
             margin-bottom: 40px;
             font-size: 1.2rem;
         }
-        .___content{
+
+        .___content {
             margin-top: 30px;
-           @include grid();
+            @include grid();
         }
     }
 }

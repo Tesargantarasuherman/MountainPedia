@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, MapLeaflet } from '../../components'
+import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, Input, MapLeaflet } from '../../components'
 import './index.scss'
-
+import { AiFillStar, AiOutlineUser } from 'react-icons/ai';
+import { BsCalendarDate } from 'react-icons/bs'
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
   const [center, setCenter] = useState([-8.409518, 115.188919])
@@ -119,7 +120,33 @@ const DetailPlace = () => {
             </div>
           </section>
           <div className="information">
-            <p>Beberapa bagian di Nusa Penida telah mengalami perubahan akibat peningkatan jumlah wisatawan. Anak tangga beton menggantikan jalan kecil yang sebelumnya kadang-kadang memiliki risiko. Masyarakat setempat juga membangun tempat parkir mobil dan warung-warung kecil. Namun, keindahan alam dan pemandangan yang menakjubkan masih dapat membuat Anda terpukau. Dan karena pariwisata baru akan mulai beroperasi kembali secara bertahap setelah masa krisis COVID-19, nda tidak akan bertemu dengan banyak turis selama beberapa bulan. Jika anda berkunjung ke Nusa Penida, Anda akan melihat pulau ini seperti yang saya temukan pada tahun 2015! Saya akan memulainya dengan tempat yang paling ikonik di Nusa Penida. Dan saya akan menyimpulkannya dengan tempat yang asri dan autentik, yang paling saya sukai.</p>
+
+            <div className="___description">
+              <p>Beberapa bagian di Nusa Penida telah mengalami perubahan akibat peningkatan jumlah wisatawan. Anak tangga beton menggantikan jalan kecil yang sebelumnya kadang-kadang memiliki risiko. Masyarakat setempat juga membangun tempat parkir mobil dan warung-warung kecil. Namun, keindahan alam dan pemandangan yang menakjubkan masih dapat membuat Anda terpukau. Dan karena pariwisata baru akan mulai beroperasi kembali secara bertahap setelah masa krisis COVID-19, nda tidak akan bertemu dengan banyak turis selama beberapa bulan. Jika anda berkunjung ke Nusa Penida, Anda akan melihat pulau ini seperti yang saya temukan pada tahun 2015! Saya akan memulainya dengan tempat yang paling ikonik di Nusa Penida. Dan saya akan menyimpulkannya dengan tempat yang asri dan autentik, yang paling saya sukai.</p>
+            </div>
+            <div className="__booked">
+              <div className="___price">
+                <div className="__total_price">
+                  <p>Rp. 800.000</p>
+                </div>
+                <div className="___review">
+                  <AiFillStar />
+                  <p>4.87</p>
+                  <span class="__dot"></span>
+                  <p>2 Ulasan</p>
+                </div>
+              </div>
+              <div className="__date">
+                <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'date'} />
+                <Input icon={<BsCalendarDate />} title={'Tanggal Selesai'} type={'date'} />
+              </div>
+              <div className="__peserta">
+                <Input icon={<AiOutlineUser />} title={'Peserta'} type={'select-option'} listOption={[{'value':1,'title':1}]}/>
+              </div>
+              <div className="btn-booked">
+                <button>Pesan</button>
+              </div>
+            </div>
           </div>
           <div className="another-place">
             <div className="body-another-place">

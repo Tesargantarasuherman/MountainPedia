@@ -2,37 +2,167 @@ import React, { useRef, useState } from 'react'
 import './index.scss'
 import { AiOutlineCalendar, AiOutlineClose, AiOutlineEnvironment } from 'react-icons/ai'
 import { CardGuide, Footer, Input } from '../../components'
-import {RiArrowLeftRightFill} from 'react-icons/ri'
-import {BiSearch} from 'react-icons/bi'
+import { RiArrowLeftRightLine } from 'react-icons/ri'
+import { BiSearch } from 'react-icons/bi'
+import { RxDotFilled, GoDot, RxDot } from 'react-icons/rx'
+
 export default function Region() {
     const [inputForm, setInputForm] = useState('');
     const [type, setType] = useState('guide');
+    const [arrival, setArrival] = useState('');
+    const [derparture, setDerparture] = useState('');
+    const [rotate, setRotate] = useState(false)
+
+    const [listArrival, serListArrival] = useState(
+        [
+            {
+                'id': 1,
+                'title': 'Basecamp Ranu Pani',
+                'value': 'basecamp_ranu_pani'
+            },
+            {
+                'id': 2,
+                'title': 'Pasar Tumpang',
+                'value': 'pasar_tumpang'
+            },
+            {
+                'id': 3,
+                'title': 'Stasiun Malang',
+                'value': 'stasiun_malang'
+            },
+            {
+                'id': 4,
+                'title': 'Terminal Malang',
+                'value': 'terminal_malang'
+            }
+
+        ]
+    )
+    const [listDerparture, serListDerparture] = useState(
+        [
+            {
+                'id': 1,
+                'title': 'Basecamp Ranu Pani',
+                'value': 'basecamp_ranu_pani'
+            },
+            {
+                'id': 2,
+                'title': 'Pasar Tumpang',
+                'value': 'pasar_tumpang'
+            },
+            {
+                'id': 3,
+                'title': 'Stasiun Malang',
+                'value': 'stasiun_malang'
+            },
+            {
+                'id': 4,
+                'title': 'Terminal Malang',
+                'value': 'terminal_malang'
+            }
+        ]
+    )
+    const changeDestination = () => {
+        if(arrival!="" && derparture !=""){
+            setRotate(true)
+            setTimeout(() => {
+                setArrival(derparture)
+                setDerparture(arrival)
+                setRotate(false)
+            }, 500);
+        }
+
+
+
+    }
 
     const renderType = (active) => {
         switch (active) {
             case 'guide':
                 return (
                     <div className="guide">
-                        <CardGuide />
-                        <CardGuide />
-                        <CardGuide />
-                        <CardGuide />
+                        <CardGuide type="Guide"/>
                     </div>
                 )
             case 'pickup':
                 return (
                     <div className="pickup">
+                        <h2>Silahkan Pilih Jadwal Perjalanan Anda</h2>
                         <div className="form-input-pickup">
-                            <Input icon={<AiOutlineEnvironment />} title={'Berangkat Dari'} type={'select-option'}/>
-                            <button className='btn-reverse'>
-                                <RiArrowLeftRightFill />
+                            <Input icon={<AiOutlineEnvironment />} title={'Berangkat Dari'} value={derparture} listOption={listDerparture} type={'select-option'} onChange={(e) => setDerparture(e.target.value)} />
+                            <button className={`btn-reverse ${rotate ? 'rotate' : ''}`} onClick={() => changeDestination()}>
+                                <RiArrowLeftRightLine />
                             </button>
-                            <Input icon={<AiOutlineEnvironment />} title={'Tujuan'} type={'select-option'} onChange={(e)=>console.log(e.target.value)}/>
-                            <Input title="Tanggal Berangkat" type="Date" icon={<AiOutlineCalendar/>}/>
+                            <Input icon={<AiOutlineEnvironment />} title={'Tujuan'} type={'select-option'} value={arrival} listOption={listArrival} onChange={(e) => setArrival(e.target.value)} />
+                            <Input title="Tanggal Berangkat" type="Date" icon={<AiOutlineCalendar />} />
                             <button className='__btn-search'>
-                                <BiSearch/>
+                                <BiSearch />
                             </button>
                         </div>
+                        <div className="content-pickup">
+                            <div className="count-result-content-pickup">
+                                <label htmlFor="">Menampilkan 12 Jadwal</label>
+                            </div>
+                            <div className="body-content-pickup">
+                                <div className="card-pickup-schedule">
+                                    <div className="time-pickup-schedule">
+                                        <div className="drop-point">
+                                            <div className="start-point">
+                                                <p>Titik naik</p>
+                                                <p>Stasiun Malang</p>
+                                            </div>
+                                            <div className="end-point">
+                                                <p>Titik turun</p>
+                                                <p>Pasar Tumpang</p>
+                                            </div>
+                                            <div className="circle-top">
+                                                <RxDotFilled />
+                                            </div>
+                                            <div className="circle-bottom">
+                                                <RxDot />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div className="estimation-pickup-schedule">
+                                        <div className="time">
+                                            <p>21:00</p>
+                                            <p>Estimasi 3 jam Perjalanan</p>
+
+                                        </div>
+                                        <div className="slot">
+                                            <p>Tersedia <b>8</b> Kursi</p>
+
+                                        </div>
+
+                                    </div>
+                                    <div className="price-pickup-schedule">
+                                        <div className="price">
+                                            <div className="type">
+                                                <button>Premium</button>
+                                                <button>Langsung</button>
+
+                                            </div>
+                                            <div className="value">
+                                                <p>Rp.200.000,00</p>
+                                                <p>Rp 100.000,00</p>
+                                            </div>
+
+                                        </div>
+                                        <div className="buy">
+                                            <button>Beli</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
+            case 'trip':
+                return(
+                    <div className="trip">
+                        <CardGuide type="Open Trip" />
+
                     </div>
                 )
             default:
@@ -43,7 +173,7 @@ export default function Region() {
                 )
         }
     }
-   
+
 
 
     return (
@@ -68,10 +198,10 @@ export default function Region() {
             </div>
             <div className="content-region">
                 <div className="category-trip">
-                    <button className={`${type =='guide'? 'active' :''}`} onClick={()=>setType('guide')}>Guide</button>
-                    <button className={`${type =='pickup'? 'active' :''}`} onClick={()=>setType('pickup')}>Pickup</button>
-                    <button className={`${type =='trip'? 'active' :''}`} onClick={()=>setType('trip')}>Open Trip</button>
-                    <button className={`${type =='rent'? 'active' :''}`} onClick={()=>setType('rent')}>Rent</button>
+                    <button className={`${type == 'guide' ? 'active' : ''}`} onClick={() => setType('guide')}>Guide</button>
+                    <button className={`${type == 'pickup' ? 'active' : ''}`} onClick={() => setType('pickup')}>Pickup</button>
+                    <button className={`${type == 'trip' ? 'active' : ''}`} onClick={() => setType('trip')}>Open Trip</button>
+                    <button className={`${type == 'rent' ? 'active' : ''}`} onClick={() => setType('rent')}>Rent</button>
                 </div>
                 {
                     renderType(type)

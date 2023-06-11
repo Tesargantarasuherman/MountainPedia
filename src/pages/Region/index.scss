@@ -140,40 +140,258 @@
         .guide {
             @include grid();
         }
-        .pickup{
-            .form-input-pickup{
+
+        .pickup {
+            .form-input-pickup {
                 display: flex;
                 justify-content: flex-start;
-                gap:20px;
+                gap: 20px;
                 flex-wrap: wrap;
-                button{
-                    svg{
+                margin: 20px 0;
+
+                .btn-reverse {
+                    @include button();
+                    padding: 10px 17px;
+                    border-radius: $border-radius-rounded;
+                    background-color: $main-color;
+
+                    svg {
                         fill: white;
-                        font-size: 1.2rem;
-                        circle{
-                            fill: white;
-                        }
-                        line{
-                            fill: $main-color;
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &.rotate {
+                        svg {
+                            animation: rotate 0.5s infinite;
                         }
                     }
                 }
-                .btn-reverse{
+
+                .__btn-search {
                     @include button();
-                    padding: 10px 15px;
-                    border-radius: $border-radius-rounded;
-                    background-color: $main-color;
-                }
-                .__btn-search{
-                    @include button();
-                    padding: 15px 30px; 
+                    padding: 15px 30px;
                     border-radius: $border-radius-small;
                     background-color: $main-color;
-             
+
+                    svg {
+                        fill: white;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                @keyframes rotate {
+                    25% {
+                        transform: rotate(0deg);
+                    }
+
+                    // 50%{
+                    //     transform: rotate(90deg);
+
+                    // }
+                    // 50%{
+                    //     transform: rotate(120deg);
+
+                    // }
+                    100% {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .content-pickup {
+                .count-result-content-pickup {
+                    margin: 20px 0;
+
+                }
+
+                .body-content-pickup {
+                    .card-pickup-schedule {
+                        background-color: white;
+                        min-height: 200px;
+                        border-radius: $border-radius-small;
+                        box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+                        -webkit-box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+                        -moz-box-shadow: -1px 1px 11px -2px rgba(0, 0, 0, 0.75);
+                        display: flex;
+
+                        .time-pickup-schedule {
+                            // background-color: red;
+                            flex: 2;
+                            position: relative;
+                            display: flex;
+
+                            .drop-point {
+                                margin: 15px 15px;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                position: relative;
+
+                                &::before {
+                                    content: '';
+                                    border-left: dotted 4px #dedede;
+                                    position: absolute;
+                                    display: block;
+                                    width: 1px;
+                                    top: 10px;
+                                    bottom: 30px;
+                                    left: 2px;
+                                }
+
+                                .circle-top {
+                                    position: absolute;
+                                    top: -10px;
+                                    left: -20px;
+
+                                    svg {
+                                        width: 50px;
+                                        height: 50px;
+
+                                        path {
+                                            fill: #dedede;
+                                        }
+
+                                    }
+                                }
+
+                                .circle-bottom {
+                                    position: absolute;
+                                    bottom: -10px;
+                                    left: -20px;
+
+                                    svg {
+                                        width: 50px;
+                                        height: 50px;
+
+                                        path {
+                                            fill: #dedede;
+                                        }
+
+                                    }
+                                }
+
+                                .start-point {
+                                    margin-left: 20px;
+
+                                    p {
+                                        font-size: 0.8rem;
+                                    }
+
+                                    p:nth-child(2) {
+                                        font-size: 1rem;
+                                        font-weight: bold;
+                                    }
+                                }
+
+                                .end-point {
+                                    margin-left: 20px;
+
+                                    p {
+                                        font-size: 0.8rem;
+                                    }
+
+                                    p:nth-child(2) {
+                                        font-size: 1rem;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+
+                        .estimation-pickup-schedule {
+                            flex: 2;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .time {
+                                margin: 15px 15px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+                                width: 100%;
+
+                                p:nth-child(1) {
+                                    font-size: 2rem;
+                                    font-weight: bold;
+                                }
+                            }
+
+                            .slot {
+                                width: 100%;
+                                margin: 15px 15px;
+                            }
+
+                        }
+
+                        .price-pickup-schedule {
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: space-between;
+
+                            .price {
+                                margin: 15px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+
+                                .type {
+                                    display: flex;
+                                    justify-content: flex-end;
+                                    gap: 5px;
+
+                                    button {
+                                        @include button;
+                                        padding: 5px 10px;
+                                        background-color: #FFF3DF;
+                                        color: $main-color;
+                                    }
+                                }
+
+                                .value {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-end;
+
+                                    p:nth-child(1) {
+                                        font-size: 1rem;
+                                        text-decoration: line-through;
+                                        color: #6F6F6F;
+                                    }
+                                    p:nth-child(2) {
+                                        font-size: 2rem;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+
+                            .buy {
+                                margin: 15px;
+                                button{
+                                    @include button();
+                                    padding: 7px 50px;
+                                    font-size: 1rem;
+                                    font-weight: bold;
+                                    border-radius: $border-radius-small;
+                                    background-color: $main-color;
+                                    color: white;
+                                }   
+
+                            }
+                        }
+                    }
                 }
             }
         }
+        .trip{
+            @include grid();
+        }
     }
 
-    
+
 }

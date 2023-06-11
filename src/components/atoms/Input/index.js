@@ -2,16 +2,19 @@ import React from 'react'
 import { Datetime } from '../../../assets'
 import './index.scss'
 
-function Input({ title, type, icon,onChange,value }) {
+function Input({ title, type, icon,onChange,value,listOption }) {
 
   const renderType = (type) => {
     switch (type) {
       case 'select-option':
         return (
           <select name="choice" value={value} onChange={onChange}>
-            <option value="first">First Value</option>
-            <option value="second" selected>Second Value</option>
-            <option value="third">Third Value</option>
+            <option value="" >Silahkan Pilih {title}</option>
+            {
+              listOption.map(list=>(
+                <option value={list.value} >{list.title}</option>
+              ))
+            }
           </select>
         )
       default:

@@ -1,6 +1,19 @@
 @import '../../../utils/styles/function.scss', '../../../utils/styles/variabel.scss','../../../utils/styles/color.scss';
 
 .card-guide {
+    position: relative;
+    .___type{
+        position: absolute;
+        z-index: 10;
+        @include button();
+        background-color: $main-color;
+        color: white;
+        padding: 5px 10px;
+        border-radius: $border-radius-medium;
+        top:10px;
+        left: 10px;
+
+    }
     .img-card-guide {
         @include imageURL();
         min-width: 180px;
@@ -89,6 +102,10 @@
                 display: inline-block;
                 background-color: #bbb;
             }
+        }
+        p:nth-child(3){
+            font-size: 1rem;
+            font-weight: bold;
         }
     }
     &:hover .book-promotor {

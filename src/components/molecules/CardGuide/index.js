@@ -3,7 +3,7 @@ import './index.scss'
 import ModalGuide from '../ModalGuide'
 import { Link } from 'react-router-dom'
 
-function CardGuide() {
+function CardGuide({type}) {
   const [active, setActive] = useState(false)
   useEffect(()=>{
   },)
@@ -20,6 +20,7 @@ function CardGuide() {
     <>
       <ModalGuide active={active} setActive={actionSetactive}/>
       <div className="card-guide">
+        <span className='___type'> {type}</span> 
         <div className='img-card-guide' style={{ backgroundImage: `url('https://a0.muscache.com/im/pictures/airflow/Hosting-714258423682866070/original/960755ad-ce79-4606-8f17-7c2d6c64fe41.jpg?im_w=720')` }}>
           <div className="book-promotor" onClick={()=>actionSetactive()}>
             <div className="book-line"></div>
@@ -30,8 +31,9 @@ function CardGuide() {
         </div>
         <Link to='/place'>
         <div className="card-guide-description">
-          <label htmlFor="">Valencia, Spanyol</label>
+          <p>Valencia, Spanyol <span class="dot"></span> Sisa 8 Peserta</p>
           <p>5 malam <span class="dot"></span>5 juni - 10 juni</p>
+          <p>Rp. 800.000</p>
         </div>
         </Link>
       </div>
