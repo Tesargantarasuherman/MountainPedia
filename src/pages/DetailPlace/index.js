@@ -127,7 +127,7 @@ const DetailPlace = () => {
             <div className="__booked">
               <div className="___price">
                 <div className="__total_price">
-                  <p>Rp. 800.000</p>
+                  <p>Rp 800.000</p>
                 </div>
                 <div className="___review">
                   <AiFillStar />
@@ -144,7 +144,7 @@ const DetailPlace = () => {
                 <Input icon={<AiOutlineUser />} title={'Peserta'} type={'select-option'} listOption={[{'value':1,'title':1}]}/>
               </div>
               <div className="btn-booked">
-                <button>Pesan</button>
+                <button>Pesan Sekarang</button>
               </div>
             </div>
           </div>
