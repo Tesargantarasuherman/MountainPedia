@@ -2,10 +2,21 @@ import React, { useRef, useState } from 'react'
 import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, Input, MapLeaflet } from '../../components'
 import './index.scss'
 import { AiFillStar, AiOutlineUser } from 'react-icons/ai';
-import { BsCalendarDate } from 'react-icons/bs'
+import { BsCalendarDate } from 'react-icons/bs';
+import { Calendar, DateRange } from 'react-date-range';
+
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
-  const [center, setCenter] = useState([-8.409518, 115.188919])
+  const [center, setCenter] = useState([-8.409518, 115.188919]);
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date('2023-06-16'),
+      key: 'selection'
+    }
+  ]);
+
+
   const [location, setLocation] = useState([
     {
       lat: -8.719266,
@@ -137,11 +148,20 @@ const DetailPlace = () => {
                 </div>
               </div>
               <div className="__date">
-                <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'date'} />
-                <Input icon={<BsCalendarDate />} title={'Tanggal Selesai'} type={'date'} />
+                {/* <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'date'} /> */}
+                <DateRange
+                  editableDateInputs={true}
+                  // locale={'Indonesian'}
+                  onChange={item => setState([item.selection])}
+                  moveRangeOnFirstSelection={false}
+                  ranges={state}
+                  startDatePlaceholder={'Tanggal Mulai'}
+                  endDatePlaceholder={'Tanggal Selesai'}
+                />
+                {/* <Input icon={<BsCalendarDate />} title={'Tanggal Selesai'} type={'date'} /> */}
               </div>
               <div className="__peserta">
-                <Input icon={<AiOutlineUser />} title={'Peserta'} type={'select-option'} listOption={[{'value':1,'title':1}]}/>
+                <Input icon={<AiOutlineUser />} title={'Peserta'} type={'select-option'} listOption={[{ 'value': 1, 'title': 1 }]} />
               </div>
               <div className="btn-booked">
                 <button>Pesan Sekarang</button>

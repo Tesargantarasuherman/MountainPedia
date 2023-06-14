@@ -10,6 +10,8 @@ import "flatpickr/dist/themes/material_green.css";
 import '../src/fonts/GT-Eesti-Display-Regular.otf'
 import '../src/fonts/GT-Eesti-Display-Bold.otf'
 import 'react-spring-bottom-sheet/dist/style.css'
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css';
 import './i18n'
 import { Provider } from 'react-redux';
 import reduxThunk from "redux-thunk";
