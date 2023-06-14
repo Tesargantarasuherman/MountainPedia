@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, Input, MapLeaflet } from '../../components'
 import './index.scss'
+import * as locales from 'react-date-range/dist/locale';
 import { AiFillStar, AiOutlineUser } from 'react-icons/ai';
 import { BsCalendarDate } from 'react-icons/bs';
 import { Calendar, DateRange } from 'react-date-range';
@@ -151,7 +152,7 @@ const DetailPlace = () => {
                 {/* <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'date'} /> */}
                 <DateRange
                   editableDateInputs={true}
-                  // locale={'Indonesian'}
+                  locale={locales['id']}
                   onChange={item => setState([item.selection])}
                   moveRangeOnFirstSelection={false}
                   ranges={state}
