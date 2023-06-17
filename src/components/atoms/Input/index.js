@@ -2,13 +2,13 @@ import React from 'react'
 import { Datetime } from '../../../assets'
 import './index.scss'
 
-function Input({ title, type, icon,onChange,value,listOption,min,max }) {
+function Input({ title, type, icon,onChange,value,listOption,min,max,name }) {
 
   const renderType = (type) => {
     switch (type) {
       case 'select-option':
         return (
-          <select name="choice" value={value} onChange={onChange}>
+          <select name={name} value={value} onChange={onChange}>
             <option value="" >Silahkan Pilih {title}</option>
             {
               listOption.map(list=>(

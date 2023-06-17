@@ -11,7 +11,8 @@ export default function Region() {
     const [type, setType] = useState('guide');
     const [arrival, setArrival] = useState('');
     const [derparture, setDerparture] = useState('');
-    const [rotate, setRotate] = useState(false)
+    const [rotate, setRotate] = useState(false);
+    const [listDerparturePick, setListDerpaturePick] = useState([]);
 
     const [listArrival, serListArrival] = useState(
         [
@@ -62,8 +63,41 @@ export default function Region() {
             }
         ]
     )
+    const [detailDeparture, setDetailDeparture] = useState([
+        {
+            id: 1,
+            titik_naik: 'pasar_tumpang',
+            title_naik:'Pasar Tumpang',
+            title_turun:'Stasiun Malang',
+            titik_turun: 'stasiun_malang',
+            data: [
+                {
+                    waktu_berangkat: '21:00',
+                    estimasi: ' 3 jam Perjalanan',
+                    sisa_kursi: 8,
+                    tipe_tiket: 'Premium',
+                    tipe_perjalanan: 'Langsung',
+                    harga: 200000,
+                    harga_setelah_diskon: 100000
+                }
+            ]
+        }
+    ])
+
+    const getPickupList = () => {
+        detailDeparture.filter((d) => {
+            if (d.titik_naik == derparture && d.titik_turun == arrival) {
+                setListDerpaturePick([d])
+            }
+            else {
+                setListDerpaturePick([])
+            }
+        }
+        )
+    }
+
     const changeDestination = () => {
-        if(arrival!="" && derparture !=""){
+        if (arrival != "" && derparture != "") {
             setRotate(true)
             setTimeout(() => {
                 setArrival(derparture)
@@ -75,13 +109,72 @@ export default function Region() {
 
 
     }
+    const renderListPickup = () => {
+        if (listDerparturePick.length >= 1) {
+            return (
+                listDerparturePick.map(list => {
+                    return(
+
+                    <div className="body-content-pickup">
+                        <div className="card-pickup-schedule">
+                            <div className="time-pickup-schedule">
+                                <div className="drop-point">
+                                    <div className="start-point">
+                                        <p>Titik naik</p>
+                                        <p>{list.title_naik}</p>
+                                    </div>
+                                    <div className="end-point">
+                                        <p>Titik turun</p>
+                                        <p>{list.title_turun}</p>
+                                    </div>
+                                    <div className="circle-top">
+                                        <RxDotFilled />
+                                    </div>
+                                    <div className="circle-bottom">
+                                        <RxDot />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="estimation-pickup-schedule">
+                                <div className="time">
+                                    <p>21:00</p>
+                                    <p>Estimasi 3 jam Perjalanan</p>
+                                </div>
+                                <div className="slot">
+                                    <p>Tersedia <b>8</b> Kursi</p>
+                                </div>
+                            </div>
+                            <div className="price-pickup-schedule">
+                                <div className="price">
+                                    <div className="type">
+                                        <button>Premium</button>
+                                        <button>Langsung</button>
+
+                                    </div>
+                                    <div className="value">
+                                        <p>Rp.200.000,00</p>
+                                        <p>Rp 100.000,00</p>
+                                    </div>
+
+                                </div>
+                                <div className="buy">
+                                    <button>Beli</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                })
+            )
+        }
+    }
 
     const renderType = (active) => {
         switch (active) {
             case 'guide':
                 return (
                     <div className="guide">
-                        <CardGuide type="Guide"/>
+                        <CardGuide type="Guide" />
                     </div>
                 )
             case 'pickup':
@@ -95,71 +188,23 @@ export default function Region() {
                             </button>
                             <Input icon={<AiOutlineEnvironment />} title={'Tujuan'} type={'select-option'} value={arrival} listOption={listArrival} onChange={(e) => setArrival(e.target.value)} />
                             <Input title="Tanggal Berangkat" type="Date" icon={<AiOutlineCalendar />} />
-                            <button className='__btn-search'>
+                            <button className='__btn-search' onClick={getPickupList}>
                                 <BiSearch />
                             </button>
                         </div>
                         <div className="content-pickup">
                             <div className="count-result-content-pickup">
-                                <label htmlFor="">Menampilkan 12 Jadwal</label>
+                                <label htmlFor="">Menampilkan {listDerparturePick.length} Jadwal</label>
                             </div>
-                            <div className="body-content-pickup">
-                                <div className="card-pickup-schedule">
-                                    <div className="time-pickup-schedule">
-                                        <div className="drop-point">
-                                            <div className="start-point">
-                                                <p>Titik naik</p>
-                                                <p>Stasiun Malang</p>
-                                            </div>
-                                            <div className="end-point">
-                                                <p>Titik turun</p>
-                                                <p>Pasar Tumpang</p>
-                                            </div>
-                                            <div className="circle-top">
-                                                <RxDotFilled />
-                                            </div>
-                                            <div className="circle-bottom">
-                                                <RxDot />
-                                            </div>
-                                        </div>
+                            {
+                                renderListPickup()
+                            }
 
-                                    </div>
-                                    <div className="estimation-pickup-schedule">
-                                        <div className="time">
-                                            <p>21:00</p>
-                                            <p>Estimasi 3 jam Perjalanan</p>
-
-                                        </div>
-                                        <div className="slot">
-                                            <p>Tersedia <b>8</b> Kursi</p>
-
-                                        </div>
-
-                                    </div>
-                                    <div className="price-pickup-schedule">
-                                        <div className="price">
-                                            <div className="type">
-                                                <button>Premium</button>
-                                                <button>Langsung</button>
-
-                                            </div>
-                                            <div className="value">
-                                                <p>Rp.200.000,00</p>
-                                                <p>Rp 100.000,00</p>
-                                            </div>
-
-                                        </div>
-                                        <div className="buy">
-                                            <button>Beli</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 )
             case 'trip':
-                return(
+                return (
                     <div className="trip">
                         <CardGuide type="Open Trip" />
 
