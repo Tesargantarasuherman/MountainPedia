@@ -151,7 +151,7 @@ const DetailPlace = () => {
           <ImageCollage />
           <section className='overview'>
             <div className="__title">
-              <span className={`${renderBenefit == 'overview' ? 'active' : ''}`} onClick={() => setRenderBenefit('overview')}>Overview</span>
+              <span className={`${renderBenefit == 'overview' ? 'active' : ''}`} onClick={() => setRenderBenefit('overview')}> Overview</span>
               <div></div>
               <span className={`${renderBenefit == 'include' ? 'active' : ''}`} onClick={() => setRenderBenefit('include')}>What's Included</span>
               <div></div>
