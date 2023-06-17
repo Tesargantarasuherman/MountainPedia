@@ -17,6 +17,7 @@
     "faker": "^6.6.6",
     "flickity": "^2.3.0",
     "framer-motion": "^7.6.1",
+    "fs": "^0.0.1-security",
     "google-map-react": "^2.2.1",
     "google-maps-react-markers": "^1.2.3",
     "i18next": "^22.0.5",
@@ -54,6 +55,7 @@
     "redux-thunk": "^2.4.2",
     "sass": "^1.55.0",
     "slick-carousel": "^1.8.1",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -67,6 +69,11 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   },
   "browserslist": {
     "production": [

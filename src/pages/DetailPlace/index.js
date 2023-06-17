@@ -5,17 +5,32 @@ import * as locales from 'react-date-range/dist/locale';
 import { AiFillStar, AiOutlineUser } from 'react-icons/ai';
 import { BsCalendarDate } from 'react-icons/bs';
 import { Calendar, DateRange } from 'react-date-range';
+import { addDays } from 'date-fns';
 
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
   const [center, setCenter] = useState([-8.409518, 115.188919]);
-  const [state, setState] = useState([
+  const [dateTrip, setDateTrip] = useState([
     {
-      startDate: new Date(),
-      endDate: new Date('2023-06-16'),
-      key: 'selection'
+      value: '1',
+      title: 'Periode (18 Juni s/d 21 Juni)',
+      start_date: '2023-06-18',
+      end_date: '2023-06-21'
+    },
+    {
+      value: '2',
+      title: 'Periode 2',
+      start_date: '2023-07-23',
+      end_date: '2023-07-26'
+    },
+    {
+      value: '3',
+      title: 'Periode 3',
+      start_date: '2023-07-28',
+      end_date: '2023-07-31'
     }
   ]);
+  const [state, setState] = useState([]);
 
 
   const [location, setLocation] = useState([
@@ -108,6 +123,25 @@ const DetailPlace = () => {
         )
     }
   }
+  const actionSetDateTrip = (e) => {
+    if(e.target.value != ""){
+      dateTrip.map(d => {
+        if (d.value == e.target.value) {
+          setState([
+            {
+              startDate: new Date(d.start_date),
+              endDate: new Date(d.end_date),
+              key: 'selection'
+            }
+          ])
+        }
+      })
+    }
+    else{
+      setState([
+      ])
+    }
+  }
 
   return (
     <>
@@ -149,20 +183,26 @@ const DetailPlace = () => {
                 </div>
               </div>
               <div className="__date">
-                {/* <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'date'} /> */}
+                <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'select-option'} listOption={dateTrip} onChange={(e) => actionSetDateTrip(e)} />
                 <DateRange
-                  editableDateInputs={true}
+                  editableDateInputs={false}
                   locale={locales['id']}
-                  onChange={item => setState([item.selection])}
+                  showPreview={false}
+                  staticRanges={[]}
+                  inputRanges={[]}
+                  onChange={()=>console.log('kesini')}
                   moveRangeOnFirstSelection={false}
                   ranges={state}
                   startDatePlaceholder={'Tanggal Mulai'}
                   endDatePlaceholder={'Tanggal Selesai'}
-                />
+                  minDate={addDays(new Date(), -1)}   
+                  mo
+                  // moveRangeOnFirstSelection={false}
+                  />
                 {/* <Input icon={<BsCalendarDate />} title={'Tanggal Selesai'} type={'date'} /> */}
               </div>
               <div className="__peserta">
-                <Input icon={<AiOutlineUser />} title={'Peserta'} type={'select-option'} listOption={[{ 'value': 1, 'title': 1 }]} />
+                <Input icon={<AiOutlineUser />} title={'Peserta'} type={'number'} min={1} max={5}/>
               </div>
               <div className="btn-booked">
                 <button>Pesan Sekarang</button>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Datetime } from '../../../assets'
 import './index.scss'
 
-function Input({ title, type, icon,onChange,value,listOption }) {
+function Input({ title, type, icon,onChange,value,listOption,min,max }) {
 
   const renderType = (type) => {
     switch (type) {
@@ -19,7 +19,7 @@ function Input({ title, type, icon,onChange,value,listOption }) {
         )
       default:
         return(
-          <input className='input' value={value} type={type} onChange={onChange} placeholder={`Masukkan ${title}`} />
+          <input className='input' value={value} type={type} onChange={onChange} placeholder={`Masukkan ${title}`} min={min} max={max}/>
         )
     }
   }

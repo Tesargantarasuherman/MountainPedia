@@ -109,6 +109,7 @@
             .__date{
                 display: flex;
                 justify-content: space-between;
+                flex-direction: column;
                 gap: 10px;
             }
             .btn-booked{
@@ -136,4 +137,7 @@
             @include grid();
         }
     }
+}
+.rdrDateDisplayWrapper {
+    display: none !important;
 }
