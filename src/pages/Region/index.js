@@ -12,7 +12,7 @@ export default function Region() {
     const [arrival, setArrival] = useState('');
     const [derparture, setDerparture] = useState('');
     const [rotate, setRotate] = useState(false);
-    const [listDerparturePick, setListDerpaturePick] = useState([]);
+    const [listDerparturePick, setListDerpaturePick] = useState(null);
 
     const [listArrival, serListArrival] = useState(
         [
@@ -67,26 +67,41 @@ export default function Region() {
         {
             id: 1,
             titik_naik: 'pasar_tumpang',
-            title_naik:'Pasar Tumpang',
-            title_turun:'Stasiun Malang',
+            title_naik: 'Pasar Tumpang',
+            title_turun: 'Stasiun Malang',
             titik_turun: 'stasiun_malang',
-            data: [
-                {
-                    waktu_berangkat: '21:00',
-                    estimasi: ' 3 jam Perjalanan',
-                    sisa_kursi: 8,
-                    tipe_tiket: 'Premium',
-                    tipe_perjalanan: 'Langsung',
-                    harga: 200000,
-                    harga_setelah_diskon: 100000
-                }
-            ]
+            data: {
+                waktu_berangkat: '21:00',
+                estimasi: ' 3 jam Perjalanan',
+                sisa_kursi: 8,
+                tipe_tiket: 'Premium',
+                tipe_perjalanan: 'Langsung',
+                harga: 200000,
+                harga_setelah_diskon: 100000
+            }
+        },
+        {
+            id: 2,
+            titik_naik: 'pasar_tumpang',
+            title_naik: 'Pasar Tumpang',
+            title_turun: 'Basecamp Ranu Pani',
+            titik_turun: 'basecamp_ranu_pani',
+            data: {
+                waktu_berangkat: '08:00',
+                estimasi: ' 1 jam Perjalanan',
+                sisa_kursi: 8,
+                tipe_tiket: 'Premium',
+                tipe_perjalanan: 'Langsung',
+                harga: 120000,
+                harga_setelah_diskon: 100000
+            }
         }
     ])
 
     const getPickupList = () => {
         detailDeparture.filter((d) => {
             if (d.titik_naik == derparture && d.titik_turun == arrival) {
+                console.log(d)
                 setListDerpaturePick([d])
             }
             else {
@@ -109,60 +124,77 @@ export default function Region() {
 
 
     }
+    const showingSchedule =()=>{
+        if (listDerparturePick !== null) {
+            if(listDerparturePick.length >= 1){
+                return(
+                <div className="count-result-content-pickup">
+                    <label htmlFor="">Menampilkan {listDerparturePick.length} Jadwal</label>
+                </div>  
+            )
+            }
+            else{
+                return(
+                    <div className="count-result-content-pickup">
+                        <label htmlFor="">Tidak Ada Jadwal</label>
+                    </div>  
+                )
+            }
+        }
+    }
     const renderListPickup = () => {
-        if (listDerparturePick.length >= 1) {
+        if (listDerparturePick !== null) {
             return (
                 listDerparturePick.map(list => {
-                    return(
+                    return (
+                        <div className="body-content-pickup">
+                            <div className="card-pickup-schedule">
+                                <div className="time-pickup-schedule">
+                                    <div className="drop-point">
+                                        <div className="start-point">
+                                            <p>Titik naik</p>
+                                            <p>{list.title_naik}</p>
+                                        </div>
+                                        <div className="end-point">
+                                            <p>Titik turun</p>
+                                            <p>{list.title_turun}</p>
+                                        </div>
+                                        <div className="circle-top">
+                                            <RxDotFilled />
+                                        </div>
+                                        <div className="circle-bottom">
+                                            <RxDot />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="estimation-pickup-schedule">
+                                    <div className="time">
+                                        <p>{list.data.waktu_berangkat}</p>
+                                        <p>{list.data.estimasi}</p>
+                                    </div>
+                                    <div className="slot">
+                                        <p>Tersedia <b>8</b> Kursi</p>
+                                    </div>
+                                </div>
+                                <div className="price-pickup-schedule">
+                                    <div className="price">
+                                        <div className="type">
+                                            <button>Premium</button>
+                                            <button>Langsung</button>
 
-                    <div className="body-content-pickup">
-                        <div className="card-pickup-schedule">
-                            <div className="time-pickup-schedule">
-                                <div className="drop-point">
-                                    <div className="start-point">
-                                        <p>Titik naik</p>
-                                        <p>{list.title_naik}</p>
-                                    </div>
-                                    <div className="end-point">
-                                        <p>Titik turun</p>
-                                        <p>{list.title_turun}</p>
-                                    </div>
-                                    <div className="circle-top">
-                                        <RxDotFilled />
-                                    </div>
-                                    <div className="circle-bottom">
-                                        <RxDot />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="estimation-pickup-schedule">
-                                <div className="time">
-                                    <p>21:00</p>
-                                    <p>Estimasi 3 jam Perjalanan</p>
-                                </div>
-                                <div className="slot">
-                                    <p>Tersedia <b>8</b> Kursi</p>
-                                </div>
-                            </div>
-                            <div className="price-pickup-schedule">
-                                <div className="price">
-                                    <div className="type">
-                                        <button>Premium</button>
-                                        <button>Langsung</button>
+                                        </div>
+                                        <div className="value">
+                                            <p>Rp.{list.data.harga}</p>
+                                            <p>Rp {list.data.harga_setelah_diskon}</p>
+                                        </div>
 
                                     </div>
-                                    <div className="value">
-                                        <p>Rp.200.000,00</p>
-                                        <p>Rp 100.000,00</p>
+                                    <div className="buy">
+                                        <button>Beli</button>
                                     </div>
-
-                                </div>
-                                <div className="buy">
-                                    <button>Beli</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     )
                 })
             )
@@ -181,6 +213,7 @@ export default function Region() {
                 return (
                     <div className="pickup">
                         <h2>Silahkan Pilih Jadwal Perjalanan Anda</h2>
+                        <div className="body-form-input" style={{backgroundImage:`url('https://cdn.dribbble.com/userupload/3795738/file/original-2130d55f3e516c3dfa20b0d026a566bb.png?compress=1&resize=2048x1537')`}}>
                         <div className="form-input-pickup">
                             <Input icon={<AiOutlineEnvironment />} title={'Berangkat Dari'} value={derparture} listOption={listDerparture} type={'select-option'} onChange={(e) => setDerparture(e.target.value)} />
                             <button className={`btn-reverse ${rotate ? 'rotate' : ''}`} onClick={() => changeDestination()}>
@@ -192,10 +225,11 @@ export default function Region() {
                                 <BiSearch />
                             </button>
                         </div>
+                        </div>
                         <div className="content-pickup">
-                            <div className="count-result-content-pickup">
-                                <label htmlFor="">Menampilkan {listDerparturePick.length} Jadwal</label>
-                            </div>
+                            {
+                                showingSchedule()
+                            }
                             {
                                 renderListPickup()
                             }
@@ -207,7 +241,6 @@ export default function Region() {
                 return (
                     <div className="trip">
                         <CardGuide type="Open Trip" />
-
                     </div>
                 )
             default:

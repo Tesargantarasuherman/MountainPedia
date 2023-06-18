@@ -142,64 +142,76 @@
         }
 
         .pickup {
-            .form-input-pickup {
+            .body-form-input{
+                @include imageURL();
+                min-height: 200px;
+                width: 100%;
+                // background-color: $main-color;
                 display: flex;
-                justify-content: flex-start;
-                gap: 20px;
-                flex-wrap: wrap;
-                margin: 20px 0;
+                box-sizing: border-box;
+                padding: 20px;
+                flex-direction: column;
+                justify-content: center;
+                margin: 40px 0;
+                border-radius: $border-radius-small;
 
-                .btn-reverse {
-                    @include button();
-                    padding: 10px 17px;
-                    border-radius: $border-radius-rounded;
-                    background-color: $main-color;
-
-                    svg {
-                        fill: white;
-                        width: 20px;
-                        height: 20px;
-                    }
-
-                    &.rotate {
+                .form-input-pickup {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 20px;
+                    flex-wrap: wrap;
+    
+                    .btn-reverse {
+                        @include button();
+                        padding: 10px 17px;
+                        border-radius: $border-radius-rounded;
+                        background-color: $main-color;
+    
                         svg {
-                            animation: rotate 0.5s infinite;
+                            fill: white;
+                            width: 20px;
+                            height: 20px;
+                        }
+    
+                        &.rotate {
+                            svg {
+                                animation: rotate 0.5s infinite;
+                            }
+                        }
+                    }
+    
+                    .__btn-search {
+                        @include button();
+                        padding: 10px 50px;
+                        border-radius: $border-radius-small;
+                        background-color: $main-color;
+    
+                        svg {
+                            fill: white;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+    
+                    @keyframes rotate {
+                        25% {
+                            transform: rotate(0deg);
+                        }
+    
+                        // 50%{
+                        //     transform: rotate(90deg);
+    
+                        // }
+                        // 50%{
+                        //     transform: rotate(120deg);
+    
+                        // }
+                        100% {
+                            transform: rotate(180deg);
                         }
                     }
                 }
-
-                .__btn-search {
-                    @include button();
-                    padding: 15px 30px;
-                    border-radius: $border-radius-small;
-                    background-color: $main-color;
-
-                    svg {
-                        fill: white;
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-
-                @keyframes rotate {
-                    25% {
-                        transform: rotate(0deg);
-                    }
-
-                    // 50%{
-                    //     transform: rotate(90deg);
-
-                    // }
-                    // 50%{
-                    //     transform: rotate(120deg);
-
-                    // }
-                    100% {
-                        transform: rotate(180deg);
-                    }
-                }
             }
-
             .content-pickup {
                 .count-result-content-pickup {
                     margin: 20px 0;
