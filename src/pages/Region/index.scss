@@ -213,12 +213,16 @@
                 }
             }
             .content-pickup {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                // align-items: center;
                 .count-result-content-pickup {
                     margin: 20px 0;
 
                 }
-
                 .body-content-pickup {
+                    width: 100%;
                     .card-pickup-schedule {
                         background-color: white;
                         min-height: 200px;

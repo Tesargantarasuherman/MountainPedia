@@ -68,22 +68,6 @@ export default function Region() {
             id: 1,
             titik_naik: 'pasar_tumpang',
             title_naik: 'Pasar Tumpang',
-            title_turun: 'Stasiun Malang',
-            titik_turun: 'stasiun_malang',
-            data: {
-                waktu_berangkat: '21:00',
-                estimasi: ' 3 jam Perjalanan',
-                sisa_kursi: 8,
-                tipe_tiket: 'Premium',
-                tipe_perjalanan: 'Langsung',
-                harga: 200000,
-                harga_setelah_diskon: 100000
-            }
-        },
-        {
-            id: 2,
-            titik_naik: 'pasar_tumpang',
-            title_naik: 'Pasar Tumpang',
             title_turun: 'Basecamp Ranu Pani',
             titik_turun: 'basecamp_ranu_pani',
             data: {
@@ -95,20 +79,43 @@ export default function Region() {
                 harga: 120000,
                 harga_setelah_diskon: 100000
             }
+        },
+        {
+            id: 2,
+            titik_naik: 'pasar_tumpang',
+            title_naik: 'Pasar Tumpang',
+            title_turun: 'Basecamp Ranu Pani',
+            titik_turun: 'basecamp_ranu_pani',
+            data: {
+                waktu_berangkat: '09:00',
+                estimasi: ' 1 jam Perjalanan',
+                sisa_kursi: 8,
+                tipe_tiket: 'Premium',
+                tipe_perjalanan: 'Langsung',
+                harga: 120000,
+                harga_setelah_diskon: 100000
+            }
         }
     ])
 
     const getPickupList = () => {
-        detailDeparture.filter((d) => {
-            if (d.titik_naik == derparture && d.titik_turun == arrival) {
-                console.log(d)
-                setListDerpaturePick([d])
-            }
-            else {
-                setListDerpaturePick([])
-            }
-        }
-        )
+        const result = detailDeparture.filter(d => d.titik_naik == derparture && d.titik_turun == arrival);
+        setListDerpaturePick(result);
+
+        // detailDeparture.filter((d) => {
+        //     if (d.titik_naik == derparture && d.titik_turun == arrival) {
+        //         console.log([d])
+        //         setListDerpaturePick([d])
+        //     }
+        //     else {
+        //         setListDerpaturePick([])
+        //     }
+        // }
+        // )
+        // setTimeout(() => {
+        //     console.log(listDerparturePick,'list')
+            
+        // }, 500);
     }
 
     const changeDestination = () => {
