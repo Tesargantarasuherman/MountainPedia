@@ -10,6 +10,7 @@ import { addDays } from 'date-fns';
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
   const [center, setCenter] = useState([-8.409518, 115.188919]);
+  
   const [dateTrip, setDateTrip] = useState([
     {
       value: '1',
@@ -30,7 +31,13 @@ const DetailPlace = () => {
       end_date: '2023-07-31'
     }
   ]);
-  const [state, setState] = useState([]);
+  const [state, setState] = useState([
+    {
+      startDate: new Date('2023-06-26'),
+      endDate:new Date('2023-06-29'),
+      key: 'selection'
+    }
+  ]);
 
 
   const [location, setLocation] = useState([
@@ -142,6 +149,9 @@ const DetailPlace = () => {
       ])
     }
   }
+  const setDate=()=>{
+
+  }
 
   return (
     <>
@@ -187,16 +197,29 @@ const DetailPlace = () => {
                 <DateRange
                   editableDateInputs={false}
                   locale={locales['id']}
-                  showPreview={false}
-                  staticRanges={[]}
-                  inputRanges={[]}
-                  onChange={()=>console.log('kesini')}
+                  // showPreview={false}
+                  // staticRanges={[]}
+                  // inputRanges={[]}
+                  onChange={item => setState([
+                    {
+                      startDate: item.selection.startDate,
+                      endDate:addDays(new Date(item.selection.startDate),1),
+                      key: 'selection'
+                    }
+                  ])}
                   moveRangeOnFirstSelection={false}
                   ranges={state}
                   startDatePlaceholder={'Tanggal Mulai'}
                   endDatePlaceholder={'Tanggal Selesai'}
-                  minDate={addDays(new Date(), -1)}   
-                  mo
+                  minDate={addDays(new Date(), -1)} 
+
+                  // onChange={item => setState([item.selection])}
+                  // showSelectionPreview={true}
+                  // moveRangeOnFirstSelection={false}
+                  // months={2}
+                  // ranges={state}
+                  // direction="horizontal"
+
                   // moveRangeOnFirstSelection={false}
                   />
                 {/* <Input icon={<BsCalendarDate />} title={'Tanggal Selesai'} type={'date'} /> */}

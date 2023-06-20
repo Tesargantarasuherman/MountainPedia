@@ -101,21 +101,6 @@ export default function Region() {
     const getPickupList = () => {
         const result = detailDeparture.filter(d => d.titik_naik == derparture && d.titik_turun == arrival);
         setListDerpaturePick(result);
-
-        // detailDeparture.filter((d) => {
-        //     if (d.titik_naik == derparture && d.titik_turun == arrival) {
-        //         console.log([d])
-        //         setListDerpaturePick([d])
-        //     }
-        //     else {
-        //         setListDerpaturePick([])
-        //     }
-        // }
-        // )
-        // setTimeout(() => {
-        //     console.log(listDerparturePick,'list')
-            
-        // }, 500);
     }
 
     const changeDestination = () => {
