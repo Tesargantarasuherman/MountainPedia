@@ -13,7 +13,6 @@ const Main = (props) => {
     useEffect(()=>{
         window.scrollTo(0, 0);
     },[pathname])
-    const navigate = useNavigate();
     return (
         <>
             {/* Navbar ----------------------------- */}

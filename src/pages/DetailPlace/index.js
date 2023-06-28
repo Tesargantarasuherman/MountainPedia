@@ -32,11 +32,11 @@ const DetailPlace = () => {
     }
   ]);
   const [state, setState] = useState([
-    {
-      startDate: new Date('2023-06-26'),
-      endDate:new Date('2023-06-29'),
-      key: 'selection'
-    }
+    // {
+    //   startDate: new Date('2023-06-26'),
+    //   endDate:new Date('2023-06-29'),
+    //   key: 'selection'
+    // }
   ]);
 
 
@@ -195,7 +195,7 @@ const DetailPlace = () => {
               <div className="__date">
                 <Input icon={<BsCalendarDate />} title={'Tanggal Mulai'} type={'select-option'} listOption={dateTrip} onChange={(e) => actionSetDateTrip(e)} />
                 <DateRange
-                  editableDateInputs={false}
+                  // editableDateInputs={false}
                   locale={locales['id']}
                   // showPreview={false}
                   // staticRanges={[]}
@@ -207,7 +207,7 @@ const DetailPlace = () => {
                       key: 'selection'
                     }
                   ])}
-                  moveRangeOnFirstSelection={false}
+                  // moveRangeOnFirstSelection={false}
                   ranges={state}
                   startDatePlaceholder={'Tanggal Mulai'}
                   endDatePlaceholder={'Tanggal Selesai'}
