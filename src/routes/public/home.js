@@ -7,6 +7,7 @@ const home = [
     {
         path: `${root}`,
         component: <Home />,
+        bannerRegion:true,
         navbar: true,
         is_login_access:false,
     },

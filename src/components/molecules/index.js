@@ -11,5 +11,6 @@ import ContentBenefit from "./ContentBenefit";
 import MapLeaflet from "./MapLeaflet";
 import CardGuide from "./CardGuide";
 import ModalGuide from "./ModalGuide";
+import BannerRegion from "./BannerRegion";
 
-export {ModalGuide,CardGuide,MapLeaflet,ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}
+export {BannerRegion,ModalGuide,CardGuide,MapLeaflet,ContentBenefit,CardImage,Banner,Navbar,Container,Card,Footer,ImageCollage,ListBooking,Pagination}

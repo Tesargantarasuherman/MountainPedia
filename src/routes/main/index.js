@@ -1,7 +1,7 @@
 
 import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import { Navbar } from '../../components';
+import { BannerRegion, Navbar } from '../../components';
 import routes from "../../routes/index";
 import { useLocation } from "react-router-dom";
 
@@ -20,6 +20,12 @@ const Main = (props) => {
                 {routes.map((route) => {
                     if (route.navbar)
                         return <Route path={route.path} element={<Navbar />} />;
+                })}
+            </Routes>
+            <Routes>
+                {routes.map((route) => {
+                    if (route.bannerRegion)
+                        return <Route path={route.path} element={<BannerRegion/>} />;
                 })}
             </Routes>
 
