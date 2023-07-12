@@ -1,4 +1,4 @@
-@import '../../utils/styles/function.scss';
+@import '../../utils/styles/function.scss','../../utils/styles/variabel.scss','../../utils/styles/color.scss';
 .body-list-place{
     @include container();
     .container-list-place{
@@ -11,6 +11,7 @@
             grid-template-rows:    repeat(2, auto);
             grid-template-columns: repeat(4, 1fr);
             // margin: 50px 15% 0px 15%;
+            
            
             @media only screen and (max-width: 600px) {
                 grid-template-columns: repeat(2, 1fr);
@@ -41,5 +42,21 @@
                 grid-template-columns: repeat(1, 1fr);
             }
         }
+    }
+}
+.pagination{
+    list-style: none ;
+    li.previous{
+        @include button();
+        padding: 10px 17px;
+        border-radius: $border-radius-small;
+        background-color: $main-color;
+        color: $secondary-color;
+    }
+    li.selected{
+        @include button();
+        padding: 10px 17px;
+        border-radius: $border-radius-small;
+        background-color: $main-color;    
     }
 }

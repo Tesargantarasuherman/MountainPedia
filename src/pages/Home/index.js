@@ -6,6 +6,7 @@ import { Banner, Button, Card, CardImage, Container, Footer, Navbar, Pagination 
 import { connect } from 'react-redux'
 
 import './index.scss'
+import ReactPaginate from 'react-paginate'
 export const Home = ({ product, getAllProduct }) => {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
@@ -14,7 +15,7 @@ export const Home = ({ product, getAllProduct }) => {
   const [postPerPage, setPostPerPage] = useState(8);
   const [currentPosts, setCurrentPosts] = useState([]);
 
-
+ 
 
   useEffect(() => {
     getAllProduct();
@@ -46,9 +47,13 @@ export const Home = ({ product, getAllProduct }) => {
   const indexOfFirstPost = indexOflastPost - postPerPage;
 
   // Change Page
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  }
+  // const paginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber)
+  // }
+  const paginate = ({ selected }) => {
+    window.scrollTo(0, 600);
+    setCurrentPage(selected +1);
+ };
 
   const onExit = () => {
     setStepsEnabled(false)
@@ -106,7 +111,18 @@ export const Home = ({ product, getAllProduct }) => {
       </div>
       <Container marginTop={50} justify="center" el={
         <>
-          <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} />
+           <ReactPaginate
+                  onPageChange={paginate}
+                  pageCount={Math.ceil(product.length / postPerPage)}
+                  previousLabel={'Prev'}
+                  nextLabel={'Next'}
+                  containerClassName={'pagination'}
+                  pageLinkClassName={'page-number'}
+                  previousLinkClassName={'page-number'}
+                  nextLinkClassName={'page-number'}
+                  activeLinkClassName={'active'}
+               />
+          {/* <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} /> */}
         </>
       }
 
