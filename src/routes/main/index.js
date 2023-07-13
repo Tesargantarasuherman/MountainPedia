@@ -4,13 +4,19 @@ import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-route
 import { BannerRegion, Navbar } from '../../components';
 import routes from "../../routes/index";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { isLogin, login, selectUser} from '../../features/userSlice';
 
 
 // import Sidebar from "../../components/admin/Sidebar";
 
 const Main = (props) => {
+    const dispatch = useDispatch();
+    const _islogin = useSelector(isLogin)
+
     const { pathname } = useLocation();
     useEffect(()=>{
+        dispatch(login)
         window.scrollTo(0, 0);
     },[pathname])
     return (
@@ -43,7 +49,7 @@ const Main = (props) => {
             <Routes>
                 {routes.map((route) => {
                     return <Route path={route.path} element={
-                        (route.is_login_access == true && localStorage.getItem('token') ==null)
+                        (route.is_login_access == true && _islogin == true)
                             ? (
                                 <Navigate to={'/sign'} />
                             ) : route.component

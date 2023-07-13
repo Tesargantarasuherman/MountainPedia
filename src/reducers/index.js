@@ -5,3 +5,4 @@ import productReducer from './productReducer';
 export default combineReducers({
     product:productReducer
 })
+// create redux in react?

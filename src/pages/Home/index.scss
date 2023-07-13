@@ -46,17 +46,23 @@
 }
 .pagination{
     list-style: none ;
-    li.previous{
-        @include button();
+    display: flex;
+    align-items: center;
+    li.previous,li.next{
+        @include button($main-color);
         padding: 10px 17px;
         border-radius: $border-radius-small;
-        background-color: $main-color;
-        color: $secondary-color;
+        a{
+            color: $secondary-color;
+        }
     }
     li.selected{
         @include button();
         padding: 10px 17px;
         border-radius: $border-radius-small;
-        background-color: $main-color;    
+        background-color: $main-color; 
+        a{
+            color: $secondary-color;
+        }   
     }
 }

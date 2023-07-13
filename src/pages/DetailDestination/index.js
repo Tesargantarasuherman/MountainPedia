@@ -5,7 +5,7 @@ import './index.scss'
 import { useState } from 'react'
 import { Datetime } from '../../assets'
 import ReactStars from 'react-stars'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { getDetailProduct } from '../../actions'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -22,7 +22,9 @@ import {
   import { Line } from 'react-chartjs-2';
   import { faker } from '@faker-js/faker'
   import { AiOutlineSchedule } from "react-icons/ai";
+  import { getProductById,selectProductById } from '../../features/productSlice'
   
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -34,14 +36,18 @@ import {
   );
   
 
-export const DetailDestiation = (props) => {
+// export const DetailDestiation = (props) => {
+export const DetailDestiation = () => {
     const [togglePopup, setTogglePopup] = useState(false)
     let params = useParams();
+
     const d = new Date();
     const[dated,setDated] = useState(null);
     const [year,setYear] = useState([2021,2022,2023])
     const _dateValue = {year:d.getFullYear(),month:d.getMonth() + 1}
     const [dateValue,setDateValue] = useState(_dateValue)
+    const dispatch = useDispatch();
+    const product = useSelector(selectProductById)
 
     const[month,setMonth] = useState([
         {
@@ -96,7 +102,8 @@ export const DetailDestiation = (props) => {
 
     useEffect(() => {
 
-        props.getDetailProduct(params.id);
+        // props.getDetailProduct(params.id);
+        dispatch(getProductById(params.id))
         getDays(dateValue.year,dateValue.month);
 
       
@@ -185,6 +192,15 @@ export const DetailDestiation = (props) => {
         
     }
 
+    const isLoading = useSelector((state) => state.product.isLoading)
+    const error = useSelector((state) => state.product.hasError)
+
+    if (isLoading) {
+        return 'loading...'
+    }
+    if (error) {
+        return error
+    }
     return (
         <>
             <div className={`popup-slider ${togglePopup ? 'show' : 'hide'}`}>
@@ -219,7 +235,8 @@ export const DetailDestiation = (props) => {
                         <p>Hiking</p>
                     </div>
                     <h1>
-                        {props.product.title}
+                        {/* {props.product.title} */}
+                        {product.title}
                     </h1>
                     <div className="rating-destination">
                         <ReactStars
@@ -242,7 +259,8 @@ export const DetailDestiation = (props) => {
                 <>
                     <div className="detail-description">
                         <div className="detail-description-left">
-                            <p>{props.product.body}</p>
+                            {/* <p>{props.product.body}</p> */}
+                            <p>{product.body}</p>
                             <p className='title'>
                                 About this activity
                             </p>
@@ -348,12 +366,14 @@ export const DetailDestiation = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    product: state?.product?.product
-})
+// const mapStateToProps = (state) => ({
+//     product: state?.product?.product
+// })
 
-const mapDispatchToProps = {
-    getDetailProduct
-}
+// const mapDispatchToProps = {
+//     getDetailProduct
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailDestiation)
+// export default connect(mapStateToProps, mapDispatchToProps)(DetailDestiation)
+
+export default DetailDestiation

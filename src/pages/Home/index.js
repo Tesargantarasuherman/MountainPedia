@@ -1,28 +1,35 @@
 import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { getAllProduct } from '../../actions'
+// import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 import './index.scss'
 import ReactPaginate from 'react-paginate'
-export const Home = ({ product, getAllProduct }) => {
+import { getAllProduct, selectProduct } from '../../features/productSlice'
+
+// export const Home = ({ product, getAllProduct }) => {
+export const Home = () => {
   const [initialStep, setInitialStep] = useState(0)
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(8);
   const [currentPosts, setCurrentPosts] = useState([]);
-
- 
+  const dispatch = useDispatch();
+  const products = useSelector(selectProduct);
+  //  Get Current Post
+  const indexOflastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOflastPost - postPerPage;
 
   useEffect(() => {
-    getAllProduct();
+    // getAllProduct();
+    dispatch(getAllProduct());
     setTimeout(() => {
-      setCurrentPosts(product?.slice(indexOfFirstPost, indexOflastPost))
-    }, 1000)
-  }, [product])
+      setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
+    }, 1000);
+  }, [currentPosts])
 
   const [steps, setSteps] = useState([
     {
@@ -42,9 +49,6 @@ export const Home = ({ product, getAllProduct }) => {
     }
   ])
   const [hints, setHints] = useState([])
-  // Get Current Post
-  const indexOflastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOflastPost - postPerPage;
 
   // Change Page
   // const paginate = (pageNumber) => {
@@ -61,9 +65,9 @@ export const Home = ({ product, getAllProduct }) => {
   };
 
   const renderProducts = () => {
-    if (currentPosts.length >= 1) {
+    if (currentPosts?.length >= 1) {
       return (
-        currentPosts.map(product => {
+        currentPosts?.map(product => {
           return (
             <Card product={product} />
           )
@@ -113,7 +117,7 @@ export const Home = ({ product, getAllProduct }) => {
         <>
            <ReactPaginate
                   onPageChange={paginate}
-                  pageCount={Math.ceil(product.length / postPerPage)}
+                  pageCount={Math.ceil(products.length / postPerPage)}
                   previousLabel={'Prev'}
                   nextLabel={'Next'}
                   containerClassName={'pagination'}
@@ -145,12 +149,13 @@ export const Home = ({ product, getAllProduct }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  product: state?.product?.product
-})
+// const mapStateToProps = (state) => ({
+//   product: state?.product?.product
+// })
 
-const mapDispatchToProps = {
-  getAllProduct
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+// const mapDispatchToProps = {
+//   getAllProduct
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
 
