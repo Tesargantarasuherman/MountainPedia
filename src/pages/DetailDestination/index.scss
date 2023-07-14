@@ -248,12 +248,6 @@
             justify-content: space-between;
             gap: 5px;
             flex-wrap:wrap;
-            div{
-                flex: 1;
-            }
-            button{
-                flex: 1;
-            }
         }
     }
 }
@@ -401,8 +395,8 @@ body.dark {
                     justify-content: space-between;
                     padding: 10px;
                     gap: 10px;
-                    div{
-                        flex:1;
+                    input{
+                        width: 200px;
                     }
                     button{
                         flex:1;

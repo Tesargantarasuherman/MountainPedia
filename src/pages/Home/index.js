@@ -26,9 +26,7 @@ export const Home = () => {
   useEffect(() => {
     // getAllProduct();
     dispatch(getAllProduct());
-    setTimeout(() => {
       setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
-    }, 1000);
   }, [currentPosts])
 
   const [steps, setSteps] = useState([

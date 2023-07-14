@@ -21,7 +21,7 @@ import {
   } from 'chart.js';
   import { Line } from 'react-chartjs-2';
   import { faker } from '@faker-js/faker'
-  import { AiOutlineSchedule } from "react-icons/ai";
+  import { AiOutlineEnvironment, AiOutlineSchedule } from "react-icons/ai";
   import { getProductById,selectProductById } from '../../features/productSlice'
   
 
@@ -323,7 +323,7 @@ export const DetailDestiation = () => {
                             <div className="booking-asistant" id="book-now">
                                 <label>Select participants, date</label>
                                 <div className="form">
-                                    <Input />
+                                    <Input title="Place" type="Text" icon={<AiOutlineEnvironment />}/>
                                     <Input />
                                     <Input />
                                     <Button title={'Check Availibility'} backgroundColor={'bg-white'} />
