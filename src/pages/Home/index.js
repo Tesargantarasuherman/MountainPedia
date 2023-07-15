@@ -2,7 +2,7 @@ import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 // import { getAllProduct } from '../../actions'
-import { Banner, Button, Card, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
+import { Banner, Button, Card, CardGuide, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect, useDispatch, useSelector } from 'react-redux'
 
 import './index.scss'
@@ -15,19 +15,29 @@ export const Home = () => {
   const [stepsEnabled, setStepsEnabled] = useState(localStorage.getItem('intro') == 'true' ? false : true)
   const [hintsEnabled, setHintsEnabled] = useState(true)
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(8);
-  const [currentPosts, setCurrentPosts] = useState([]);
+  const [postPerPage, setPostPerPage] = useState(6);
+  // const [currentPosts, setCurrentPosts] = useState([]);
   const dispatch = useDispatch();
   const products = useSelector(selectProduct);
   //  Get Current Post
   const indexOflastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOflastPost - postPerPage;
+  const currentPosts = products.slice(indexOfFirstPost, indexOflastPost);
 
   useEffect(() => {
-    // getAllProduct();
     dispatch(getAllProduct());
-      setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
-  }, [dispatch,currentPosts])
+    }, [])
+  
+
+  // useEffect(() => {
+  //   console.log(products)
+  //   setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
+  //   setTimeout(() => {
+  //     console.log(products);
+  //   }, 1000);
+  // }, [products]);
+
+   
 
   const [steps, setSteps] = useState([
     {
@@ -54,7 +64,7 @@ export const Home = () => {
   // }
   const paginate = ({ selected }) => {
     window.scrollTo(0, 600);
-    setCurrentPage(selected +1);
+    setCurrentPage(selected + 1);
  };
 
   const onExit = () => {
@@ -62,23 +72,34 @@ export const Home = () => {
     localStorage.setItem('intro', true)
   };
 
+  const isLoading = useSelector((state) => state.product.isLoading)
+  const error = useSelector((state) => state.product.hasError)
+
+  if (isLoading) {
+      return 'loading...'
+  }
+  if (error) {
+      // return error
+      <div><p>Data Tidak Ada</p></div>
+  }
+
   const renderProducts = () => {
-    if (currentPosts?.length >= 1) {
+    // if (currentPosts?.length >= 1) {
       return (
         currentPosts?.map(product => {
           return (
-            <Card product={product} />
+            <CardGuide id={product.id} title={product.name} image={product.images[0]} price={product.price} location={product.location}/>
           )
         })
       )
-    }
-    else {
-      return (
-        <div className="loading">
-          Loading
-        </div>
-      )
-    }
+    // }
+    // else {
+    //   return (
+    //     <div className="loading">
+    //       Loading
+    //     </div>
+    //   )
+    // }
   }
 
   return (

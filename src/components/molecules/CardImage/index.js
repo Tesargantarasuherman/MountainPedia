@@ -2,7 +2,7 @@ import React from 'react'
 import './index.scss'
 import { AiFillCaretLeft, AiOutlineEnvironment } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-function CardImage() {
+function CardImage({id,title,description}) {
     return (
         <div className='card-image'>
             <div className="content-image" style={{backgroundImage:`url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80')`}}>

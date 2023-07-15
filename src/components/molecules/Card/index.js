@@ -6,7 +6,7 @@ import { Location, Ticket } from '../../../assets'
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom";
 import { AiFillCaretLeft, AiOutlineEnvironment } from 'react-icons/ai'
-export default function Card({product}) {
+export default function Card({id,image,title}) {
     const slashMotion = {
         rest: { y: 80 },
         hover: {
@@ -19,7 +19,7 @@ export default function Card({product}) {
     return (
         <div className="card">
             <div className="card-header">
-                <div  style={{backgroundImage:`url('https://images.unsplash.com/photo-1689240577198-e3a410cfe071?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80')` }} alt="" className="card-img" ></div>
+                <div  style={{backgroundImage:`url(${image})` }} alt="" className="card-img" ></div>
                 <p className="title">
                     <Button title='Hiking' type="small" rounded="rounded-md" />
                 </p>
@@ -43,7 +43,7 @@ export default function Card({product}) {
                     </div>
                 </div>
                 <p className="title">
-                    {product.title.substring(0,20)}
+                    {title.substring(0,20)}
                 </p>
                 <div className="content">
                     <div className="body-content">
@@ -72,7 +72,7 @@ export default function Card({product}) {
                     </div>
                 </div>
             </div>
-            <Link to={`/detail/${product.id}`}>
+            <Link to={`/detail/${id}`}>
                 <motion.div initial="rest" whileHover="hover" animate="rest" className="card-footer">
                     <div className='card-footer-body'>
                         <div className="card-footer-body-title">

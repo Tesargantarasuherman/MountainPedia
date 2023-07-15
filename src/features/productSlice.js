@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-let url ='https://jsonplaceholder.typicode.com/posts'
+let url ='https://restful-api-mountainpedia.vercel.app/products'
+
 export const getAllProduct = createAsyncThunk(
     "productList/getAllProduct", 
     async () => {
-        const res = await axios(`${url}`)
+        const res = await axios(`${url}?_embed=type`)
         const data = await res.data
 
         return data
@@ -13,7 +14,7 @@ export const getAllProduct = createAsyncThunk(
 export const getProductById = createAsyncThunk(
     "productList/getProductById", 
     async (id) => {
-        const res = await axios(`${url}/${id}`)
+        const res = await axios(`${url}/${id}?_embed=promoter`)
         const data = await res.data
         return data
   });
