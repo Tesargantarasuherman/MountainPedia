@@ -199,7 +199,8 @@ export const DetailDestiation = () => {
         return 'loading...'
     }
     if (error) {
-        return error
+        // return error
+        <div><p>Data Tidak Ada</p></div>
     }
     return (
         <>
@@ -260,7 +261,7 @@ export const DetailDestiation = () => {
                     <div className="detail-description">
                         <div className="detail-description-left">
                             {/* <p>{props.product.body}</p> */}
-                            <p>{product.body}</p>
+                            <p>{product.description}</p>
                             <p className='title'>
                                 About this activity
                             </p>

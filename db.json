@@ -1,0 +1,14 @@
+{
+    "products": [
+    { 
+        "id": 1,
+        "name": "open trip gatot kaca ",
+        "description": "open bersama trip gatot kaca ",
+        "promoter": "gatot kaca adventure" 
+    }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }

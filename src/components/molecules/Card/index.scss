@@ -1,4 +1,4 @@
-@import "../../../utils/styles/color.scss","../../../utils/styles/variabel.scss";
+@import "../../../utils/styles/color.scss","../../../utils/styles/variabel.scss","../../../utils/styles/function.scss";
 .card {
     box-shadow: 0px 28px 29px -4px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 28px 29px -4px rgba(0, 0, 0, 0.75);
@@ -10,9 +10,13 @@
     .card-header {
         max-width: 280px;
         position: relative;
-        img {
-            width: 100%;
-            height: auto;
+        height: 200px;
+        .card-img {
+            @include imageURL();
+            max-width: 280px;
+            min-width: 185px;
+            max-height: 285px;
+            min-height: 200px;
         }
         .title {
             position: absolute;

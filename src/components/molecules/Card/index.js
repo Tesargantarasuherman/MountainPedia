@@ -19,7 +19,7 @@ export default function Card({product}) {
     return (
         <div className="card">
             <div className="card-header">
-                <img src="https://picsum.photos/280/165" alt="" className="card-img" />
+                <div  style={{backgroundImage:`url('https://images.unsplash.com/photo-1689240577198-e3a410cfe071?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80')` }} alt="" className="card-img" ></div>
                 <p className="title">
                     <Button title='Hiking' type="small" rounded="rounded-md" />
                 </p>

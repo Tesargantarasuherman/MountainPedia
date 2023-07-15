@@ -27,7 +27,7 @@ export const Home = () => {
     // getAllProduct();
     dispatch(getAllProduct());
       setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
-  }, [currentPosts])
+  }, [dispatch,currentPosts])
 
   const [steps, setSteps] = useState([
     {
