@@ -32,11 +32,14 @@
                 &>p.__title {
                     font-size: 3rem;
                     font-weight: 600;
+                    color: white;
                 }
 
                 &>p.__description {
                     font-size: 1rem;
                     font-weight: 600;
+                    color: white;
+                    text-shadow: $main-color 1px 2px;
                 }
             }
         }
@@ -137,7 +140,7 @@ body.dark .banner-left {
                 &-description {
                     &>p.__title {
                         font-size: 2rem;
-                        color: $main-color;
+                        color: white;
                         font-weight: 600;
                         text-shadow: white 1px 2px;
                     }

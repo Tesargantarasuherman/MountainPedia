@@ -7,7 +7,6 @@ import { FaLanguage, FaMapMarkedAlt, FaSuitcase } from 'react-icons/fa'
 import Slider from 'react-slick'
 import { FiChevronsLeft, FiChevronsRight } from 'react-icons/fi'
 import { GrPrevious,GrNext} from "react-icons/gr";
-
 function ModalGuide({ active, setActive }) {
     const slider = useRef();
 

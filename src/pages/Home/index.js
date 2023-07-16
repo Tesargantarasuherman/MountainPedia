@@ -128,13 +128,11 @@ export const Home = () => {
       <div className='container-banner'>
         <Banner />
       </div>
-      <Container marginTop={150} el={
-        <>
+      <div className='container-sort'>
           <Button title="Hiking" />
           <Button title="Camping" />
           <Button title="Guides" />
-        </>
-      } />
+      </div>
       <div className="body-list-place">
         <section className='container-list-place'>
           <div className="content-list-place">

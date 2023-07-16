@@ -178,16 +178,12 @@
                         }
                     }
                     .slider-review{
-                        div{
-                            display: flex;
-                            gap: 10px;
-                        }
                         .content-review{
                             box-sizing: border-box;
                             border: solid #ddd 2px;
-                            width: 100%;
                             padding: 10px;
                             border-radius: $border-radius-medium;
+                            min-width: 100%;
                             .profile-content-review{
                                 display: flex;
                                 justify-content: flex-start;
