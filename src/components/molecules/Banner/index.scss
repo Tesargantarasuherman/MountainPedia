@@ -1,14 +1,25 @@
-@import '../../../utils/styles/color.scss', '../../../utils/styles/variabel.scss';
+@import '../../../utils/styles/color.scss', '../../../utils/styles/variabel.scss','../../../utils/styles/function.scss';
 
 .banner {
     display: flex;
     justify-content: space-between;
     position: relative;
-    height: 600px;
-
+    // height: 600px;
+    width: 100%;
+    height: 100%;
+    @include imageURL();
+    .dimmer {
+        background-color: #191B20;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        opacity: 0.3;
+    }
     &-left {
         flex: 1;
-        background-color: $secondary-color;
+        // background-color: $secondary-color;
 
         .content-banner {
             padding: 15%;
@@ -34,13 +45,10 @@
     &-right {
         flex: 1;
 
-        img {
+        .img-banner {
             width: 100%;
             height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
+            @include imageURL();
 
         }
     }
@@ -76,8 +84,8 @@
     position: absolute;
     display: flex;
     flex-direction: column ;
-    left: -80px;
     top:-250px;
+    left: -50px;
     gap:10px;
     li{
         button{
@@ -157,10 +165,14 @@ body.dark .banner-left {
     .banner-img-content {
         display: none;
     }
+    
 }
 
 @media only screen and (min-width: 1200px) {
     .banner-img-content {
         display: flex;
+    }
+    #ul-dots-number-banner {
+        left: -80px;
     }
 }

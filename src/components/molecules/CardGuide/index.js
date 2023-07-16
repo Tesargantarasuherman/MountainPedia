@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './index.scss'
 import ModalGuide from '../ModalGuide'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-function CardGuide({type,id,title,image,price,location}) {
+
+function CardGuide({type,id,title,image,price,location,date,start_date,end_date}) {
   const [active, setActive] = useState(false)
   useEffect(()=>{
   },)
@@ -32,7 +34,7 @@ function CardGuide({type,id,title,image,price,location}) {
         <Link to='/place'>
         <div className="card-guide-description">
           <p>{location}<span class="dot"></span> Sisa 8 Peserta</p>
-          <p>5 malam <span class="dot"></span>5 juni - 10 juni</p>
+          <p>{date} hari <span class="dot"></span> {start_date} - {end_date} </p>
           <p>Rp. {price?.toLocaleString('en-US')}</p>
         </div>
         </Link>

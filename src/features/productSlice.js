@@ -6,7 +6,7 @@ let url ='https://restful-api-mountainpedia.vercel.app/products'
 export const getAllProduct = createAsyncThunk(
     "productList/getAllProduct", 
     async () => {
-        const res = await axios(`${url}?_embed=type`)
+        const res = await axios(`${url}`)
         const data = await res.data
 
         return data

@@ -19,7 +19,7 @@
                 margin-top: 50px;
                 gap:5px;
             }
-            @media only screen and (min-width: 700px) {
+            @media only screen and (min-width: 600px) {
                 grid-template-columns: repeat(2, 1fr);
                 max-height: max-content;
                 gap:20px;

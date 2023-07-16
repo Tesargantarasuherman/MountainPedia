@@ -8,6 +8,7 @@ import { connect, useDispatch, useSelector } from 'react-redux'
 import './index.scss'
 import ReactPaginate from 'react-paginate'
 import { getAllProduct, selectProduct } from '../../features/productSlice'
+import moment from 'moment'
 
 // export const Home = ({ product, getAllProduct }) => {
 export const Home = () => {
@@ -83,12 +84,25 @@ export const Home = () => {
       <div><p>Data Tidak Ada</p></div>
   }
 
+  const countDays =(start_date,end_date)=>{
+    var date1 = new Date(start_date);
+    var date2 = new Date(end_date);
+    
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+    
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+    return Difference_In_Days;
+  }
+
   const renderProducts = () => {
     // if (currentPosts?.length >= 1) {
       return (
         currentPosts?.map(product => {
           return (
-            <CardGuide id={product.id} title={product.name} image={product.images[0]} price={product.price} location={product.location}/>
+            <CardGuide type={product.type} id={product.id} title={product.name} image={product.images[0]} price={product.price} location={product.location} date={countDays(product.start_date,product.end_date)} start_date={moment(product.start_date).locale('id').format('D MMMM')} end_date={moment(product.end_date).locale('id').format('D MMMM YYYY')}/>
           )
         })
       )
