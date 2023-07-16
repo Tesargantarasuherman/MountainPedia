@@ -92,5 +92,39 @@
 @media only screen and (max-width: 600px) {
     .card-image{
         width: 185px;
+        &-popup {
+            display: none;
+            width: 180px;
+            left: 180px;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            padding: 10px;
+            position: relative;
+            border-radius: $border-radius-small;
+    
+            svg {
+                position: absolute;
+                left: -20px;
+                top: 50%;
+                bottom: 50%;
+                font-size: 30px;
+    
+                path {
+                    color: white;
+                }
+            }
+        }
+    }
+   
+    .card-image:nth-child(2n){
+        .card-image-popup{
+            left:-195px;
+            svg{
+                transform: rotate(0.5turn);
+                left: unset;
+                right: -20px !important;
+            }
+        }
     }
 }
