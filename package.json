@@ -17,6 +17,7 @@
     "dotenv": "^16.0.3",
     "faker": "^6.6.6",
     "flickity": "^2.3.0",
+    "formik": "^2.4.2",
     "framer-motion": "^7.6.1",
     "fs": "^0.0.1-security",
     "google-map-react": "^2.2.1",
@@ -60,7 +61,8 @@
     "sass": "^1.55.0",
     "slick-carousel": "^1.8.1",
     "util": "^0.12.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
