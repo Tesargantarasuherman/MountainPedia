@@ -9,6 +9,8 @@ import './index.scss'
 import ReactPaginate from 'react-paginate'
 import { getAllProduct, selectProduct } from '../../features/productSlice'
 import moment from 'moment'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // export const Home = ({ product, getAllProduct }) => {
 export const Home = () => {
@@ -27,8 +29,11 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(getAllProduct());
-    }, [])
-  
+    setTimeout(() => {
+      console.log(products)
+    }, 1000)
+  }, [])
+
 
   // useEffect(() => {
   //   console.log(products)
@@ -38,7 +43,7 @@ export const Home = () => {
   //   }, 1000);
   // }, [products]);
 
-   
+
 
   const [steps, setSteps] = useState([
     {
@@ -66,7 +71,7 @@ export const Home = () => {
   const paginate = ({ selected }) => {
     window.scrollTo(0, 600);
     setCurrentPage(selected + 1);
- };
+  };
 
   const onExit = () => {
     setStepsEnabled(false)
@@ -76,21 +81,15 @@ export const Home = () => {
   const isLoading = useSelector((state) => state.product.isLoading)
   const error = useSelector((state) => state.product.hasError)
 
-  if (isLoading) {
-      return 'loading...'
-  }
-  if (error) {
-      // return error
-      <div><p>Data Tidak Ada</p></div>
-  }
 
-  const countDays =(start_date,end_date)=>{
+
+  const countDays = (start_date, end_date) => {
     var date1 = new Date(start_date);
     var date2 = new Date(end_date);
-    
+
     // To calculate the time difference of two dates
     var Difference_In_Time = date2.getTime() - date1.getTime();
-    
+
     // To calculate the no. of days between two dates
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 
@@ -98,22 +97,68 @@ export const Home = () => {
   }
 
   const renderProducts = () => {
-    // if (currentPosts?.length >= 1) {
-      return (
-        currentPosts?.map(product => {
-          return (
-            <CardGuide type={product.type} id={product.id} title={product.name} image={product.images[0]} price={product.price} location={product.location} date={countDays(product.start_date,product.end_date)} start_date={moment(product.start_date).locale('id').format('D MMMM')} end_date={moment(product.end_date).locale('id').format('D MMMM YYYY')}/>
-          )
-        })
+    if (isLoading) {
+      return(
+        <>
+          <div className='container-guide-skeleton'>
+            <SkeletonTheme baseColor="#dfe6e9" highlightColor="#006E5D" >
+              <Skeleton count={1} className='card-guide-skeleton'/>
+              <Skeleton count={1} height={15} width={180} />
+              <Skeleton count={1} height={10} width={180} />
+            </SkeletonTheme>
+          </div>
+          <div className='container-guide-skeleton'>
+            <SkeletonTheme baseColor="#dfe6e9" highlightColor="#006E5D" >
+              <Skeleton count={1} className='card-guide-skeleton'/>
+              <Skeleton count={1} height={15} width={180} />
+              <Skeleton count={1} height={10} width={180} />
+            </SkeletonTheme>
+          </div>
+          <div className='container-guide-skeleton'>
+            <SkeletonTheme baseColor="#dfe6e9" highlightColor="#006E5D" >
+              <Skeleton count={1} className='card-guide-skeleton'/>
+              <Skeleton count={1} height={15} width={180} />
+              <Skeleton count={1} height={10} width={180} />
+            </SkeletonTheme>
+          </div>
+          <div className='container-guide-skeleton'>
+            <SkeletonTheme baseColor="#dfe6e9" highlightColor="#006E5D" >
+              <Skeleton count={1} className='card-guide-skeleton'/>
+              <Skeleton count={1} height={15} width={180} />
+              <Skeleton count={1} height={10} width={180} />
+            </SkeletonTheme>
+          </div>
+        </>
       )
-    // }
-    // else {
-    //   return (
-    //     <div className="loading">
-    //       Loading
-    //     </div>
-    //   )
-    // }
+    }
+    if (error) {
+      // return error
+        return (
+          <div>
+            <p>error</p>
+          </div>
+        )
+    }
+
+    return (
+      currentPosts?.map(product => {
+        return (
+          <CardGuide
+            type={product.type}
+            id={product.id}
+            title={product.name}
+            image={product.images[0]}
+            price={product.price}
+            location={product.location}
+            date={countDays(product.start_date, product.end_date)}
+            start_date={moment(product.start_date).locale('id').format('D MMMM')}
+            end_date={moment(product.end_date).locale('id').format('D MMMM YYYY')}
+            participant={`Sisa ${product?.participant?.[0]?.list_participant?.length >= 0 ? product.total_slot - product?.participant?.[0]?.list_participant?.length : product.total_slot} dari ${product.total_slot}`}
+          />
+        )
+      })
+    )
+
   }
 
   return (
@@ -129,9 +174,9 @@ export const Home = () => {
         <Banner />
       </div>
       <div className='container-sort'>
-          <Button title="Hiking" />
-          <Button title="Camping" />
-          <Button title="Guides" />
+        <Button title="Hiking" />
+        <Button title="Camping" />
+        <Button title="Guides" />
       </div>
       <div className="body-list-place">
         <section className='container-list-place'>
@@ -146,17 +191,17 @@ export const Home = () => {
       </div>
       <Container marginTop={50} justify="center" el={
         <>
-           <ReactPaginate
-                  onPageChange={paginate}
-                  pageCount={Math.ceil(products.length / postPerPage)}
-                  previousLabel={'Prev'}
-                  nextLabel={'Next'}
-                  containerClassName={'pagination'}
-                  pageLinkClassName={'page-number'}
-                  previousLinkClassName={'page-number'}
-                  nextLinkClassName={'page-number'}
-                  activeLinkClassName={'active'}
-               />
+          <ReactPaginate
+            onPageChange={paginate}
+            pageCount={Math.ceil(products.length / postPerPage)}
+            previousLabel={'Prev'}
+            nextLabel={'Next'}
+            containerClassName={'pagination'}
+            pageLinkClassName={'page-number'}
+            previousLinkClassName={'page-number'}
+            nextLinkClassName={'page-number'}
+            activeLinkClassName={'active'}
+          />
           {/* <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} /> */}
         </>
       }

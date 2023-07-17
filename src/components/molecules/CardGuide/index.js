@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 
-function CardGuide({type,id,title,image,price,location,date,start_date,end_date}) {
+function CardGuide({type,id,title,image,price,location,date,start_date,end_date,participant}) {
   const [active, setActive] = useState(false)
   useEffect(()=>{
   },)
@@ -33,7 +33,7 @@ function CardGuide({type,id,title,image,price,location,date,start_date,end_date}
         </div>
         <Link to='/place'>
         <div className="card-guide-description">
-          <p>{location}<span class="dot"></span> Sisa 8 Peserta</p>
+          <p>{location}<span class="dot"></span> {participant}</p>
           <p>{date} hari <span class="dot"></span> {start_date} - {end_date} </p>
           <p>Rp. {price?.toLocaleString('en-US')}</p>
         </div>
