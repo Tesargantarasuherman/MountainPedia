@@ -27,7 +27,7 @@ export default function Login() {
     useEffect(() => {
         // props_auth.validationToken()
         if (user && user.isLogin == true) {
-            navigate("/")
+            navigate(-1)
         }
     }, [user])
 
@@ -97,7 +97,7 @@ export default function Login() {
                             password: Yup.string()
                                 .required('Password harus diisi')
                                 .min(8, 'Password is too short - should be 8 chars minimum.')
-                                .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+                                .matches(/[a-zA-Z0-9]/, 'Password can only contain Latin letters.')
                         })}
                     >
                         {(props) => {
