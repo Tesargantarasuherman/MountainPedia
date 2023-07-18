@@ -89,8 +89,12 @@
 
     &-description {
         font-style: Bold;
-
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
         p {
+            flex: 1;
             display: flex;
             align-items: center;
             gap: 5px;

@@ -1,16 +1,17 @@
 import { Hints, Steps } from 'intro.js-react'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import moment from 'moment'
+import './index.scss'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { GrNext, GrPrevious } from 'react-icons/gr'
 // import { getAllProduct } from '../../actions'
 import { Banner, Button, Card, CardGuide, CardImage, Container, Footer, Navbar, Pagination } from '../../components'
 import { connect, useDispatch, useSelector } from 'react-redux'
-
-import './index.scss'
 import ReactPaginate from 'react-paginate'
 import { getAllProduct, selectProduct } from '../../features/productSlice'
-import moment from 'moment'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+
 
 // export const Home = ({ product, getAllProduct }) => {
 export const Home = () => {
@@ -34,7 +35,7 @@ export const Home = () => {
     }, 1000)
   }, [])
 
-
+  // redux
   // useEffect(() => {
   //   console.log(products)
   //   setCurrentPosts(products?.slice(indexOfFirstPost, indexOflastPost))
@@ -189,13 +190,12 @@ export const Home = () => {
           </div>
         </section>
       </div>
-      <Container marginTop={50} justify="center" el={
-        <>
+      <div className='container-pagination'>
           <ReactPaginate
             onPageChange={paginate}
             pageCount={Math.ceil(products.length / postPerPage)}
-            previousLabel={'Prev'}
-            nextLabel={'Next'}
+            previousLabel={<GrPrevious />}
+            nextLabel={<GrNext/>}
             containerClassName={'pagination'}
             pageLinkClassName={'page-number'}
             previousLinkClassName={'page-number'}
@@ -203,10 +203,8 @@ export const Home = () => {
             activeLinkClassName={'active'}
           />
           {/* <Pagination totalPost={product.length} postPerPage={postPerPage} paginate={paginate} currentPage={currentPage} /> */}
-        </>
-      }
+      </div>
 
-      />
       <div className="body-list-place">
         <section className='container-list-place'>
           <label className='_label'>Most Recommended</label>

@@ -52,26 +52,44 @@
         }
     }
 }
-.pagination{
-    list-style: none ;
-    display: flex;
-    align-items: center;
-    li.previous,li.next{
-        @include button($main-color);
-        padding: 10px 12px;
-        border-radius: $border-radius-small;
-        a{
-            color: $secondary-color;
+.container-pagination{
+    @include container();
+    .pagination{
+        list-style: none ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        li.previous,li.next{
+            @include button($main-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: $border-radius-rounded;
+            a{
+                svg{
+                    polyline{
+                       stroke: white;
+                    }
+                }
+            }
         }
-    }
-    li.selected{
-        @include button();
-        padding: 10px 17px;
-        border-radius: $border-radius-small;
-        background-color: $main-color; 
-        a{
-            color: $secondary-color;
-        }   
+        li.selected{
+            @include button();
+            width: 40px;
+            height: 40px;
+            border-radius: $border-radius-rounded;
+            background-color: $main-color; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            a{
+                text-align: center;
+                display: block;
+                color: $secondary-color;
+            }   
+        }
     }
 }
 .container-guide-skeleton{

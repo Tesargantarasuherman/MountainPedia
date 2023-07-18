@@ -21,16 +21,16 @@
 }
 @mixin container(){
         @media only screen and (max-width: 600px) {
-            margin: 0 0% ;
+            margin: 10px 0% ;
         }
         @media only screen and (min-width: 600px) {
-            margin: 0 5% ;
+            margin: 20px 5% ;
         }
         @media only screen and (min-width: 993px) {
-            margin: 0 10% ;
+            margin: 40px 10% ;
         }
         @media only screen and (min-width: 1300px) {
-            margin: 0 15% ;
+            margin: 40px 15% ;
         }    
 }
 @mixin grid(){

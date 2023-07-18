@@ -14,7 +14,7 @@ export const getAllProduct = createAsyncThunk(
 export const getProductById = createAsyncThunk(
     "productList/getProductById", 
     async (id) => {
-        const res = await axios(`${url}/${id}?_embed=promoter`)
+        const res = await axios(`${url}/${id}?_embed=promoter&_embed=participant`)
         const data = await res.data
         return data
   });

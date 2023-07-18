@@ -44,7 +44,7 @@ export default function Login() {
             loggedIn: true
         }))
         localStorage.setItem('token', '123456')        // localStorage.setItem('token', '123456')
-        props_auth.validationToken()
+        // props_auth.validationToken()
         navigate(-1)
         toaster('success', 'Successfully Login!')
     }

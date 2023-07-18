@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Breadcumb, CardImage, ContentBenefit, Footer, ImageCollage, Input, MapLeaflet } from '../../components'
 import './index.scss'
 import * as locales from 'react-date-range/dist/locale';
@@ -6,11 +6,14 @@ import { AiFillStar, AiOutlineUser } from 'react-icons/ai';
 import { BsCalendarDate } from 'react-icons/bs';
 import { Calendar, DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductById, selectProductById } from '../../features/productSlice';
 
 const DetailPlace = () => {
   const [renderBenefit, setRenderBenefit] = useState('benefit');
   const [center, setCenter] = useState([-8.409518, 115.188919]);
-  
+  const dispatch = useDispatch();
+  const product = useSelector(selectProductById);
   const [dateTrip, setDateTrip] = useState([
     {
       value: '1',
@@ -119,6 +122,12 @@ const DetailPlace = () => {
         return (
           <MapLeaflet location={location} center={center} />
         )
+      case 'participant':
+        return (
+          <div>
+            Participantes del tour:<br/>
+          </div>
+        )
       default:
         return (
           <>
@@ -130,6 +139,9 @@ const DetailPlace = () => {
         )
     }
   }
+  useEffect(()=>{
+    dispatch(getProductById())
+  },[])
   const actionSetDateTrip = (e) => {
     if(e.target.value != ""){
       dateTrip.map(d => {
@@ -168,6 +180,8 @@ const DetailPlace = () => {
               <span className={`${renderBenefit == 'tour_details' ? 'active' : ''}`} onClick={() => setRenderBenefit('tour_details')}>Tour Details</span>
               <div></div>
               <span className={`${renderBenefit == 'itenary' ? 'active' : ''}`} onClick={() => setRenderBenefit('itenary')}>Itenary</span>
+              <div></div>
+              <span className={`${renderBenefit == 'participant' ? 'active' : ''}`} onClick={() => setRenderBenefit('participant')}>Participant</span>
             </div>
             <div className="__description">
               {
