@@ -52,7 +52,7 @@ export default function SearchForm() {
     <div className='search-form'>
       <Input title="Place" type="Text" icon={<AiOutlineEnvironment />}/>
       <Input title="Start Date" type="Date" icon={<AiOutlineCalendar/>}/>
-      <Input title="End Date" type="Date" icon={<AiOutlineCalendar/>}/>
+      {/* <Input title="End Date" type="Date" icon={<AiOutlineCalendar/>}/> */}
       <Input title="Person" type="Number" icon={<AiOutlineUser/>}/>
       {/* <InputForm type="select-option" label="Type" icon={Location} gap={true} />
       <InputForm type="text" label="Location" icon={Location} gap={true} />
