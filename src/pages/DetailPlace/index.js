@@ -161,9 +161,6 @@ const DetailPlace = () => {
       ])
     }
   }
-  const setDate=()=>{
-
-  }
 
   return (
     <>
@@ -202,7 +199,7 @@ const DetailPlace = () => {
                 <div className="___review">
                   <AiFillStar />
                   <p>4.87</p>
-                  <span class="__dot"></span>
+                  <span className="__dot"></span>
                   <p>2 Ulasan</p>
                 </div>
               </div>

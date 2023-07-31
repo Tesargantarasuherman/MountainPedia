@@ -8,9 +8,10 @@ import { useContext } from 'react'
 import ConfigContext from '../../context/ConfigContext'
 import { toaster } from '../../utils/toaster'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, selectUser } from '../../features/userSlice'
+import { login, register, verificationToken } from '../../features/userSlice'
 import { Formik } from 'formik'
 import * as Yup from "yup";
+import { toast } from 'react-hot-toast'
 
 const { AuthContext } = ConfigContext
 
@@ -22,44 +23,42 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const user = useSelector(selectUser);
+    const user = useSelector((state) => state.user.user);
+    const isLoading = useSelector((state) => state.user.isLoading)
+    const isLogin = useSelector((state) => state.user.isLogin)
+    const verification = useSelector((state) => state.user.verification)
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
-        // props_auth.validationToken()
-        if (user && user.isLogin == true) {
+        if(verification?.isLogin == true){
             navigate(-1)
         }
-    }, [user])
+        if (user?.data_user) {
+            localStorage.setItem('token', user?.token)
+            navigate(-1)
+            if(user?.message){
+                console.log(user?.message)
+                // toaster('success', user?.message)
+            }
+        }
 
+    }, [user])
 
 
     const actionSetFormActive = () => {
         setFormActive(!formActive)
     }
 
-    const actionLogin = () => {
-        dispatch(login({
-            email: email,
-            password: password,
-            loggedIn: true
-        }))
-        localStorage.setItem('token', '123456')        // localStorage.setItem('token', '123456')
-        // props_auth.validationToken()
-        navigate(-1)
-        toaster('success', 'Successfully Login!')
+    const handleLogin = (values) => {
+        dispatch(login(values))
     }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(login({
-            name: name,
-            email: email,
-            password: password,
-            loggedIn: true
+    const handleRegister = (values) => {
+        dispatch(register({
+            name: values.name,
+            email: values.email,
+            password: values.password,
+            role: 1
         }))
-        localStorage.setItem('token', '123456')
-        // // props_auth.validationToken()
-        // navigate(-1)
-        // toaster('success', 'Successfully Login!')
     }
 
     return (
@@ -70,34 +69,76 @@ export default function Login() {
             <div className="main-sign">
                 {/* <button className='close' onClick={() => setActiveModal(!activeModal)}> */}
                 <div className="signup">
-                    <form onSubmit={(e) => handleSubmit(e)}>
-                        <label onClick={actionSetFormActive} className={`${formActive ? '' : 'active'}`}>Register</label>
-                        <input type="text" name="name" placeholder="User name" required value={name} onChange={(e) => setName(e.target.value)} />
-                        <input type="email" name="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <input type="password" name="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <div className='sign-footer'>
-                            <button>Sign up</button>
-                            <Link to='/'>
-                                <button className='close'>
-                                    Batal
-                                </button>
-                            </Link>
-                        </div>
-                    </form>
+                    <Formik
+                        onSubmit={values => {
+                            handleRegister(values)
+                        }}
+                        initialValues={{
+                            name:name,
+                            email: email,
+                            password: password
+                        }}
+                        validationSchema={Yup.object().shape({
+                            name: Yup.string().required('Nama harus diisi'),
+                            email: Yup.string().email("Email invalid").required('Email harus diisi'),
+                            password: Yup.string()
+                                .required('Password harus diisi')
+                                .min(8, 'Password is too short - should be 8 chars minimum.')
+                                .matches(/[a-zA-Z0-9]/, 'Password can only contain Latin letters.')
+                        })}
+                    >
+                        {(props) => {
+                            const {
+                                values,
+                                touched,
+                                errors,
+                                dirty,
+                                isSubmitting,
+                                handleChange,
+                                handleBlur,
+                                handleSubmit,
+                                handleReset
+                            } = props;
+                            return (
+                                <form onSubmit={handleSubmit}>
+                                    <label onClick={actionSetFormActive} className={`${formActive ? '' : 'active'}`}>Register</label>
+                                    <input type="text" name="name" placeholder="User name" value={values.name} onChange={handleChange} />
+                                    {errors.name && touched.name && (
+                                        <div className="input-feedback">{errors.name}</div>
+                                    )}
+                                    <input type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange} />
+                                    {errors.email && touched.email && (
+                                        <div className="input-feedback">{errors.email}</div>
+                                    )}
+                                    <input type="password" name="password" placeholder="Password"  value={values.password} onChange={handleChange} />
+                                    {errors.password && touched.password && (
+                                        <div className="input-feedback">{errors.password}</div>
+                                    )}
+                                    <div className='sign-footer'>
+                                        <button type='submit'>{isLoading ? 'Loading..' : 'Sign Up'}</button>
+                                        <Link to='/'>
+                                            <button className='close'>
+                                                Batal
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </form>
+                            )
+                        }}
+                    </Formik>
                 </div>
                 <div className={`login ${formActive ? 'active' : ''}`}>
                     <Formik
-                        onSubmit={actionLogin}
+                        onSubmit={values => {
+                            handleLogin(values)
+                        }}
                         initialValues={{
                             email: email,
                             password: password
                         }}
                         validationSchema={Yup.object().shape({
                             email: Yup.string().email("Email invalid").required('Email harus diisi'),
-                            password: Yup.string()
-                                .required('Password harus diisi')
-                                .min(8, 'Password is too short - should be 8 chars minimum.')
-                                .matches(/[a-zA-Z0-9]/, 'Password can only contain Latin letters.')
+                            password: Yup.string().required('Password harus diisi')
                         })}
                     >
                         {(props) => {

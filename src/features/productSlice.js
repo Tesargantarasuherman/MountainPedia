@@ -1,62 +1,65 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice
+} from "@reduxjs/toolkit";
 import axios from "axios";
 
-let url ='https://restful-api-mountainpedia.vercel.app/products'
+let url = 'https://restful-api-mountainpedia.vercel.app/products'
 
 export const getAllProduct = createAsyncThunk(
-    "productList/getAllProduct", 
-    async () => {
-        const res = await axios(`${url}?_embed=participant`)
-        const data = await res.data
+  "productList/getAllProduct",
+  async () => {
+    const res = await axios(`${url}?_embed=participant`)
+    const data = await res.data
 
-        return data
+    return data
   });
 export const getProductById = createAsyncThunk(
-    "productList/getProductById", 
-    async (id) => {
-        const res = await axios(`${url}/${id}?_embed=promoter&_embed=participant`)
-        const data = await res.data
-        return data
+  "productList/getProductById",
+  async (id) => {
+    const res = await axios(`${url}/${id}?_embed=promoter&_embed=participant`)
+    const data = await res.data
+    return data
   });
-  
+
 export const productSlice = createSlice({
-    name:'product',
-    initialState:{
-        products:[],
-        product:[],
-        isLoading: false,
-        hasError: true
-    },
-    extraReducers: (builder) => {
-        builder.addCase(getAllProduct.pending, (state, action) => {
-          state.isLoading = true;
-          state.hasError = false;
-        }).addCase(getAllProduct.fulfilled, (state, action) => {
-            state.products = action.payload
-            state.isLoading = false;
-            state.hasError = false
-          }).addCase(getAllProduct.rejected, (state, action) => {
-            state.hasError = true
-            state.isLoading = false;
-          })
+  name: 'product',
+  initialState: {
+    products: [],
+    product: [],
+    isLoading: false,
+    hasError: true
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getAllProduct.pending, (state, action) => {
+      state.isLoading = true;
+      state.hasError = false;
+    }).addCase(getAllProduct.fulfilled, (state, action) => {
+      state.products = action.payload
+      state.isLoading = false;
+      state.hasError = false
+    }).addCase(getAllProduct.rejected, (state, action) => {
+      state.hasError = true
+      state.isLoading = false;
+    })
     // get Product by Id
-        builder.addCase(getProductById.pending, (state, action) => {
-          state.isLoading = true;
-          state.hasError = false;
-        }).addCase(getProductById.fulfilled, (state, action) => {
-            state.product = action.payload
-            state.isLoading = false;
-            state.hasError = false
-          }).addCase(getProductById.rejected, (state, action) => {
-            state.hasError = true
-            state.isLoading = false;
-          })
-    }
+    builder.addCase(getProductById.pending, (state, action) => {
+      state.isLoading = true;
+      state.hasError = false;
+    }).addCase(getProductById.fulfilled, (state, action) => {
+      state.product = action.payload
+      state.isLoading = false;
+      state.hasError = false
+    }).addCase(getProductById.rejected, (state, action) => {
+      state.hasError = true
+      state.isLoading = false;
+    })
+  }
 })
 // export const selectCompanies = state => state.companyList.company;
 // export const getProductById = getProduct
 
-export const selectProduct =(state)=>state.product.products;
-export const selectProductById =(state)=>state.product.product;
+export const selectProduct = (state) => state.product.products;
+export const selectProductById = (state) => state.product.product;
 
 export default productSlice.reducer

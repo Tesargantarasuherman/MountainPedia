@@ -23,7 +23,7 @@ export default function Card({id,image,title}) {
                 <p className="title">
                     <Button title='Hiking' type="small" rounded="rounded-md" />
                 </p>
-                <span class="lnr lnr-heart"></span>
+                <span className="lnr lnr-heart"></span>
                 <div className="type">
                     <AiOutlineEnvironment />
                     {/* <img src={Location} alt="" srcSet="" loading='lazy'/> */}

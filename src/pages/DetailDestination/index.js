@@ -107,7 +107,7 @@ export const DetailDestiation = () => {
         getDays(dateValue.year,dateValue.month);
 
       
-    }, [dateValue])
+    }, [])
     const options = {
         responsive: true,
         plugins: {

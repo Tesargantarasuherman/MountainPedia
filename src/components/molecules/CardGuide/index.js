@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './index.scss'
 import ModalGuide from '../ModalGuide'
 import { Link } from 'react-router-dom'
-import moment from 'moment'
 import { Shimmer } from 'react-shimmer'
 
 
-function CardGuide({type,id,title,image,price,location,date,start_date,end_date,participant}) {
+function CardGuide({type,id,title,image,price,location,date,start_date,end_date,participant,url}) {
   const [active, setActive] = useState(false)
   useEffect(()=>{
   },)
@@ -34,10 +33,10 @@ function CardGuide({type,id,title,image,price,location,date,start_date,end_date,
           <div className="book-promotor1">
           </div>
         </div>
-        <Link to='/place'>
+        <Link to={`${url}/${id}`}>
         <div className="card-guide-description">
-          <p>{location}<span class="dot"></span> {participant}</p>
-          <p>{date} hari <span class="dot"></span> {start_date} - {end_date} </p>
+          <p>{location}<span className="dot"></span> {participant}</p>
+          <p>{date} hari <span className="dot"></span> {start_date} - {end_date} </p>
           <p>Rp. {price?.toLocaleString('en-US')}</p>
         </div>
         </Link>

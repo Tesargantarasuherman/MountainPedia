@@ -5,37 +5,51 @@ import ConfigContext from '../../../context/ConfigContext'
 import { toaster } from '../../../utils/toaster'
 import './index.scss'
 import { AiOutlineUser } from 'react-icons/ai'
+import { useSelector, useDispatch } from 'react-redux'
+import { verificationToken } from '../../../features/userSlice'
 
 const { AuthContext } = ConfigContext
 export default function Navbar() {
-  const [mouseEnter,setMouseEnter] =useState(false);
-  const navigate = useNavigate()
+  const [mouseEnter, setMouseEnter] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const props_auth = useContext(AuthContext);
+  const user = useSelector((state) => state.user.user);
+  const isLogin = useSelector((state) => state.user.isLogin)
+  const token = localStorage.getItem('token');
+  const verification = useSelector((state) => state.user.verification)
 
   useEffect(() => {
-    props_auth.validationToken()
+    // props_auth.validationToken()
+    // if(token != undefined){
+    //   dispatch(verificationToken({
+    //     token: token,
+    //   }))
+    // }
     renderButton()
-  }, [])
+  }, [user])
 
   const logout = () => {
     localStorage.removeItem('token')
-    props_auth.validationToken()
+    // props_auth.validationToken()
     renderButton()
     navigate('/');
     toaster('success', 'Successfully Logout!')
-
   }
-  const actionOnMouseEnter =()=>{
+
+  const actionOnMouseEnter = () => {
     setMouseEnter(!mouseEnter);
   }
+
   const renderButton = () => {
-    if (props_auth.auth == true) {
+    // if (props_auth.auth == true) {
+    if (token) {
       return (
         <div className='parent-user'>
-          <AiOutlineUser onClick={logout}/>
+          <AiOutlineUser onClick={logout} />
           {/* <button type="button" className='btn-login' >Logout</button> */}
-          <div className={`user ${mouseEnter ? 'visible': ''}`}>
+          <div className={`user ${mouseEnter ? 'visible' : ''}`}>
             <p>Profile</p>
             <p>Favorite</p>
             <p onClick={logout}>logout</p>

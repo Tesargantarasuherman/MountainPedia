@@ -1,26 +1,33 @@
 
-import React, { Fragment, useEffect } from 'react'
-import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { Navigate, Route, Routes} from "react-router-dom";
 import { BannerRegion, Navbar } from '../../components';
 import routes from "../../routes/index";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { isLogin, login, selectUser} from '../../features/userSlice';
+import { verificationToken} from '../../features/userSlice';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 // import Sidebar from "../../components/admin/Sidebar";
 
 const Main = (props) => {
     const dispatch = useDispatch();
-    const _islogin = useSelector(isLogin)
+    const verification = useSelector((state) => state.user.verification)
+    const token = localStorage.getItem('token');
 
     const { pathname } = useLocation();
     useEffect(()=>{
-        dispatch(login)
-        window.scrollTo(0, 0);
+         dispatch(verificationToken({
+            token: token,
+          }))
+          window.scrollTo(0, 0);
     },[pathname])
+    
     return (
         <>
+        <ToastContainer />
             {/* Navbar ----------------------------- */}
             <Routes>
                 {routes.map((route) => {
@@ -49,7 +56,7 @@ const Main = (props) => {
             <Routes>
                 {routes.map((route) => {
                     return <Route path={route.path} element={
-                        (route.is_login_access == true && _islogin == true)
+                        (route.is_login_access == true && verification?.isLogin ==false)
                             ? (
                                 <Navigate to={'/sign'} />
                             ) : route.component

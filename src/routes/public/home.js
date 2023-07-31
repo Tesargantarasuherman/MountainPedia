@@ -36,7 +36,7 @@ const home = [
         is_login_access:true,
     },
     {
-        path: `*`,
+        path: "*",
         component: <NotFound/>,
         navbar: false,
         is_login_access:false,

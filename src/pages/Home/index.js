@@ -30,10 +30,7 @@ export const Home = () => {
 
   useEffect(() => {
     dispatch(getAllProduct());
-    setTimeout(() => {
-      console.log(products)
-    }, 1000)
-  }, [])
+  }, [dispatch])
 
   // redux
   // useEffect(() => {
@@ -150,6 +147,7 @@ export const Home = () => {
             title={product.name}
             image={product.images[0]}
             price={product.price}
+            url={'/detail'}
             location={product.location}
             date={countDays(product.start_date, product.end_date)}
             start_date={moment(product.start_date).locale('id').format('D MMMM')}
